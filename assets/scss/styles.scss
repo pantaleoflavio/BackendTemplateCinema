@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  // Variabili SCSS
+  $mv-white: #fff;
+  $mv-black: #000000;
+  $mv-light-blue: #00adef;
+  $mv-dark-blue: #01011b;
+  $mv-blue-50p: #00597b;
+  $mv-blue-70p: #300167;
+  $mv-transparent: transparent;
+  $mv-light-purple: #a541e1;
+  $mv-dark-purple: #320268;
+  $mv-light-green: #45e9d0;
+  $mv-dark-green: #015b51;
+  $mv-black-50p: rgba(0, 0, 0, .5);
+  
+
+body{
+    position: relative;
+    width: 100%;
+    font-size: 16px;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-weight: 400;
+
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 130px;
+    background-color: $mv-dark-blue;
+    border-bottom: 2px solid $mv-light-blue;
+    text-align: center;
+
+    @media (max-width: 992px) {
+        height: 150px;
+    }
+
+  
+    .logo-container {
+      display: flex;
+      justify-content: flex-start; // Logo a sinistra
+      position: relative;
+      width: 15%;
+      height: 100%;
+
+
+        img{
+            position: relative;
+            height: 95%;
+            width: auto;
+        }
+
+        @media (max-width: 768px) {
+            justify-content: center;
+        }
+    }
+  
+    .main-menu {
+        width: 60%;
+        height: 50%;
+        margin: 0;
+        padding-left: 50px;
+        display: flex;
+        justify-content: center; // Centra orizzontalmente il menu principale
+        align-items: center; // Centra verticalmente il menu principale
+      
+        @media (max-width: 992px) {
+            height: 100%;
+        }
+
+        .navbar-nav {
+          justify-content: center;
+          width: 100%;
+            
+            .nav-item {
+                padding: 0 15px; // Spazio tra le voci del menu
+
+            a{
+                color: $mv-white;
+                text-transform: uppercase;
+                font-size: 22px;
+
+                @media (max-width: 992px) {
+                    font-size: 12px;
+
+                }
+
+                i{
+                    padding-right: 15px;
+                }
+
+                &:hover {
+                    color: lighten($mv-light-blue, 10%); // Change color on hover
+                    transition: color 1.8s ease; 
+                }
+            }
+          }
+        }
+
+
+
+        @media (max-width: 768px) {
+                display: none;
+        }
+       
+    }
+  
+    .secondary-menu {
+        width: 20%;
+        height: 50%;
+        display: flex;
+        justify-content: flex-end; // Secondary menu a destra
+        align-items: center;
+        margin-right: 0;
+
+        .navbar-nav {
+            justify-content: center;
+            width: 100%;
+        
+            .nav-item {
+              padding: 0 10px; // Spazio tra le voci del menu
+  
+              a{
+                    color: $mv-white;
+                    text-transform: uppercase;
+                    font-size: 16px;
+
+                    border: 2px solid $mv-light-blue;
+
+
+                    &:hover {
+                        color: lighten($mv-light-blue, 10%); // Change color on hover
+                        border-color: $mv-white;
+                        transition: color 1.2s ease, border-color 1.2s ease; // Combine transitions
+                    }
+              }
+                &:last-child a {
+                border: none;
+                }
+
+            }
+        }
+
+        @media (max-width: 994px) {
+            justify-content: flex-end;
+            align-items: center;
+            height: 90%;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            justify-content: flex-end;
+            align-items: center;
+            height: 90%;
+            margin: 0;
+        }
+
+    }
+}

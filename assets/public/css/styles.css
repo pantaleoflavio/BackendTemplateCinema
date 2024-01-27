@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  font-size: 16px;
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-weight: 400;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 130px;
+  background-color: #01011b;
+  border-bottom: 2px solid #00adef;
+  text-align: center;
+}
+@media (max-width: 992px) {
+  header {
+    height: 150px;
+  }
+}
+header .logo-container {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  width: 15%;
+  height: 100%;
+}
+header .logo-container img {
+  position: relative;
+  height: 95%;
+  width: auto;
+}
+@media (max-width: 768px) {
+  header .logo-container {
+    justify-content: center;
+  }
+}
+header .main-menu {
+  width: 60%;
+  height: 50%;
+  margin: 0;
+  padding-left: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 992px) {
+  header .main-menu {
+    height: 100%;
+  }
+}
+header .main-menu .navbar-nav {
+  justify-content: center;
+  width: 100%;
+}
+header .main-menu .navbar-nav .nav-item {
+  padding: 0 15px;
+}
+header .main-menu .navbar-nav .nav-item a {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 22px;
+}
+@media (max-width: 992px) {
+  header .main-menu .navbar-nav .nav-item a {
+    font-size: 12px;
+  }
+}
+header .main-menu .navbar-nav .nav-item a i {
+  padding-right: 15px;
+}
+header .main-menu .navbar-nav .nav-item a:hover {
+  color: #23c2ff;
+  transition: color 1.8s ease;
+}
+@media (max-width: 768px) {
+  header .main-menu {
+    display: none;
+  }
+}
+header .secondary-menu {
+  width: 20%;
+  height: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 0;
+}
+header .secondary-menu .navbar-nav {
+  justify-content: center;
+  width: 100%;
+}
+header .secondary-menu .navbar-nav .nav-item {
+  padding: 0 10px;
+}
+header .secondary-menu .navbar-nav .nav-item a {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 16px;
+  border: 2px solid #00adef;
+}
+header .secondary-menu .navbar-nav .nav-item a:hover {
+  color: #23c2ff;
+  border-color: #fff;
+  transition: color 1.2s ease, border-color 1.2s ease;
+}
+header .secondary-menu .navbar-nav .nav-item:last-child a {
+  border: none;
+}
+@media (max-width: 994px) {
+  header .secondary-menu {
+    justify-content: flex-end;
+    align-items: center;
+    height: 90%;
+    margin: 0;
+  }
+}
+@media (max-width: 768px) {
+  header .secondary-menu {
+    justify-content: flex-end;
+    align-items: center;
+    height: 90%;
+    margin: 0;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
