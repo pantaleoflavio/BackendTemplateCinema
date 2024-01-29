@@ -199,4 +199,154 @@ header {
 .swiper {
     width: 100%;
     height: 450px;
+
+    .swiper-button {
+        color: $mv-white;
+        font-weight: 800;
+    }
+
+    .scrollbar{
+        background-color: $mv-white; 
+    }
+}
+
+/* Movies Wall */
+main{
+
+    background: rgb(5, 5, 71);
+    background: linear-gradient(90deg, mv-dark-blue 0%, mv-blue-70p 39%, mv-light-blue 100%);
+    letter-spacing: 5px;
+
+    .title-container{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .section-title{
+
+            
+            color: $mv-white;
+            font-size: 38px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid $mv-light-blue;
+        }
+
+    }
+
+    .movie-wall-container, .halls-wall-container {
+
+        background: $mv-transparent;
+        padding-bottom: 25px;
+
+        .card {
+            // Stili personalizzati per le card
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 5%;
+            background: $mv-transparent;
+        
+            .card-body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: $mv-white;
+                text-align: justify;
+                border-radius: 10%;
+            }
+        
+            img {
+                height: auto; // Assicurati che le immagini mantengano il loro aspetto originale
+                width: 100%; // Le immagini devono adattarsi alla larghezza della card
+            }
+        
+            // Stili per il titolo della card
+            .card-title {
+                font-size: 1.25rem;
+            }
+        
+            // Stili per il testo della card
+            .card-text {
+                font-size: 1rem;
+            }
+        
+            // Stili per il pulsante
+            .btn {
+                background-color: $mv-blue-50p;
+                &:hover {
+                background-color: darken($mv-blue-50p, 10%);
+                }
+            }
+        }
+    }
+    
+    .booknow-container {
+
+        .card-title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(5, 5, 71);
+            background: linear-gradient(90deg, mv-dark-blue 0%, mv-blue-70p 39%, mv-light-blue 100%);
+            padding-bottom: 0;
+
+            h2{
+                width: 30%;
+                background: $mv-dark-blue;
+            }
+        }
+
+        .booking-card {
+            color: #fff;
+            border: none;
+            background: $mv-dark-blue;
+            
+            .card-header {
+
+              border: none;
+              font-size: 1.5rem;
+            }
+
+            .card-body{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                form {
+                    width: 80%;
+                    font-weight: 300;
+                    font-size: 22px;
+                    letter-spacing: 6px;
+                    font-style: italic;
+                }
+                
+                .form-label {
+                  font-weight: bold;
+                }
+              
+                .form-select {
+                  background: #4b2a6e;
+                  border: 1px solid #6c4b9e;
+                  color: #fff;
+              
+                  &:focus {
+                    background: #4b2a6e;
+                    border-color: #fff;
+                  }
+                }
+              
+                .btn-primary {
+                  background-color: #6c4b9e;
+                  border: none;
+              
+                  &:hover {
+                    background-color: darken(#6c4b9e, 10%);
+                  }
+                }
+
+            }
+          
+          }
+    }
 }

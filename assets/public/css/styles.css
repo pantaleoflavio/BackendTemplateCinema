@@ -160,5 +160,121 @@ header .secondary-menu .navbar-nav .nav-item .search-input.open {
   width: 100%;
   height: 450px;
 }
+.swiper .swiper-button {
+  color: #fff;
+  font-weight: 800;
+}
+.swiper .scrollbar {
+  background-color: #fff;
+}
+
+/* Movies Wall */
+main {
+  background: rgb(5, 5, 71);
+  background: linear-gradient(90deg, mv-dark-blue 0%, mv-blue-70p 39%, mv-light-blue 100%);
+  letter-spacing: 5px;
+}
+main .title-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .title-container .section-title {
+  color: #fff;
+  font-size: 38px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #00adef;
+}
+main .movie-wall-container, main .halls-wall-container {
+  background: transparent;
+  padding-bottom: 25px;
+}
+main .movie-wall-container .card, main .halls-wall-container .card {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 5%;
+  background: transparent;
+}
+main .movie-wall-container .card .card-body, main .halls-wall-container .card .card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  text-align: justify;
+  border-radius: 10%;
+}
+main .movie-wall-container .card img, main .halls-wall-container .card img {
+  height: auto;
+  width: 100%;
+}
+main .movie-wall-container .card .card-title, main .halls-wall-container .card .card-title {
+  font-size: 1.25rem;
+}
+main .movie-wall-container .card .card-text, main .halls-wall-container .card .card-text {
+  font-size: 1rem;
+}
+main .movie-wall-container .card .btn, main .halls-wall-container .card .btn {
+  background-color: #00597b;
+}
+main .movie-wall-container .card .btn:hover, main .halls-wall-container .card .btn:hover {
+  background-color: #003448;
+}
+main .booknow-container {
+  border-radius: 8%;
+}
+main .booknow-container .card-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(5, 5, 71);
+  background: linear-gradient(90deg, mv-dark-blue 0%, mv-blue-70p 39%, mv-light-blue 100%);
+  padding-bottom: 0;
+}
+main .booknow-container .card-title h2 {
+  width: 30%;
+  background: #01011b;
+}
+main .booknow-container .booking-card {
+  color: #fff;
+  border: none;
+  background: #01011b;
+}
+main .booknow-container .booking-card .card-header {
+  border: none;
+  font-size: 1.5rem;
+}
+main .booknow-container .booking-card .card-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .booknow-container .booking-card .card-body form {
+  width: 80%;
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: 6px;
+  font-style: italic;
+}
+main .booknow-container .booking-card .card-body .form-label {
+  font-weight: bold;
+}
+main .booknow-container .booking-card .card-body .form-select {
+  background: #4b2a6e;
+  border: 1px solid #6c4b9e;
+  color: #fff;
+}
+main .booknow-container .booking-card .card-body .form-select:focus {
+  background: #4b2a6e;
+  border-color: #fff;
+}
+main .booknow-container .booking-card .card-body .btn-primary {
+  background-color: #6c4b9e;
+  border: none;
+}
+main .booknow-container .booking-card .card-body .btn-primary:hover {
+  background-color: #543b7b;
+}
 
 /*# sourceMappingURL=styles.css.map */
