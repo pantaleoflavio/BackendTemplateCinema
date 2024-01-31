@@ -349,4 +349,60 @@ main{
           
           }
     }
+
 }
+
+/* Footer */
+
+.footer {
+    background-color: $mv-dark-blue;
+  
+    .navbar-brand img {
+      display: none; // Nasconde l'immagine del logo nei dispositivi piccoli
+  
+      @media (min-width: 768px) {
+        display: block; // Mostra il logo sui dispositivi medi e grandi
+      }
+    }
+  
+    .contact-info {
+      p {
+        margin: 0;
+        color: $mv-light-blue;
+      }
+    }
+
+    .social-container{
+        .fa-facebook-f{
+
+            transition: all 0.5s linear;
+
+            &:hover {
+                background-color: $mv-light-blue;
+            }
+        }
+        .fa-instagram{
+
+            transition: all 1s linear;
+
+            &:hover {
+                background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            }
+        }
+    }
+  
+    .fa-facebook-f, .fa-instagram {
+        font-size: 2.5rem; // Aumenta la dimensione delle icone di social media
+
+    }
+  
+    .btn {
+      background-color: $mv-light-blue;
+      border: none;
+      font-size: 2rem;
+      &:hover {
+        background-color: darken($mv-light-blue, 10%); // Scurisce il colore quando si passa il mouse
+      }
+    }
+  }
+  

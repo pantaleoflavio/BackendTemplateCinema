@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('searchInput');
     const signupButtonNavbar = document.getElementById('signupButtonNavbar');
     const signinButtonNavbar = document.getElementById('signinButtonNavbar');
+    const footerArrow = document.getElementById('footerArrow');
     
     // Open search icon input by click on search icon in navbar
    
@@ -29,8 +30,13 @@ document.addEventListener('DOMContentLoaded', function () {
         searchInput.classList.remove('open');
     }
 
+
     // EVENT LISTENER
     searchIcon.addEventListener('click', toggleSearchInput);
+    footerArrow.addEventListener('click', function() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+
 
 
     // Hero Gallery/Swipe Js Init
@@ -65,6 +71,9 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
     });
+
+
+
 
 });
 

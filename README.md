@@ -1,1 +1,1 @@
-HTML/CSS, Sass, Bootstrap 5, Font Awesome, Swipe JS, JS
+HTML/CSS, Sass, Bootstrap 5, Font Awesome, Swiper JS, JS
