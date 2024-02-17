@@ -1,5 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
+    //Variables
+
     const searchIcon = document.getElementById('searchIcon');
     const searchInput = document.getElementById('searchInput');
     const signupButtonNavbar = document.getElementById('signupButtonNavbar');
@@ -29,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
         searchInput.style.display = 'none';
         searchInput.classList.remove('open');
     }
-
 
     // EVENT LISTENER
     searchIcon.addEventListener('click', toggleSearchInput);

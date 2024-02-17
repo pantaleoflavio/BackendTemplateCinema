@@ -1,1 +1,156 @@
 @import 'styles.scss';
+
+/* MOVIES WALL */
+
+#singlePageContainer{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+
+
+    #play-icon-container{
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        z-index: 1;
+        width: 250px;
+
+        #play-icon{
+            z-index: 99;
+            cursor: pointer;
+
+            #play-trailer{
+                text-transform: uppercase;
+                color: $mv-light-blue;
+                font-size: 30px;
+            }
+        }
+    }
+
+    #movie-infos{
+        text-align: center;
+
+        h3 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            color: #00adef;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        h5 {
+            font-size: 0.8rem;
+            color: #fff;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.25;
+        }
+    }
+}
+
+@import 'styles.scss';
+
+/* MOVIES WALL */
+
+#singlePageContainer{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+
+
+    #play-icon-container{
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        z-index: 1;
+        width: 250px;
+
+        #play-icon{
+            z-index: 99;
+            cursor: pointer;
+
+            #play-trailer{
+                text-transform: uppercase;
+                color: $mv-light-blue;
+                font-size: 30px;
+            }
+        }
+    }
+
+    #movie-infos{
+        text-align: left;
+
+        h3 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            color: #00adef;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        h5 {
+            font-size: 0.8rem;
+            color: #fff;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.25;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #singlePageContainer{
+        height: 140vh;
+        padding-left: 10px;
+
+        #movie-poster{
+            padding: 15px 0;
+
+            img{
+                width: 100%;
+            }
+        }
+
+        #movie-infos{
+            text-align: center;
+            margin-top: 10px;
+        }
+
+
+        
+    }
+
+
+}

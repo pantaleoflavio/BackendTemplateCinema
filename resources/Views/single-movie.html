@@ -73,33 +73,53 @@
     </header>
 
     <main>
-        <div class="single-movie-container">
-            <!-- Background Cover for medium to large devices -->
-            <div class="movie-bg-cover d-none d-md-block">
-                <video id="promoVideo" class="promo-video" src="path-to-your-video.mp4" type="video/mp4" controls style="display: none;"></video>
-                <div class="play-icon" onclick="playVideo()">
-                    <i class="fas fa-play-circle"></i> TRAILER
+        <div id="singlePageContainer" style="background-image: url('../../assets/img/movies/covers/frozen-cover.png');">
+            <div class="row vw-100 vh-100">
+                <!-- First column with Play icon -->
+                <div id="play-icon-container" class="col-md-6 d-none d-md-block">
+                    <div id="play-icon" class="d-flex justify-content-center align-items-center">
+                        <img src="../../assets/img/play.png" alt="">
+                        <div id="play-trailer">
+                            Trailer
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Movie Info for all devices -->
-            <div class="container mt-4">
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <!-- Movie Poster for small devices -->
-                        <img src="path-to-your-movie-poster.jpg" alt="Movie Title" class="img-fluid d-md-none">
-                        <!-- Movie Information -->
-                        <div class="movie-info">
-                            <h2>Titolo: Frozen</h2>
-                            <!-- ... other movie info ... -->
+                <!-- Second column with movie infos -->
+                <div class="col-12 col-md-6 offset-md-6">
+                    <div class="row vh-100 d-flex justify-content-center align-items-center">
+                        <div id="movie-poster" class="col-12 col-md-6">
+                            <img src="../../assets/img/movies/thumbs/frozen.jpg" class="card-img-top" alt="frozen">
+                        </div>
+                        <div id="movie-infos" class="col-12 col-md-6">
+                            <div>
+                                <h4>Titolo:</h4>
+                                <h3>Frozen</h3>
+                                <h5>Lorem ipsum dolor sit amet</h5>
+                            </div>
+                            <div>
+                                <h4>data di uscita:</h4>
+                                <h5>20/12/2019</53>
+                            </div>
+                            <div>
+                                <h4>durata:</h4>
+                                <h5>120 min</h5>
+                            </div>
+                            <div>
+                                <h4>regia:</h4>
+                                <h5>
+                                    lorem
+                                    <br>
+                                    ipsum
+                                </h5>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </main>
-
+    
+      
 <!-- Footer -->
 <footer class="footer text-white py-4">
     <div class="container">
@@ -147,5 +167,7 @@
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Script -->
     <script src="../../assets/js/script.js"></script>
+    <!-- Script Single Movie -->
+    <script src="../../assets/js/single-movie-script.js"></script>
 </body>
 </html>
