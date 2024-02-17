@@ -101,32 +101,3 @@
         }
     }
 }
-
-@media only screen and (max-width: 768px) {
-    #singlePageContainer{
-        height: 140vh;
-        padding-left: 10px;
-
-        #background-video {
-            display: none;
-        }
-
-        #movie-poster{
-            padding: 15px 0;
-
-            img{
-                width: 100%;
-            }
-        }
-
-        #movie-infos{
-            text-align: center;
-            margin-top: 10px;
-        }
-
-
-        
-    }
-
-
-}
