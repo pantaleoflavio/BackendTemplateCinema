@@ -194,71 +194,23 @@ header .secondary-menu .navbar-nav .nav-item .search-input.open {
   background-color: #0088bc;
 }
 
-/* MOVIES WALL */
-#singlePageContainer {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  overflow: hidden;
+#single-hall-wall {
+  background: rgb(5, 5, 71);
+  background: linear-gradient(90deg, mv-dark-blue 0%, mv-blue-70p 39%, mv-light-blue 100%);
 }
-@media (max-width: 768px) {
-  #singlePageContainer {
-    height: 140vh;
-    padding-left: 10px;
-  }
+#single-hall-wall #hall-poster image {
+  width: 450px;
 }
-#singlePageContainer #background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* This will ensure that the video covers the entire container */
-  z-index: -1; /* This ensures that the video stays in the background */
-  display: none;
-}
-@media (max-width: 768px) {
-  #singlePageContainer #background-video {
-    display: none;
-  }
-}
-#singlePageContainer #play-icon-container {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  z-index: 1;
-  width: 250px;
-}
-#singlePageContainer #play-icon-container #play-icon {
-  z-index: 99;
-  cursor: pointer;
-}
-#singlePageContainer #play-icon-container #play-icon #play-trailer {
-  text-transform: uppercase;
-  color: #00adef;
-  font-size: 30px;
-}
-@media (max-width: 768px) {
-  #singlePageContainer #movie-poster {
-    padding: 15px 0;
-  }
-  #singlePageContainer #movie-poster img {
-    width: 100%;
-  }
-}
-#singlePageContainer #movie-infos {
+#single-hall-wall #hall-infos {
   text-align: left;
 }
 @media (max-width: 768px) {
-  #singlePageContainer #movie-infos {
+  #single-hall-wall #hall-infos {
     text-align: center;
     margin-top: 10px;
   }
 }
-#singlePageContainer #movie-infos h3 {
+#single-hall-wall #hall-infos h3 {
   font-size: 2rem;
   color: #fff;
   margin-bottom: 15px;
@@ -266,7 +218,7 @@ header .secondary-menu .navbar-nav .nav-item .search-input.open {
   font-weight: 700;
   text-transform: uppercase;
 }
-#singlePageContainer #movie-infos h4 {
+#single-hall-wall #hall-infos h4 {
   font-size: 1.2rem;
   text-transform: uppercase;
   color: #00adef;
@@ -274,7 +226,7 @@ header .secondary-menu .navbar-nav .nav-item .search-input.open {
   letter-spacing: 2px;
   font-weight: 700;
 }
-#singlePageContainer #movie-infos h5 {
+#single-hall-wall #hall-infos h5 {
   font-size: 0.8rem;
   color: #fff;
   margin-bottom: 15px;
@@ -283,5 +235,28 @@ header .secondary-menu .navbar-nav .nav-item .search-input.open {
   text-transform: uppercase;
   line-height: 1.25;
 }
+#single-hall-wall #single-hall-gallery {
+  height: 300px;
+  padding: 25px 0;
+  margin: 0;
+}
+#single-hall-wall #single-hall-gallery .swiper {
+  width: 100%;
+  height: 100%;
+}
+#single-hall-wall #single-hall-gallery .swiper .swiper-button-prev, #single-hall-wall #single-hall-gallery .swiper .swiper-button-next {
+  color: #fff;
+  font-size: 18px;
+}
+#single-hall-wall #single-hall-gallery .swiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#single-hall-wall #single-hall-gallery .swiper .swiper-slide img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+}
 
-/*# sourceMappingURL=single-movie.css.map */
+/*# sourceMappingURL=single-hall.css.map */

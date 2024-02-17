@@ -1,0 +1,80 @@
+@import 'styles.scss';
+
+#single-hall-wall {
+    background: rgb(5, 5, 71);
+    background: linear-gradient(90deg, mv-dark-blue 0%, mv-blue-70p 39%, mv-light-blue 100%);
+
+    #hall-poster{
+        image{
+            width: 450px;
+        }
+    }
+
+    #hall-infos{
+        text-align: left;
+
+        @media (max-width: 768px) {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        h3 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            color: #00adef;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        h5 {
+            font-size: 0.8rem;
+            color: #fff;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.25;
+        }
+    }
+
+    #single-hall-gallery {
+        height: 300px;
+        padding: 25px 0;
+        margin: 0;
+    
+        .swiper {
+            width: 100%;
+            height: 100%;
+    
+            .swiper-button-prev, .swiper-button-next {
+                color: $mv-white;
+                font-size: 18px;
+            }
+      
+            .swiper-slide {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    display: block;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+        }
+        
+    }
+    
+}
