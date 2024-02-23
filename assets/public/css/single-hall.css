@@ -241,7 +241,7 @@ header .secondary-menu .navbar-nav .nav-item .search-input.open {
   margin: 0;
 }
 #single-hall-wall #single-hall-gallery .swiper {
-  width: 100%;
+  width: 50%;
   height: 100%;
 }
 #single-hall-wall #single-hall-gallery .swiper .swiper-button-prev, #single-hall-wall #single-hall-gallery .swiper .swiper-button-next {
