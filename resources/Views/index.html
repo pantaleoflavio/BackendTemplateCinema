@@ -40,16 +40,16 @@
                 <ul class="navbar-nav ">
                     <!-- Elementi del menu principale -->
                     <li class="nav-item">
-                        <a class="nav-link active" href="#"><i class="fa-solid fa-film"></i>Film</a>
+                        <a class="nav-link active" href="#movies-wall"><i class="fa-solid fa-film"></i>Movies</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#"><i class="fa-solid fa-couch"></i>sale</a>
+                        <a class="nav-link active" href="#halls-wall"><i class="fa-solid fa-couch"></i>Halls</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#"><i class="fa-solid fa-ticket"></i>prenotazioni</a>
+                        <a class="nav-link active" href="#booknow-hall"><i class="fa-solid fa-ticket"></i>Book now</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#"><i class="fa-solid fa-phone"></i>contatti</a>
+                        <a class="nav-link active" href="contacts.html"><i class="fa-solid fa-phone"></i>Contacts</a>
                     </li>
                     <!-- Altri elementi li -->
                 </ul>
@@ -100,7 +100,7 @@
         </div>
 
         <!-- Movies Wall -->
-        <div class="movie-wall-container container mt-5">
+        <div id="movies-wall" class="movie-wall-container container mt-5">
             <div class="title-container">
                 <h2 class="section-title text-center mb-4">Movies</h2>
             </div>
@@ -165,7 +165,7 @@
         </div>
 
         <!-- Halls Wall -->
-        <div class="halls-wall-container container mt-5">
+        <div id="halls-wall" class="halls-wall-container container mt-5">
             <div class="title-container">
                 <h2 id="MovieWallTitle" class="section-title text-center mb-4">Halls</h2>
             </div>
@@ -228,7 +228,7 @@
         </div>
 
         <!-- Book Now -->
-        <div class="booknow-container mt-5 pb-5 rounded ">
+        <div id="booknow-hall" class="booknow-container mt-5 pb-5 rounded ">
             <div class="row justify-content-center">
               <div class="col-md-10">
                 <div class="card booking-card">
@@ -273,6 +273,44 @@
               </div>
             </div>
         </div>
+
+        <!-- Contact-->
+        <div id="contact" class="">
+            <div class="container py-5">
+              <div class="row justify-content-center">
+                <div class="col-12">
+                  <h2 class="text-center mb-4">Contact Us</h2>
+                  <p class="text-left text-center-sm">Do you have questions? We'd love to respond. Fill out the form below and we will reply as soon as possible.</p>
+                  
+                  <!-- contact form -->
+                  <form>
+                    <div class="mb-3">
+                      <label for="nome" class="form-label">Name</label>
+                      <input type="text" class="form-control" id="nome" placeholder="Il tuo nome">
+                    </div>
+                    <div class="mb-3">
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="email" placeholder="La tua email">
+                    </div>
+                    <div class="mb-3">
+                      <label for="messaggio" class="form-label">Message</label>
+                      <textarea class="form-control" id="messaggio" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                  </form>
+                </div>
+                
+                <div id="map-container" class="col-12">
+                  <!-- Map image -->
+                  <h3 class="mt-5 mt-lg-0">Where you can find us</h3>
+                  <p>123 Via del Cinema, 00100 Roma, Italia</p>
+                  <img src="../../assets/img/map.png" alt="Map" class="img-fluid">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
 
     </main>
 

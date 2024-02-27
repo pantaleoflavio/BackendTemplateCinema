@@ -313,5 +313,64 @@ main .booknow-container .booking-card .card-body .btn-primary {
 main .booknow-container .booking-card .card-body .btn-primary:hover {
   background-color: #543b7b;
 }
+main #contact {
+  color: #fff;
+}
+main #contact h2 {
+  margin-bottom: 25px;
+}
+main #contact p a {
+  color: #fff;
+}
+main #contact p a:hover {
+  color: #e6e6e6;
+}
+main #contact .social-icons i {
+  font-size: 1.5rem;
+}
+main #contact .social-icons i:hover {
+  color: #e6e6e6;
+}
+main #contact {
+  color: #fff;
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: 6px;
+  font-style: italic;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  main #contact {
+    text-align: left;
+  }
+}
+main #contact .form-label {
+  font-weight: bold;
+}
+main #contact .form-select {
+  background: #4b2a6e;
+  border: 1px solid #6c4b9e;
+  color: #fff;
+}
+main #contact .form-select:focus {
+  background: #4b2a6e;
+  border-color: #fff;
+}
+main #contact .btn-primary {
+  background-color: #6c4b9e;
+  border: none;
+}
+main #contact .btn-primary:hover {
+  background-color: #543b7b;
+}
+main #contact #map-container img {
+  border-radius: 5px;
+  margin-top: 15px;
+}
+@media (min-width: 768px) {
+  main #contact #map-container {
+    margin-top: 30px;
+  }
+}
 
 /*# sourceMappingURL=index.css.map */

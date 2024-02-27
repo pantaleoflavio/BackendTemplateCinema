@@ -158,4 +158,80 @@ main{
           }
     }
 
+    #contact {
+        color: $mv-white;
+      
+        h2 {
+          margin-bottom: 25px;
+        }
+      
+        h3 {
+        }
+      
+        p {
+          a {
+            color: $mv-white;
+      
+            &:hover {
+              color: darken($mv-white, 10%); 
+            }
+          }
+        }
+      
+        .social-icons {
+          i {
+            font-size: 1.5rem;
+      
+            &:hover {
+              color: darken($mv-white, 10%);
+            }
+          }
+        }
+      }
+      
+      #contact {
+        color: $mv-white; 
+        font-weight: 300;
+        font-size: 22px;
+        letter-spacing: 6px;
+        font-style: italic;
+        
+        .form-label {
+          font-weight: bold;
+        }
+      
+        .form-select {
+          background: #4b2a6e;
+          border: 1px solid #6c4b9e;
+          color: #fff;
+      
+          &:focus {
+            background: #4b2a6e;
+            border-color: #fff;
+          }
+        }
+      
+        .btn-primary {
+          background-color: #6c4b9e;
+          border: none;
+      
+          &:hover {
+            background-color: darken(#6c4b9e, 10%);
+          }
+        }
+      
+        #map-container{
+
+            img {
+              border-radius: 5px;
+              margin-top: 15px;
+              
+            }
+
+            @media (min-width: 768px) { 
+                margin-top: 30px;
+            }
+        }
+      }
+      
 }
