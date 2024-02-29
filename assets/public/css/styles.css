@@ -122,7 +122,6 @@ header .secondary-menu .navbar-nav .nav-item .signButton:hover {
   color: #23c2ff;
   border-color: #fff;
   transition: color 1.2s ease, border-color 1.2s ease;
-  cursor: pointer;
 }
 header .secondary-menu .navbar-nav .nav-item:last-child a {
   border: none;

@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="../../node_modules/swiper/swiper-bundle.min.css">
 
     <!-- Style -->
+    <link rel="stylesheet" href="../../assets/public/css/styles.css">
     <link rel="stylesheet" href="../../assets/public/css/single-movie.css">
 
     <title>Single Movie Wall</title>
@@ -55,19 +56,19 @@
         </nav>
         <nav class="secondary-menu container navbar navbar-expand-lg">
             <!-- Toggler -->
-                <ul class="navbar-nav">
-                    <!-- Elementi del menu secondario -->
-                    <li id="signupButtonNavbar" class="nav-item">
-                        <a class="nav-link" href="#">SIGN UP</a>
-                    </li>
-                    <li id="signinButtonNavbar" class="nav-item">
-                        <a class="nav-link" href="#">SIGN IN</a>
-                    </li>
-                    <li class="nav-item">
-                        <a  id="searchIcon" class="nav-link" href="#"><i class="fa fa-search"></i></a> 
-                        <input type="text" id="searchInput"  style="display: none;" class="nav-link search-input" placeholder="Cerca...">
-                    </li>
-                </ul>
+            <ul class="navbar-nav">
+                <!-- Elementi del menu secondario -->
+                <li id="signupButtonNavbar" class="nav-item">
+                    <button class="nav-link signButton" data-bs-toggle="modal" data-bs-target="#signUpModal">SIGN UP</button>
+                </li>
+                <li id="signinButtonNavbar" class="nav-item">
+                    <button class="nav-link signButton" data-bs-toggle="modal" data-bs-target="#signInModal">SIGN IN</button>
+                </li>
+                <li class="nav-item">
+                    <a  id="searchIcon" class="nav-link signButton" href="#"><i class="fa fa-search"></i></a> 
+                    <input type="text" id="searchInput"  style="display: none;" class="nav-link search-input" placeholder="Cerca...">
+                </li>
+            </ul>
                 
         </nav>
     </header>
@@ -165,7 +166,63 @@
     </div>
   </footer>
   
-      
+    <!-- Sign In Modal -->
+    <div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="signInModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="signInModalLabel">Accedi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                    <label for="signInEmail" class="form-label">Indirizzo Email</label>
+                    <input type="email" class="form-control" id="signInEmail" required>
+                    </div>
+                    <div class="mb-3">
+                    <label for="signInPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="signInPassword" required>
+                    </div>
+                    <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Ricordami</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Accedi</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign up Modal -->
+    <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="signUpModalLabel">Registrati</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                    <label for="signUpEmail" class="form-label">Indirizzo Email</label>
+                    <input type="email" class="form-control" id="signUpEmail" required>
+                    </div>
+                    <div class="mb-3">
+                    <label for="signUpPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="signUpPassword" required>
+                    </div>
+                    <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Conferma Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrati</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Swipe JS library -->
