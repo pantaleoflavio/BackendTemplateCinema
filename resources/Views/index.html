@@ -49,7 +49,7 @@
                         <a class="nav-link active" href="#booknow-hall"><i class="fa-solid fa-ticket"></i>Book now</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="contacts.html"><i class="fa-solid fa-phone"></i>Contacts</a>
+                        <a class="nav-link active" href="#contact"><i class="fa-solid fa-phone"></i>Contacts</a>
                     </li>
                     <!-- Altri elementi li -->
                 </ul>
@@ -59,13 +59,13 @@
                 <ul class="navbar-nav">
                     <!-- Elementi del menu secondario -->
                     <li id="signupButtonNavbar" class="nav-item">
-                        <a class="nav-link" href="#">SIGN UP</a>
+                        <button class="nav-link signButton" data-bs-toggle="modal" data-bs-target="#signUpModal">SIGN UP</button>
                     </li>
                     <li id="signinButtonNavbar" class="nav-item">
-                        <a class="nav-link" href="#">SIGN IN</a>
+                        <button class="nav-link signButton" data-bs-toggle="modal" data-bs-target="#signInModal">SIGN IN</button>
                     </li>
                     <li class="nav-item">
-                        <a  id="searchIcon" class="nav-link" href="#"><i class="fa fa-search"></i></a> 
+                        <a  id="searchIcon" class="nav-link signButton" href="#"><i class="fa fa-search"></i></a> 
                         <input type="text" id="searchInput"  style="display: none;" class="nav-link search-input" placeholder="Cerca...">
                     </li>
                 </ul>
@@ -314,43 +314,100 @@
 
     </main>
 
-<!-- Footer -->
-<footer class="footer text-white py-4">
-    <div class="container">
-      <div class="row align-items-center text-center">
-        <!-- Logo Column -->
-        <div class="col-12 col-md-3 mb-3">
-          <a href="#" class="navbar-brand d-inline">
-            <img src="../../assets/img/musa-vision-logo.png" alt="CINE VISION" height="100">
-          </a>
+    <!-- Footer -->
+    <footer class="footer text-white py-4">
+        <div class="container">
+        <div class="row align-items-center text-center">
+            <!-- Logo Column -->
+            <div class="col-12 col-md-3 mb-3">
+            <a href="#" class="navbar-brand d-inline">
+                <img src="../../assets/img/musa-vision-logo.png" alt="CINE VISION" height="100">
+            </a>
+            </div>
+            <!-- Social Icons Column -->
+            <div class="social-container col-12 col-md-3 mb-3">
+            <a href="https://facebook.com" target="_blank" class="text-white me-2 pe-4">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="text-white">
+                <i class="fab fa-instagram"></i>
+            </a>
+            </div>
+            <!-- Contact Info Column -->
+            <div class="col-12 col-md-3 mb-3 text-md-center">
+            <div class="contact-info">
+                <p>Telefono: 123 456 7890</p>
+                <p>Email: info@cinevision.com</p>
+            </div>
+            </div>
+            <!-- Back to Top Button Column -->
+            <div class="col-12 mb-3 col-md-3 text-md-end">
+            <div id="footerArrow" class="btn btn-primary rounded-circle">
+                <i class="fas fa-chevron-up"></i>
+            </div>
+            </div>
         </div>
-        <!-- Social Icons Column -->
-        <div class="social-container col-12 col-md-3 mb-3">
-          <a href="https://facebook.com" target="_blank" class="text-white me-2 pe-4">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://instagram.com" target="_blank" class="text-white">
-            <i class="fab fa-instagram"></i>
-          </a>
         </div>
-        <!-- Contact Info Column -->
-        <div class="col-12 col-md-3 mb-3 text-md-center">
-          <div class="contact-info">
-            <p>Telefono: 123 456 7890</p>
-            <p>Email: info@cinevision.com</p>
-          </div>
+    </footer>
+  
+
+  <!-- Sign In Modal -->
+    <div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="signInModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="signInModalLabel">Accedi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                    <label for="signInEmail" class="form-label">Indirizzo Email</label>
+                    <input type="email" class="form-control" id="signInEmail" required>
+                    </div>
+                    <div class="mb-3">
+                    <label for="signInPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="signInPassword" required>
+                    </div>
+                    <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Ricordami</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Accedi</button>
+                </form>
+                </div>
+            </div>
         </div>
-        <!-- Back to Top Button Column -->
-        <div class="col-12 mb-3 col-md-3 text-md-end">
-          <div id="footerArrow" class="btn btn-primary rounded-circle">
-            <i class="fas fa-chevron-up"></i>
-          </div>
+    </div>
+
+  <!-- Sign up Modal -->
+<div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="signUpModalLabel">Registrati</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="signUpEmail" class="form-label">Indirizzo Email</label>
+              <input type="email" class="form-control" id="signUpEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="signUpPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="signUpPassword" required>
+            </div>
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">Conferma Password</label>
+              <input type="password" class="form-control" id="confirmPassword" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrati</button>
+          </form>
         </div>
       </div>
     </div>
-  </footer>
-  
-      
+  </div>
 
 
     <!-- Swipe JS library -->

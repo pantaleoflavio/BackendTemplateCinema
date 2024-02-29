@@ -126,17 +126,17 @@ header {
             .nav-item {
               padding: 0 10px; // Spazio tra le voci del menu
   
-                a{
+                .signButton{
                     color: $mv-white;
                     text-transform: uppercase;
                     font-size: 16px;
                     border: 2px solid $mv-light-blue;
-
-
+                    
                     &:hover {
                         color: lighten($mv-light-blue, 10%); // Change color on hover
                         border-color: $mv-white;
                         transition: color 1.2s ease, border-color 1.2s ease; // Combine transitions
+
                     }
                 }
 
