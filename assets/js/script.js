@@ -1,15 +1,16 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     //Variables
-
     const searchIcon = document.getElementById('searchIcon');
     const searchInput = document.getElementById('searchInput');
     const signupButtonNavbar = document.getElementById('signupButtonNavbar');
     const signinButtonNavbar = document.getElementById('signinButtonNavbar');
     const footerArrow = document.getElementById('footerArrow');
+    const bookNowForm = document.getElementById('bookNowForm');
+    const loader = document.getElementById('loader');
     
+    // FUNCTIONS
     // Open search icon input by click on search icon in navbar
-   
     function toggleSearchInput() {
         const isIndexPage = window.location.pathname.endsWith('/index.html') || window.location.pathname === '/' || window.location.pathname.match(/\/resources\/Views\/$/);
 
@@ -66,15 +67,30 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
+    // Load Spinner for Book Now
+    function loadingBookNowSpinner(e) {
+        e.preventDefault();
+
+        // Show loader
+        const loader = document.querySelector('.lds-ring');
+        loader.classList.add('show');
+
+        // Load simulation and redirect
+        setTimeout(function() {
+            window.location.href = 'bookNow.html';
+        }, 2000);
+    }
+
     // EVENT LISTENER
     searchIcon.addEventListener('click', redirectToIndex);
     footerArrow.addEventListener('click', function() {
         window.scrollTo({top: 0, behavior: 'smooth'});
     });
     searchInput.addEventListener('input', searchFunction);
+    bookNowForm.addEventListener('submit', loadingBookNowSpinner);
 
 
-    
+
     // Hero Gallery/Swipe Js Init
     const swiper = new Swiper('.swiper', {
         // Optional parameters
