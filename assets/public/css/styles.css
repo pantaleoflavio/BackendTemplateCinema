@@ -138,7 +138,7 @@ header .secondary-menu .navbar-nav .nav-item .search-input {
   height: 45px;
 }
 header .secondary-menu .navbar-nav .nav-item .search-input.open {
-  width: auto; /* o qualsiasi larghezza desideri */
+  width: auto;
 }
 @media (max-width: 994px) {
   header .secondary-menu {

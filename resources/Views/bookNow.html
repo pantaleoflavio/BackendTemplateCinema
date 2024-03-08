@@ -73,8 +73,57 @@
       </nav>
   </header>
 
-  <main>
-
+  <main class="container my-4">
+        <!-- Informazioni e Poster del Film -->
+        <div id="movieInfoContainer" class="row mb-3">
+          <div id="imgContainer" class="col-md-4">
+              <img src="../../assets/img/movies/thumbs/frozen.jpg" alt="Frozen" class="img-fluid">
+          </div>
+          <div class="col-md-8">
+              <h2>Frozen</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, architecto tempora maiores expedita facere soluta totam assumenda magni voluptate eaque in, obcaecati, fugit vero?</p>
+              <p><strong>Category:</strong> Action</p>
+              <p><strong>Director:</strong> Gigi Proietti</p>
+              <p><strong>Duration:</strong> 123min</p>
+          </div>
+      </div>
+  
+      <!-- Selezione Sala -->
+      <div class="row mb-3">
+          <div class="col-12">
+              <h3>Seleziona una Sala</h3>
+              <select class="form-select" aria-label="Selezione Sala">
+                  <option selected>Scegli una sala</option>
+                  <option value="1">Sala 1</option>
+                  <option value="2">Sala 2</option>
+                  <!-- altre sale -->
+              </select>
+          </div>
+      </div>
+  
+      <!-- Orari Disponibili per Giorno -->
+      <div class="row mb-3">
+          <div class="col-12">
+              <h3>Orari Disponibili</h3>
+              <!-- Ripeti per ogni giorno disponibile -->
+              <article class="mb-2">
+                  <h4>23 Aprile</h4>
+                  <div class="d-flex flex-wrap">
+                      <button class="btn btn-outline-primary m-1">17:00</button>
+                      <button class="btn btn-outline-primary m-1">19:30</button>
+                      <!-- altri orari -->
+                  </div>
+              </article>
+              <!-- Altri giorni -->
+          </div>
+      </div>
+  
+      <!-- Tasto Procedi -->
+      <div class="row">
+          <div class="col-12 text-center">
+              <button class="btn btn-success">Procedi con la Prenotazione</button>
+          </div>
+      </div>
   </main>
 
     <!-- Footer -->

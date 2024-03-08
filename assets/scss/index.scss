@@ -21,9 +21,7 @@
 /* Movies Wall */
 main{
 
-    background: rgb(5, 5, 71);
-    background: linear-gradient(90deg, mv-dark-blue 0%, mv-blue-70p 39%, mv-light-blue 100%);
-    letter-spacing: 5px;
+
 
     .title-container{
         width: 100%;
@@ -49,7 +47,7 @@ main{
         padding-bottom: 25px;
 
         .card {
-            // Stili personalizzati per le card
+            
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             border: none;
             border-radius: 5%;
@@ -65,21 +63,18 @@ main{
             }
         
             img {
-                height: auto; // Assicurati che le immagini mantengano il loro aspetto originale
-                width: 100%; // Le immagini devono adattarsi alla larghezza della card
+                height: auto;
+                width: 100%;
             }
         
-            // Stili per il titolo della card
             .card-title {
                 font-size: 1.25rem;
             }
         
-            // Stili per il testo della card
             .card-text {
                 font-size: 1rem;
             }
         
-            // Stili per il pulsante
             .btn {
                 background-color: $mv-blue-50p;
                 &:hover {
