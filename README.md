@@ -28,6 +28,9 @@
 * **index.html** : The main HTML file of the web app.
 * **single hall page** : Page displaying details about a single cinema hall.
 * **single movie page** : Page displaying details about a single movie.
+* **book now page** : Page displaying details about booking of ticket.
+* **cart page** : Page displaying details about user cart.
+* **checkout page** : Page displaying details about checkout.
 * **css/** : Contains all CSS and SCSS files for styling the web app.
 * **js/** : Contains all JavaScript files for the logic of the web app.
 * **assets/** :
@@ -50,6 +53,10 @@
 * Bootstrap 5: CSS framework for web development.
 * Swiper: JavaScript library for creating carousels and sliders.
 * Font Awesome: Icon set and toolkit.
+
+### Contributing
+
+We welcome contributions to improve this template! If you have suggestions for features, notice bugs, or want to enhance the functionality, feel free to open an issue or submit a pull request.
 
 ### License
 
