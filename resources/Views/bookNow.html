@@ -74,9 +74,9 @@
   </header>
 
   <main class="container my-4">
-        <!-- Informazioni e Poster del Film -->
-        <div id="movieInfoContainer" class="row mb-3">
-          <div id="imgContainer" class="col-md-4">
+        <!-- Infos and Cover Movie -->
+        <div id="movieInfoContainer" class="row mb-5">
+          <div id="imgContainer" class="col-md-4 d-flex justify-content-center">
               <img src="../../assets/img/movies/thumbs/frozen.jpg" alt="Frozen" class="img-fluid">
           </div>
           <div class="col-md-8">
@@ -88,40 +88,66 @@
           </div>
       </div>
   
-      <!-- Selezione Sala -->
+      <!-- Select Hall -->
       <div class="row mb-3">
           <div class="col-12">
-              <h3>Seleziona una Sala</h3>
+              <h3>Select Hall</h3>
               <select class="form-select" aria-label="Selezione Sala">
-                  <option selected>Scegli una sala</option>
-                  <option value="1">Sala 1</option>
-                  <option value="2">Sala 2</option>
-                  <!-- altre sale -->
+                  <option selected>Select an Hall</option>
+                  <option value="1">Jupiter</option>
+                  <option value="2">Saturn</option>
+                  <option value="2">Mars</option>
+                  <option value="2">Mercury</option> 
               </select>
           </div>
       </div>
   
-      <!-- Orari Disponibili per Giorno -->
+      <!-- Available Shows per each Day -->
       <div class="row mb-3">
           <div class="col-12">
-              <h3>Orari Disponibili</h3>
-              <!-- Ripeti per ogni giorno disponibile -->
+              <h3>Available Shows</h3>
               <article class="mb-2">
-                  <h4>23 Aprile</h4>
+                  <h4>23 April</h4>
+                  <div class="d-flex flex-wrap">
+                    <button class="btn btn-outline-primary m-1">13:00</button>
+                      <button class="btn btn-outline-primary m-1">17:00</button>
+                      <button class="btn btn-outline-primary m-1">19:30</button>
+                      <button class="btn btn-outline-primary m-1">21:30</button>
+                      <button class="btn btn-outline-primary m-1">23:30</button>
+                  </div>
+              </article>
+              <article class="mb-2">
+                  <h4>24 April</h4>
                   <div class="d-flex flex-wrap">
                       <button class="btn btn-outline-primary m-1">17:00</button>
                       <button class="btn btn-outline-primary m-1">19:30</button>
-                      <!-- altri orari -->
                   </div>
               </article>
-              <!-- Altri giorni -->
+              <article class="mb-2">
+                  <h4>25 April</h4>
+                  <div class="d-flex flex-wrap">
+                      <button class="btn btn-outline-primary m-1">17:00</button>
+                      <button class="btn btn-outline-primary m-1">19:30</button>
+                      <button class="btn btn-outline-primary m-1">21:30</button>
+                      <button class="btn btn-outline-primary m-1">23:30</button>
+                  </div>
+              </article>
+              <article class="mb-2">
+                  <h4>26 April</h4>
+                  <div class="d-flex flex-wrap">
+                      <button class="btn btn-outline-primary m-1">13:00</button>
+                      <button class="btn btn-outline-primary m-1">15:00</button>
+                      <button class="btn btn-outline-primary m-1">17:00</button>
+                      <button class="btn btn-outline-primary m-1">19:30</button>
+                  </div>
+              </article>
           </div>
       </div>
   
       <!-- Tasto Procedi -->
       <div class="row">
           <div class="col-12 text-center">
-              <button class="btn btn-success">Procedi con la Prenotazione</button>
+              <button class="btn btn-primary">Proceed</button>
           </div>
       </div>
   </main>
