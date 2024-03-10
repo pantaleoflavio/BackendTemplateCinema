@@ -9,6 +9,9 @@ body{
     main {
 
         #movieInfoContainer {
+            h2, strong {
+                color: $mv-light-blue;
+            }
             #imgContainer{
                 img{
                     max-width: 70%;
