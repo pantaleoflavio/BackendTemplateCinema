@@ -1,4 +1,4 @@
-# Fictitious Cinema Web App Template
+# Fake Cinema Web App Template
 
 ## This is a template for a fictitious cinema web app. It can be used as a foundation for developing the frontend part of a website for a cinema, with the addition of necessary backend logic.
 
