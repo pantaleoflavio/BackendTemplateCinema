@@ -19,5 +19,23 @@ body{
                 }
             }
         }
+
+        .screen {
+            width: 100%;
+            text-align: center;
+            padding: 8px;
+            margin-bottom: 20px;
+            background-color: #ddd;
+            color: #555;
+            border-radius: 4px;
+        }
+        
+        .seat-checkbox {
+            margin-left: 5px;
+        }
+        
+        .seat-checkbox:checked {
+            accent-color: $mv-light-green;
+        }
     }
 }
