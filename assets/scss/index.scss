@@ -21,7 +21,10 @@
 /* Movies Wall */
 main{
 
-
+  background: rgb(5, 5, 71);
+  background: linear-gradient(90deg, mv-dark-blue 0%, mv-blue-70p 39%, mv-light-blue 100%);
+  letter-spacing: 5px;
+  color: $mv-white;
 
     .title-container{
         width: 100%;
@@ -58,7 +61,7 @@ main{
                 flex-direction: column;
                 align-items: center;
                 color: $mv-white;
-                text-align: justify;
+                text-align: left;
                 border-radius: 10%;
             }
         
@@ -68,10 +71,6 @@ main{
             }
         
             .card-title {
-                font-size: 1.25rem;
-            }
-        
-            .card-text {
                 font-size: 1rem;
             }
         

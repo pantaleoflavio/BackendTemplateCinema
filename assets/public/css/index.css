@@ -17,6 +17,7 @@ main {
   background: rgb(5, 5, 71);
   background: linear-gradient(90deg, mv-dark-blue 0%, mv-blue-70p 39%, mv-light-blue 100%);
   letter-spacing: 5px;
+  color: #fff;
 }
 main .title-container {
   width: 100%;
@@ -46,7 +47,7 @@ main .movie-wall-container .card .card-body, main .halls-wall-container .card .c
   flex-direction: column;
   align-items: center;
   color: #fff;
-  text-align: justify;
+  text-align: left;
   border-radius: 10%;
 }
 main .movie-wall-container .card img, main .halls-wall-container .card img {
@@ -54,9 +55,6 @@ main .movie-wall-container .card img, main .halls-wall-container .card img {
   width: 100%;
 }
 main .movie-wall-container .card .card-title, main .halls-wall-container .card .card-title {
-  font-size: 1.25rem;
-}
-main .movie-wall-container .card .card-text, main .halls-wall-container .card .card-text {
   font-size: 1rem;
 }
 main .movie-wall-container .card .btn, main .halls-wall-container .card .btn {
