@@ -170,6 +170,7 @@ header .secondary-menu .navbar-nav .nav-item .search-input.open {
 .footer .contact-info p {
   margin: 0;
   color: #00adef;
+  letter-spacing: 3px;
 }
 .footer .social-container .fa-facebook-f {
   transition: all 0.5s linear;

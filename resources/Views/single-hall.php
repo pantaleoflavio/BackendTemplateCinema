@@ -27,7 +27,7 @@
                       </h5>
                   </div>
                   <div>
-                      <a href="bookNow.html" class="btn btn-primary">
+                      <a href="<?php echo ROOT; ?>/resources/Views/bookNow.php" class="btn btn-primary">
                           Book Now
                       </a>
                   </div>
