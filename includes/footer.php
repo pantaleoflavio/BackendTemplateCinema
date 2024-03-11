@@ -38,9 +38,9 @@
     <!-- Sign In Modal -->
     <div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="signInModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content text-black">
                 <div class="modal-header">
-                <h5 class="modal-title" id="signInModalLabel">Accedi</h5>
+                <h5 class="modal-title" id="signInModalLabel">Sign In</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -63,7 +63,7 @@
     <!-- Sign up Modal -->
     <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content text-black">
                 <div class="modal-header">
                 <h5 class="modal-title" id="signUpModalLabel">Sign up</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -103,6 +103,8 @@
     <script src="<?php echo ROOT; ?>/assets/js/script.js"></script>
     <!-- Script Single Movie -->
     <script src="<?php echo ROOT; ?>/assets/js/single-movie-script.js"></script>
+    <!-- Script Single Hall -->
+    <script src="<?php echo ROOT; ?>/assets/js/single-hall.js"></script>
     <!-- Script Book Now -->
     <script src="<?php echo ROOT; ?>/assets/js/book-now.js"></script>
 </body>
