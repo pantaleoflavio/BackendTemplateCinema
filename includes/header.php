@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="<?php echo ROOT; ?>/assets/public/css/styles.css">
     <link rel="stylesheet" href="<?php echo ROOT; ?>/assets/public/css/index.css">
     <link rel="stylesheet" href="<?php echo ROOT; ?>/assets/public/css/single-movie.css">
+    <link rel="stylesheet" href="<?php echo ROOT; ?>/assets/public/css/book-now.css">
 
     <title>Cinema App</title>
 </head>

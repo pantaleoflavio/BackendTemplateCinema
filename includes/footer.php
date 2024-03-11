@@ -103,5 +103,7 @@
     <script src="<?php echo ROOT; ?>/assets/js/script.js"></script>
     <!-- Script Single Movie -->
     <script src="<?php echo ROOT; ?>/assets/js/single-movie-script.js"></script>
+    <!-- Script Book Now -->
+    <script src="<?php echo ROOT; ?>/assets/js/book-now.js"></script>
 </body>
 </html>

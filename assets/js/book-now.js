@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form');
+    const formChooseShowAndSeat = document.getElementById('formChooseShowAndSeat');
     const seatCheckboxes = document.querySelectorAll('.seat-checkbox');
     
     // FUNCTIONS
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Event Listener
-    form.addEventListener('submit', controllCheckAtLeastOneSeat);
+    formChooseShowAndSeat.addEventListener('submit', controllCheckAtLeastOneSeat);
 
     seatCheckboxes.forEach(function(checkbox) {
         checkbox.addEventListener('change', changeColorIfSeatSelected);
