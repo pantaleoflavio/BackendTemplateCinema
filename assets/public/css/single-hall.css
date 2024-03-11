@@ -1,0 +1,66 @@
+#single-hall-wall {
+  background: rgb(5, 5, 71);
+  background: linear-gradient(90deg, mv-dark-blue 0%, mv-blue-70p 39%, mv-light-blue 100%);
+}
+#single-hall-wall #hall-poster image {
+  width: 450px;
+}
+#single-hall-wall #hall-infos {
+  text-align: left;
+}
+@media (max-width: 768px) {
+  #single-hall-wall #hall-infos {
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+#single-hall-wall #hall-infos h3 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+#single-hall-wall #hall-infos h4 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #00adef;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+#single-hall-wall #hall-infos h5 {
+  font-size: 0.8rem;
+  color: #fff;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.25;
+}
+#single-hall-wall #single-hall-gallery {
+  height: 300px;
+  padding: 25px 0;
+  margin: 0;
+}
+#single-hall-wall #single-hall-gallery .swiper {
+  width: 50%;
+  height: 100%;
+}
+#single-hall-wall #single-hall-gallery .swiper .swiper-button-prev, #single-hall-wall #single-hall-gallery .swiper .swiper-button-next {
+  color: #fff;
+  font-size: 18px;
+}
+#single-hall-wall #single-hall-gallery .swiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#single-hall-wall #single-hall-gallery .swiper .swiper-slide img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*# sourceMappingURL=single-hall.css.map */

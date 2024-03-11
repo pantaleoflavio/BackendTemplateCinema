@@ -1,0 +1,41 @@
+@import '_variables.scss';
+
+body{
+    background: rgb(5, 5, 71);
+    background: linear-gradient(90deg, mv-dark-blue 0%, mv-blue-70p 39%, mv-light-blue 100%);
+    letter-spacing: 5px;
+    color: $mv-white;
+
+    main {
+
+        #movieInfoContainer {
+            h2, strong {
+                color: $mv-light-blue;
+            }
+            #imgContainer{
+                img{
+                    max-width: 70%;
+                    height: auto;
+                }
+            }
+        }
+
+        .screen {
+            width: 100%;
+            text-align: center;
+            padding: 8px;
+            margin-bottom: 20px;
+            background-color: #ddd;
+            color: #555;
+            border-radius: 4px;
+        }
+        
+        .seat-checkbox {
+            margin-left: 5px;
+        }
+        
+        .seat-checkbox:checked {
+            accent-color: $mv-light-green;
+        }
+    }
+}

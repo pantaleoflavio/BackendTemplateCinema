@@ -1,0 +1,30 @@
+body {
+  background: rgb(5, 5, 71);
+  background: linear-gradient(90deg, mv-dark-blue 0%, mv-blue-70p 39%, mv-light-blue 100%);
+  letter-spacing: 5px;
+  color: #fff;
+}
+body main #movieInfoContainer h2, body main #movieInfoContainer strong {
+  color: #00adef;
+}
+body main #movieInfoContainer #imgContainer img {
+  max-width: 70%;
+  height: auto;
+}
+body main .screen {
+  width: 100%;
+  text-align: center;
+  padding: 8px;
+  margin-bottom: 20px;
+  background-color: #ddd;
+  color: #555;
+  border-radius: 4px;
+}
+body main .seat-checkbox {
+  margin-left: 5px;
+}
+body main .seat-checkbox:checked {
+  accent-color: #45e9d0;
+}
+
+/*# sourceMappingURL=book-now.css.map */
