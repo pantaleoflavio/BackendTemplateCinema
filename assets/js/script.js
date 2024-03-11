@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // FUNCTIONS
     // Open search icon input by click on search icon in navbar
     function toggleSearchInput() {
-        const isIndexPage = window.location.pathname.endsWith('/index.html') || window.location.pathname === '/' || window.location.pathname.match(/\/resources\/Views\/$/);
+        const isIndexPage = window.location.pathname.endsWith('/index.php') || window.location.pathname === '/' || window.location.pathname.match(/\/resources\/Views\/$/);
 
         if (searchInput.style.display === 'none') {
             openSearchInput();
@@ -37,17 +37,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // If is not index redirect to index
     function redirectToIndex(e) {
-        e.preventDefault(e);
+        e.preventDefault();
         
-        // Controlla se l'utente si trova su index.html
-        const isIndexPage = window.location.pathname.endsWith('/index.html') || window.location.pathname === '/' || window.location.pathname.match(/\/resources\/Views\/$/);
-
+        // Ottieni il percorso base della tua app
+        const basePath = '/BackendTemplateCinema/resources/Views/';
+    
+        // Controlla se l'utente si trova su index.php tenendo conto del percorso base
+        const isIndexPage = window.location.pathname.endsWith(basePath + 'index.php') ||
+                            window.location.pathname === basePath ||
+                            window.location.pathname === basePath.slice(0, -1); // Rimuove l'ultimo slash se presente
+    
         if (isIndexPage) {
-            // Se sei su index.html, apri la searchBar
+            // Se sei su index.php, apri la searchBar
             toggleSearchInput();
         } else {
-            // Se non sei su index.html, reindirizza l'utente a index.html
-            window.location.href = "/resources/Views/index.html";
+            // Se non sei su index.php, reindirizza l'utente a index.php
+            window.location.href = basePath + "index.php";
         }
     }
 

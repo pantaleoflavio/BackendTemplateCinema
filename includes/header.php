@@ -1,7 +1,7 @@
 <?php 
     // Definisci la costante per la root del sito
     define('ROOT', "http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema");
-    echo ROOT;
+
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +30,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="<?php echo ROOT; ?>/assets/public/css/styles.css">
     <link rel="stylesheet" href="<?php echo ROOT; ?>/assets/public/css/index.css">
+    <link rel="stylesheet" href="<?php echo ROOT; ?>/assets/public/css/single-movie.css">
 
     <title>Cinema App</title>
 </head>
