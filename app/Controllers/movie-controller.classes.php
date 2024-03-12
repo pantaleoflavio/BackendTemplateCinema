@@ -1,6 +1,6 @@
 <?php
 
-include "../Models/movie.classes.php";
+include __DIR__ . '/../Models/movie.classes.php';
 
 class MovieController extends DB {
 

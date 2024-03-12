@@ -1,6 +1,6 @@
 <?php
 
-include "../Models/hall.classes.php";
+include __DIR__ . '/../Models/hall.classes.php';
 
 class HallController extends DB {
 
