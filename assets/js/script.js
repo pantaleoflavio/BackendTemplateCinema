@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Load Spinner for Book Now
     function loadingBookNowSpinner(e) {
         e.preventDefault();
+        const basePath = '/BackendTemplateCinema/resources/Views/';
 
         // Show loader
         const loader = document.querySelector('.lds-ring');
@@ -82,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Load simulation and redirect
         setTimeout(function() {
-            window.location.href = 'bookNow.html';
+            window.location.href = (basePath + 'bookNow.php');
         }, 2000);
     }
 
