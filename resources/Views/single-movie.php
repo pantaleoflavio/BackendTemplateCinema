@@ -1,8 +1,21 @@
 <!-- Header and Nav Bar-->
 <?php include_once "../../includes/header.php" ?>
 
+<?php
+// validation single movie wall, if there is valid movie id
+if (!isset($_GET['id'])) {
+    header('Location: index.php');
+    exit;
+} else {
+    $movieId = ($_GET['id']);
+
+    //INIT MOVIE METHOD FOR SINGLE MOVIE
+    $singleMovie = $movieController->getMovieById($movieId);
+}
+?>
+
     <main>
-        <div id="singlePageContainer" style="background-image: url('<?php echo ROOT; ?>/assets/img/movies/covers/frozen-cover.png');">
+        <div id="singlePageContainer" style="background-image: url('<?php echo ROOT; ?>/assets/img/movies/covers/<?php echo $singleMovie->coverPath; ?>');">
             <video id="background-video" class="" autoplay muted playsinline>
                 <source src="<?php echo ROOT; ?>/assets/videos/sample_mp4.mp4" type="video/mp4">
                 Your browser does not support the video tag.
@@ -21,32 +34,30 @@
                 <div class="col-12 col-md-6 offset-md-6">
                     <div class="row vh-100 d-flex justify-content-center align-items-center">
                         <div id="movie-poster" class="col-12 col-md-6">
-                            <img src="<?php echo ROOT; ?>/assets/img/movies/thumbs/frozen.jpg" class="card-img-top" alt="frozen">
+                            <img src="<?php echo ROOT; ?>/assets/img/movies/thumbs/<?php echo $singleMovie->imagePath; ?>" class="card-img-top" alt="frozen">
                         </div>
                         <div id="movie-infos" class="col-12 col-md-6">
                             <div>
                                 <h4>Titolo:</h4>
-                                <h3>Frozen</h3>
-                                <h5>Lorem ipsum dolor sit amet</h5>
+                                <h3><?php echo $singleMovie->title; ?></h3>
+                                <h5><?php echo $singleMovie->description; ?></h5>
                             </div>
                             <div>
                                 <h4>data di uscita:</h4>
-                                <h5>20/12/2019</53>
+                                <h5><?php echo $singleMovie->releaseData; ?></53>
                             </div>
                             <div>
                                 <h4>durata:</h4>
-                                <h5>120 min</h5>
+                                <h5><?php echo $singleMovie->duration; ?></h5>
                             </div>
                             <div>
                                 <h4>regia:</h4>
                                 <h5>
-                                    lorem
-                                    <br>
-                                    ipsum
+                                    <?php echo $singleMovie->director; ?>
                                 </h5>
                             </div>
                             <div>
-                                <a href="<?php echo ROOT; ?>/resources/Views/bookNow.php" class="btn btn-primary">
+                                <a href="<?php echo ROOT; ?>/resources/Views/bookNow.php?movieId=<?php echo $singleMovie->id; ?>" class="btn btn-primary">
                                     Book Now
                                 </a>
                             </div>

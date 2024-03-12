@@ -2,6 +2,18 @@
     // Definisci la costante per la root del sito
     define('ROOT', "http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema");
 
+
+    //INCLUDE DB AND CONTROLLER CLASSES
+    include __DIR__ . "/../app/Core/db.classes.php";
+    include __DIR__ . "/../app/Controllers/movie-controller.classes.php";
+    include __DIR__ . "/../app/Controllers/hall-controller.classes.php";
+    include __DIR__ . "/../app/Controllers/hall-images-controller.classes.php";
+
+    // INIT CONTROLLERS
+    $movieController = new MovieController();
+    $hallController = new HallController();
+    $hallImagesController = new HallImagesController();
+    
 ?>
 
 <!DOCTYPE html>

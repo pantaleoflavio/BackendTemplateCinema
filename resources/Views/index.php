@@ -1,5 +1,10 @@
 <!-- Header and Nav Bar-->
 <?php include_once "../../includes/header.php" ?>
+<?php 
+// INIT METHOD FOR INDEX PAGE
+$allMovies = $movieController->getAllMovies();
+$allHalls = $hallController->getAllHalls();
+?>
 
     <main>
         <!-- Slider main container Hero Gallery -->
@@ -35,70 +40,17 @@
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
 
                 <!-- Card -->
-                <div class="col searchable">
-                    <div class="card">
-                        <img src="<?php echo ROOT; ?>/assets/img/movies/thumbs/pinocchio.jpg" class="card-img-top" alt="Pinocchio">
-                        <div class="card-body">
-                            <h5 class="card-title">Pinocchio</h5>
-                            <a href="<?php echo ROOT; ?>/resources/Views/single-movie.php" class="btn btn-primary">Info movie</a>
+                <?php foreach($allMovies as $allMovie) : ?>
+                    <div class="col searchable">
+                        <div class="card">
+                            <img src="<?php echo ROOT; ?>/assets/img/movies/thumbs/<?php echo $allMovie->image_path; ?>" class="card-img-top" alt="Pinocchio">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $allMovie->name; ?></h5>
+                                <a href="<?php echo ROOT; ?>/resources/Views/single-movie.php?id=<?php echo $allMovie->id; ?>" class="btn btn-primary">Info movie</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Card -->
-                <div class="col searchable">
-                    <div class="card">
-                        <img src="<?php echo ROOT; ?>/assets/img/movies/thumbs/frozen.jpg" class="card-img-top" alt="Frozen">
-                        <div class="card-body">
-                            <h5 class="card-title">Frozen</h5>
-                            <a href="<?php echo ROOT; ?>/resources/Views/single-movie.php" class="btn btn-primary">Info movie</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card -->
-                <div class="col searchable">
-                    <div class="card">
-                        <img src="<?php echo ROOT; ?>/assets/img/movies/thumbs/ilprimonatale.jpg" class="card-img-top" alt="Il Primo Natale">
-                        <div class="card-body">
-                            <h5 class="card-title">Il Primo Natale</h5>
-                            <a href="<?php echo ROOT; ?>/resources/Views/single-movie.php" class="btn btn-primary">Info movie</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card -->
-                <div class="col searchable">
-                    <div class="card">
-                        <img src="<?php echo ROOT; ?>/assets/img/movies/thumbs/tolotolo.jpg" class="card-img-top" alt="Tolo Tolo">
-                        <div class="card-body">
-                            <h5 class="card-title">Tolo Tolo</h5>
-                            <a href="<?php echo ROOT; ?>/resources/Views/single-movie.php" class="btn btn-primary">Info movie</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card -->
-                <div class="col searchable">
-                    <div class="card">
-                        <img src="<?php echo ROOT; ?>/assets/img/movies/thumbs/starwars.jpg" class="card-img-top" alt="Star Wars">
-                        <div class="card-body">
-                            <h5 class="card-title">Star Wars</h5>
-                            <a href="<?php echo ROOT; ?>/resources/Views/single-movie.php" class="btn btn-primary">Info movie</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card -->
-                <div class="col searchable">
-                    <div class="card">
-                        <img src="<?php echo ROOT; ?>/assets/img/movies/thumbs/jumanji.jpg" class="card-img-top" alt="Jumanji">
-                        <div class="card-body">
-                            <h5 class="card-title">Jumanji</h5>
-                            <a href="<?php echo ROOT; ?>/resources/Views/single-movie.php" class="btn btn-primary">Info movie</a>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
 
             </div>
         </div>
@@ -110,59 +62,18 @@
             </div>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
 
-                <!-- Card -->
-                <div class="col">
-                    <div class="card">
-                        <img src="<?php echo ROOT; ?>/assets/img/halls/jupiter.jpg" class="card-img-top" alt="Jupiter">
-                        <div class="card-body">
-                            <h5 class="card-title">Jupiter</h5>
-                            <a href="<?php echo ROOT; ?>/resources/Views/single-hall.php" class="btn btn-primary">Info Hall</a>
+                <?php foreach($allHalls as $allHall) : ?>
+                    <!-- Card -->
+                    <div class="col">
+                        <div class="card">
+                            <img src="<?php echo ROOT; ?>/assets/img/halls/<?php echo $allHall->cover_path; ?>" class="card-img-top" alt="Jupiter">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $allHall->name; ?></h5>
+                                <a href="<?php echo ROOT; ?>/resources/Views/single-hall.php?id=<?php echo $allHall->id; ?>" class="btn btn-primary">Info Hall</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Card -->
-                <div class="col">
-                    <div class="card">
-                        <img src="<?php echo ROOT; ?>/assets/img/halls/mars5.jpg" class="card-img-top" alt="Mars">
-                        <div class="card-body">
-                            <h5 class="card-title">Mars</h5>
-                            <a href="<?php echo ROOT; ?>/resources/Views/single-hall.php" class="btn btn-primary">Info Hall</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card -->
-                <div class="col">
-                    <div class="card">
-                        <img src="<?php echo ROOT; ?>/assets/img/halls/mercury.png" class="card-img-top" alt="Mercury">
-                        <div class="card-body">
-                            <h5 class="card-title">Mercury</h5>
-                            <a href="<?php echo ROOT; ?>/resources/Views/single-hall.php" class="btn btn-primary">Info Hall</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card -->
-                <div class="col">
-                    <div class="card">
-                        <img src="<?php echo ROOT; ?>/assets/img/halls/saturn.png" class="card-img-top" alt="Saturn">
-                        <div class="card-body">
-                            <h5 class="card-title">Saturn</h5>
-                            <a href="<?php echo ROOT; ?>/resources/Views/single-hall.php" class="btn btn-primary">Info Hall</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card -->
-                <div class="col">
-                    <div class="card">
-                        <img src="<?php echo ROOT; ?>/assets/img/halls/uranus.jpg" class="card-img-top" alt="Uranus">
-                        <div class="card-body">
-                            <h5 class="card-title">Uranus</h5>
-                            <a href="<?php echo ROOT; ?>/resources/Views/single-hall.php" class="btn btn-primary">Info Hall</a>
-                        </div>
-                    </div>
-                </div>
-
-
+                <?php endforeach; ?>
 
             </div>
         </div>
