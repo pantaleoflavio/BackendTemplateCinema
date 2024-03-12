@@ -1,20 +1,43 @@
 <!-- Header and Nav Bar-->
 <?php include_once "../../includes/header.php" ?>
+<?php
+if (isset($_GET['movieId'])){
+    $movieId = $_GET['movieId'];
+    $singleMovie = $movieController->getMovieById($movieId);
+} else {
+    $allMovies = $movieController->getAllMovies();
+}
+?>
+
+
 
   <main class="container my-4">
+    <?php if (!isset($_GET['movieId'])): ?>
+        <form action="" method="GET">
+        <div class="form-group">
+            <label for="movieSelect">Select a movie:</label>
+            <select name="movieId" id="movieSelect" class="form-control" onchange="this.form.submit()">
+                <option value="">Choose...</option>
+                <?php foreach ($allMovies as $movie): ?>
+                    <option value="<?php echo $movie->id; ?>"><?php echo $movie->name; ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+    </form>
+    <?php else : ?>
         <!-- Infos and Cover Movie -->
         <div id="movieInfoContainer" class="row mb-5">
-          <div id="imgContainer" class="col-md-4 d-flex justify-content-center">
-              <img src="<?php echo ROOT; ?>/assets/img/movies/thumbs/frozen.jpg" alt="Frozen" class="img-fluid">
-          </div>
-          <div class="col-md-8">
-              <h2>Frozen</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, architecto tempora maiores expedita facere soluta totam assumenda magni voluptate eaque in, obcaecati, fugit vero?</p>
-              <p><strong>Category:</strong> Action</p>
-              <p><strong>Director:</strong> Gigi Proietti</p>
-              <p><strong>Duration:</strong> 123min</p>
-          </div>
-      </div>
+            <div id="imgContainer" class="col-md-4 d-flex justify-content-center">
+                <img src="<?php echo ROOT; ?>/assets/img/movies/thumbs/<?php echo $singleMovie->imagePath; ?>" alt="<?php echo $singleMovie->title; ?>" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+                <h2><?php echo $singleMovie->title; ?></h2>
+                <p><?php echo $singleMovie->description; ?></p>
+                <p><strong>Director:</strong> <?php echo $singleMovie->director; ?></p>
+                <p><strong>Duration:</strong> <?php echo $singleMovie->duration; ?></p>
+            </div>
+        </div>
+      <?php endif; ?>
   
       <!-- Select Hall -->
       <div class="row mb-3">
