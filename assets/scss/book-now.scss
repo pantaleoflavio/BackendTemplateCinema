@@ -7,7 +7,7 @@ body{
     color: $mv-white;
 
     main {
-
+        min-height: 60vh;
         #movieInfoContainer {
             h2, strong {
                 color: $mv-light-blue;
