@@ -80,13 +80,23 @@
         <nav class="secondary-menu container navbar navbar-expand-lg">
             <!-- Toggler -->
                 <ul class="navbar-nav">
-                    <!-- Elementi del menu secondario -->
-                    <li id="signupButtonNavbar" class="nav-item">
-                        <button class="nav-link signButton" data-bs-toggle="modal" data-bs-target="#signUpModal">SIGN UP</button>
-                    </li>
-                    <li id="signinButtonNavbar" class="nav-item">
-                        <button class="nav-link signButton" data-bs-toggle="modal" data-bs-target="#signInModal">SIGN IN</button>
-                    </li>
+                    <?php if (!isset($_SESSION['id'])) : ?>
+                        <!-- no session user -->
+                        <li id="signupButtonNavbar" class="nav-item">
+                            <button class="nav-link signButton" data-bs-toggle="modal" data-bs-target="#signUpModal">SIGN UP</button>
+                        </li>
+                        <li id="signinButtonNavbar" class="nav-item">
+                            <button class="nav-link signButton" data-bs-toggle="modal" data-bs-target="#signInModal">SIGN IN</button>
+                        </li>
+                    <?php else : ?>
+                        <!-- with session user -->
+                        <li id="signupButtonNavbar" class="nav-item">
+                            <a href="<?php echo  ROOT;?>'/auth/logout.php' " class="nav-link signButton" >SIGN OUT</a>
+                        </li>
+                        <li id="signinButtonNavbar" class="nav-item">
+                            <button class="nav-link signButton" data-bs-toggle="modal" data-bs-target="#signInModal">SIGN IN</button>
+                        </li>
+                    <?php endif; ?>
                     <li class="nav-item">
                         <a  id="searchIcon" class="nav-link signButton" href="#"><i class="fa fa-search"></i></a> 
                         <input type="text" id="searchInput"  style="display: none;" class="nav-link search-input" placeholder="Search your Movie...">
