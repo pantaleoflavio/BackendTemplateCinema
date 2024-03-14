@@ -4,6 +4,9 @@ body {
   letter-spacing: 5px;
   color: #fff;
 }
+body main {
+  min-height: 60vh;
+}
 body main #movieInfoContainer h2, body main #movieInfoContainer strong {
   color: #00adef;
 }
