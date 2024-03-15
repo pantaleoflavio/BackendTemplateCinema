@@ -9,12 +9,14 @@
     include __DIR__ . "/../app/Controllers/hall-controller.classes.php";
     include __DIR__ . "/../app/Controllers/hall-images-controller.classes.php";
     include __DIR__ . "/../app/Controllers/show-controller.classes.php";
+    include __DIR__ . "/../app/Controllers/user-controller.classes.php";
 
     // INIT CONTROLLERS
     $movieController = new MovieController();
     $hallController = new HallController();
     $hallImagesController = new HallImagesController();
     $showController = new ShowController();
+    $userController = new UserController();
 
 ?>
 

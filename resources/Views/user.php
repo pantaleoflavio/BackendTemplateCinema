@@ -5,7 +5,11 @@
 
 if (!isset($_SESSION['id'])) {
     echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/'</script>";
+} else {
+    $userId = $_SESSION['id'];
+    $singleUser = $userController->getSingleUser($userId);
 }
+
 
 
 ?>
@@ -18,16 +22,16 @@ if (!isset($_SESSION['id'])) {
         <!-- Users data -->
         <section id="user-info" class="col-12 col-lg-6">
             <h2>User</h2>
-            <p>Full Name: <?php echo 'full name'; ?></p>
-            <p>Username: <?php echo 'usename'; ?></p>
-            <p>Email: <?php echo 'email'; ?></p>
+            <p>Full Name: <?php echo $singleUser->fullname; ?></p>
+            <p>Username: <?php echo $singleUser->username; ?></p>
+            <p>Email: <?php echo $singleUser->email; ?></p>
 
             <!-- Profile Pic -->
             <div class="profile-picture">
-                <img src="<?php echo 'https://randomuser.me/api/portraits/lego/1.jpg'; ?>" alt="Profile Image">
+                <img src="<?php echo ROOT; ?>/assets/img/users/<?php echo $singleUser->user_pic; ?>" alt="Profile Image">
             </div>
 
-            <!-- Link per modificare il profilo (facoltativo) -->
+            <!-- Link per modificare il profilo -->
             <a href="">Modifica Profilo</a>
         </section>
     

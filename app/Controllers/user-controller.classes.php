@@ -1,26 +1,26 @@
 <?php
 
-include "user.classes.php";
+include __DIR__ . '/../Models/user.classes.php';
 
-class UserContr extends DB {
+class UserController extends DB {
     
 
     // SIngle User Methods
     public function getSingleUser($id) {
-        $stmt = $this->connect()->prepare("SELECT * FROM users WHERE user_id = ?");
+        $stmt = $this->connect()->prepare("SELECT * FROM users WHERE id = ?");
         if(!$stmt->execute([$id])){
             $user = null;
 
         } else {
             $userDB = $stmt->fetchAll((PDO::FETCH_ASSOC));
-            $user = new User($userDB[0]['user_id'], $userDB[0]['user_fullname'], $userDB[0]['user_email'], $userDB[0]['username'], $userDB[0]['user_image'], $userDB[0]['role']);
+            $user = new User($userDB[0]['id'], $userDB[0]['fullname'], $userDB[0]['email'], $userDB[0]['username'], $userDB[0]['image_path'], $userDB[0]['role']);
         }
 
         return $user;
     }
 
     public function updateSingleUser($id, $fullname, $email, $username, $user_image) {
-        $stmt = $this->connect()->prepare("UPDATE users SET user_fullname=?, user_email=?, username=?, user_image=? WHERE user_id=?");
+        $stmt = $this->connect()->prepare("UPDATE users SET fullname=?, email=?, username=?, image_path=? WHERE id=?");
     
         try {
             $stmt->bindParam(1, $fullname);
@@ -53,7 +53,7 @@ class UserContr extends DB {
     }
 
     public function setRoleAdmin($user_id){
-        $stmt = $this->connect()->prepare("UPDATE users SET role = 'admin' WHERE user_id = ?");
+        $stmt = $this->connect()->prepare("UPDATE users SET role = 'admin' WHERE id = ?");
 
         if(!$stmt->execute([$user_id])){
             $stmt = null;
@@ -67,7 +67,7 @@ class UserContr extends DB {
 
 
     public function setRoleUser($user_id){
-        $stmt = $this->connect()->prepare("UPDATE users SET role = 'customer' WHERE user_id = ?");
+        $stmt = $this->connect()->prepare("UPDATE users SET role = 'user' WHERE id = ?");
 
         if(!$stmt->execute([$user_id])){
             $stmt = null;
