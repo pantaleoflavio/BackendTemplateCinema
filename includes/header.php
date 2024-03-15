@@ -1,7 +1,7 @@
-<?php 
+<?php
+    session_start();
     // Definisci la costante per la root del sito
     define('ROOT', "http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema");
-
 
     //INCLUDE DB AND CONTROLLER CLASSES
     include __DIR__ . "/../app/Core/db.classes.php";
@@ -48,6 +48,7 @@
     <link rel="stylesheet" href="<?php echo ROOT; ?>/assets/public/css/single-hall.css">
     <link rel="stylesheet" href="<?php echo ROOT; ?>/assets/public/css/book-now.css">
     <link rel="stylesheet" href="<?php echo ROOT; ?>/assets/public/css/checkout.css">
+    <link rel="stylesheet" href="<?php echo ROOT; ?>/assets/public/css/signup.css">
 
     <title>Cinema App</title>
 </head>
@@ -83,19 +84,17 @@
                     <?php if (!isset($_SESSION['id'])) : ?>
                         <!-- no session user -->
                         <li id="signupButtonNavbar" class="nav-item">
-                            <button class="nav-link signButton" data-bs-toggle="modal" data-bs-target="#signUpModal">SIGN UP</button>
+                            <a class="signButton" href="<?php echo ROOT;?>/auth/signup.php">SIGNUP</a>
                         </li>
                         <li id="signinButtonNavbar" class="nav-item">
-                            <button class="nav-link signButton" data-bs-toggle="modal" data-bs-target="#signInModal">SIGN IN</button>
+                            <a class="signButton"  href="<?php echo ROOT;?>/auth/signin.php">SIGNIN</a>
                         </li>
                     <?php else : ?>
                         <!-- with session user -->
                         <li id="signupButtonNavbar" class="nav-item">
-                            <a href="<?php echo  ROOT;?>'/auth/logout.php' " class="nav-link signButton" >SIGN OUT</a>
+                            <a href="<?php echo ROOT;?>/auth/logout.php' " class="nav-link signButton" >SIGN OUT</a>
                         </li>
-                        <li id="signinButtonNavbar" class="nav-item">
-                            <button class="nav-link signButton" data-bs-toggle="modal" data-bs-target="#signInModal">SIGN IN</button>
-                        </li>
+
                     <?php endif; ?>
                     <li class="nav-item">
                         <a  id="searchIcon" class="nav-link signButton" href="#"><i class="fa fa-search"></i></a> 

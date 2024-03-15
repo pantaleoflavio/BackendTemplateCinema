@@ -130,8 +130,10 @@ header {
                 .signButton{
                     color: $mv-white;
                     text-transform: uppercase;
-                    font-size: 16px;
+                    font-size: 14px;
+                    letter-spacing: 4px;
                     border: 2px solid $mv-light-blue;
+                    text-decoration: none;
                     
                     &:hover {
                         color: lighten($mv-light-blue, 10%);

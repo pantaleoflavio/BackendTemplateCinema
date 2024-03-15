@@ -25,14 +25,14 @@
 
         try {
             $signup->signupUser();
-            echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/'</script>";
             echo "<script>alert('Register successfully')</script>";
+            echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/auth/signin.php'</script>";
 
         } catch (Exception $e) {
-                // Mostra un messaggio di errore più dettagliato
-    echo "<script>alert('Error: " . $e->getMessage() . "')</script>";
-    // Facoltativo: Logga l'errore per un'analisi più dettagliata
-    error_log($e->getMessage());
+            // Mostra un messaggio di errore più dettagliato
+            echo "<script>alert('Error: " . $e->getMessage() . "')</script>";
+            // Logga l'errore per un'analisi più dettagliata
+            error_log($e->getMessage());
         }
 
 
