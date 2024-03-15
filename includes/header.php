@@ -79,28 +79,32 @@
                 </ul>
         </nav>
         <nav class="secondary-menu container navbar navbar-expand-lg">
-            <!-- Toggler -->
-                <ul class="navbar-nav">
-                    <?php if (!isset($_SESSION['id'])) : ?>
-                        <!-- no session user -->
-                        <li id="signupButtonNavbar" class="nav-item">
-                            <a class="signButton" href="<?php echo ROOT;?>/auth/signup.php">SIGNUP</a>
-                        </li>
-                        <li id="signinButtonNavbar" class="nav-item">
-                            <a class="signButton"  href="<?php echo ROOT;?>/auth/signin.php">SIGNIN</a>
-                        </li>
-                    <?php else : ?>
-                        <!-- with session user -->
-                        <li id="signupButtonNavbar" class="nav-item">
-                            <a href="<?php echo ROOT;?>/auth/logout.php' " class="nav-link signButton" >SIGN OUT</a>
-                        </li>
-
-                    <?php endif; ?>
-                    <li class="nav-item">
-                        <a  id="searchIcon" class="nav-link signButton" href="#"><i class="fa fa-search"></i></a> 
-                        <input type="text" id="searchInput"  style="display: none;" class="nav-link search-input" placeholder="Search your Movie...">
+            <ul class="navbar-nav d-flex justify-content-center align-items-center">
+                <?php if (!isset($_SESSION['id'])) : ?>
+                    <!-- no session user -->
+                    <li id="signupButtonNavbar" class="nav-item">
+                        <a class="signButton" href="<?php echo ROOT;?>/auth/signup.php">SIGNUP</a>
                     </li>
-                </ul>
-                
+                    <li id="signinButtonNavbar" class="nav-item">
+                        <a class="signButton"  href="<?php echo ROOT;?>/auth/signin.php">SIGNIN</a>
+                    </li>
+                <?php else : ?>
+                    <!-- with session user -->
+                    <li id="signoutButtonNavbar" class="nav-item">
+                        <a href="<?php echo ROOT; ?>/auth/logout.php" class="nav-link signButton">SIGN OUT</a>
+                    </li>
+                    <li id="avatar-container" class="nav-item d-flex align-items-center justify-content-center">
+                        <a href="<?php echo ROOT; ?>/resources/Views/user.php?id=<?php echo $_SESSION['id']; ?>" class="nav-link">
+                            <div class="avatar-header"><img src="<?php echo ROOT; ?>/assets/img/users/<?php echo $_SESSION['image_path']; ?>" alt=""></div>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
+                <li class="nav-item d-flex align-items-center justify-content-center">
+                    <a id="searchIcon" class="nav-link signButton" href="#"><i class="fa fa-search"></i></a> 
+                    <input type="text" id="searchInput" style="display: none;" class="nav-link search-input" placeholder="Search your Movie...">
+                </li>
+            </ul>
         </nav>
+
     </header>

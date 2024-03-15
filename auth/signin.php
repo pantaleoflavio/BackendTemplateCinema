@@ -18,7 +18,7 @@
             //Running error handlers and user signup
             $signin->loginUser();
             // Going to back to front page
-            echo "<script>alert('You are logget')</script>";
+            echo "<script>alert('You are logged')</script>";
             echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/'</script>";
         
         } catch (Exception $e) {

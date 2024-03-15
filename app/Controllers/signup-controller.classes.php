@@ -40,7 +40,7 @@ class SignupController extends Signup {
         if (!empty($errors)) {
             // Ci sono errori, reindirizza con gli errori come parametro
             $errorString = implode(", ", $errors);
-            header("location: ../../resources/View/index.php?error=" . urlencode($errorString));
+            echo "<script>alert('Something went wrong'); window.location.href='../resources/Views/index.php?error=" . urlencode($errorString)."';</script>";
             exit();
         }
 

@@ -24,7 +24,7 @@ header {
   text-align: center;
   /* Logo Navbar*/
   /* Main Menu Nav Bar*/
-  /* Second Menu*/
+  /* Second Menu */
 }
 @media (max-width: 992px) {
   header {
@@ -99,38 +99,36 @@ header .main-menu .navbar-nav .nav-item a:hover {
   }
 }
 header .secondary-menu {
-  width: 20%;
-  height: 50%;
+  width: 25%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-right: 0;
 }
 header .secondary-menu .navbar-nav {
-  justify-content: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
-header .secondary-menu .navbar-nav .nav-item {
-  padding: 0 10px;
-  /* Search Icon*/
+header .secondary-menu .nav-item {
+  width: 33%;
+  text-align: center;
+  padding: 0;
 }
-header .secondary-menu .navbar-nav .nav-item .signButton {
+header .secondary-menu .signButton {
   color: #fff;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 12px;
   letter-spacing: 4px;
   border: 2px solid #00adef;
   text-decoration: none;
 }
-header .secondary-menu .navbar-nav .nav-item .signButton:hover {
+header .secondary-menu .signButton:hover {
   color: #23c2ff;
   border-color: #fff;
   transition: color 1.2s ease, border-color 1.2s ease;
 }
-header .secondary-menu .navbar-nav .nav-item:last-child a {
-  border: none;
-}
-header .secondary-menu .navbar-nav .nav-item .search-input {
+header .secondary-menu .search-input {
   justify-content: center;
   border: 1px solid mv-light-blue;
   background-color: #fff;
@@ -138,24 +136,30 @@ header .secondary-menu .navbar-nav .nav-item .search-input {
   margin: 5px 0;
   width: 0;
   transition: width 0.4s ease-in-out;
-  height: 45px;
+  height: 55px;
 }
-header .secondary-menu .navbar-nav .nav-item .search-input.open {
+header .secondary-menu .search-input.open {
   width: auto;
 }
 @media (max-width: 994px) {
-  header .secondary-menu {
-    align-items: center;
-    height: 90%;
-    margin: 0;
+  header .secondary-menu .navbar-nav {
+    flex-wrap: wrap;
+  }
+  header .secondary-menu .nav-item {
+    width: 50%;
+    text-align: center;
   }
 }
 @media (max-width: 768px) {
-  header .secondary-menu {
-    align-items: center;
-    height: 90%;
-    margin: 0;
+  header .secondary-menu .nav-item {
+    width: 100%;
+    text-align: center;
   }
+}
+header .avatar-header img {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 50%;
 }
 
 /* Footer */

@@ -110,76 +110,81 @@ header {
         }
        
     }
-  
-    /* Second Menu*/
+    /* Second Menu */
     .secondary-menu {
-        width: 20%;
-        height: 50%;
+        width: 25%;
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        margin-right: 0;
-
-        .navbar-nav {
-            justify-content: center;
-            width: 100%;
-        
-            .nav-item {
-              padding: 0 10px;
-  
-                .signButton{
-                    color: $mv-white;
-                    text-transform: uppercase;
-                    font-size: 14px;
-                    letter-spacing: 4px;
-                    border: 2px solid $mv-light-blue;
-                    text-decoration: none;
-                    
-                    &:hover {
-                        color: lighten($mv-light-blue, 10%);
-                        border-color: $mv-white;
-                        transition: color 1.2s ease, border-color 1.2s ease;
-
-                    }
-                }
-
-                &:last-child a {
-                border: none;
-                }
-
-
-                /* Search Icon*/
-                .search-input {
-                    justify-content: center;
-                    border: 1px solid mv-light-blue;
-                    background-color: $mv-white;
-                    padding: 5px;
-                    margin: 5px 0;
-                    width: 0;
-                    transition: width 0.4s ease-in-out;
-                    height: 45px;
-                }
-                
-                .search-input.open {
-                    width: auto;
-                }
-            }
-
-        }
-
-        @media (max-width: 994px) {
-            align-items: center;
-            height: 90%;
-            margin: 0;
-        }
-
-        @media (max-width: 768px) {
-            align-items: center;
-            height: 90%;
-            margin: 0;
-        }
-
     }
+
+    .secondary-menu .navbar-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .secondary-menu .nav-item {
+        width: 33%;
+        text-align: center;
+        padding: 0;
+    }
+
+    .secondary-menu .signButton {
+        color: $mv-white;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 4px;
+        border: 2px solid $mv-light-blue;
+        text-decoration: none;
+    }
+
+    .secondary-menu .signButton:hover {
+        color: lighten($mv-light-blue, 10%);
+        border-color: $mv-white;
+        transition: color 1.2s ease, border-color 1.2s ease;
+    }
+
+    .secondary-menu .search-input {
+        justify-content: center;
+        border: 1px solid mv-light-blue;
+        background-color: $mv-white;
+        padding: 5px;
+        margin: 5px 0;
+        width: 0;
+        transition: width 0.4s ease-in-out;
+        height: 55px;
+    }
+
+    .secondary-menu .search-input.open {
+        width: auto;
+    }
+
+    @media (max-width: 994px) {
+        .secondary-menu .navbar-nav {
+            flex-wrap: wrap;
+        }
+        
+        .secondary-menu .nav-item {
+            width: 50%;
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .secondary-menu .nav-item {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .avatar-header img {
+        max-width: 50px; 
+        max-height: 50px; 
+        border-radius: 50%; 
+    }
+
 }
 
 
