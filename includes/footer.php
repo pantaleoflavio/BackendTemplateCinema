@@ -33,16 +33,6 @@
         </div>
         </div>
     </footer>
-  
-
-    <!-- Sign In Modal and Sign up Modal-->
-
-    <?php 
-    
-    include __DIR__ . '/../auth/signin.php'; 
-    include __DIR__ . '/../auth/signup.php'; 
- 
-    ?>
 
     <!-- Loading Spinner -->
     <div class="lds-ring"><div></div><div></div><div></div><div></div></div>

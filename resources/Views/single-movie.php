@@ -4,8 +4,7 @@
 <?php
 // validation single movie wall, if there is valid movie id
 if (!isset($_GET['id'])) {
-    header('Location: index.php');
-    exit;
+    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/'</script>";
 } else {
     $movieId = ($_GET['id']);
 
