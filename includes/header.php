@@ -10,6 +10,7 @@
     include __DIR__ . "/../app/Controllers/hall-images-controller.classes.php";
     include __DIR__ . "/../app/Controllers/show-controller.classes.php";
     include __DIR__ . "/../app/Controllers/user-controller.classes.php";
+    include __DIR__ . "/../app/Controllers/show-seats-controller.classes.php";
 
     // INIT CONTROLLERS
     $movieController = new MovieController();
@@ -17,6 +18,7 @@
     $hallImagesController = new HallImagesController();
     $showController = new ShowController();
     $userController = new UserController();
+    $showSeatsController = new ShowSeatsController();
 
 ?>
 

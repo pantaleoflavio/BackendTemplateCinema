@@ -17,7 +17,13 @@ if (isset($_GET['movieId'], $_GET['hallId'])){
 
 if (isset($_GET['movieId'], $_GET['hallId'], $_GET['showId'])){
     $showId = $_GET['showId'];
- 
+    $seats = $showSeatsController->getSeatsPerShow($showId);
+    //var_dump($showSeats);
+
+    $rows = [];
+    foreach ($seats as $seat) {
+        $rows[$seat->row][] = $seat;
+    }
 }
 
 ?>
@@ -100,42 +106,34 @@ if (isset($_GET['movieId'], $_GET['hallId'], $_GET['showId'])){
     <!-- Select Place Section -->
     <?php if (isset($_GET['movieId']) && isset($_GET['hallId']) && isset($_GET['showId'])): ?>
         <form id="formChooseShowAndSeat" action="checkout.php" method="POST">
-            <input type="hidden" name="movieId" value="<?php echo $_GET['movieId']; ?>">
-            <input type="hidden" name="hallId" value="<?php echo $_GET['hallId']; ?>">
-            <input type="hidden" name="showId" value="<?php echo $_GET['showId']; ?>">
+            <input type="hidden" name="movieId" value="<?php echo htmlspecialchars($_GET['movieId']); ?>">
+            <input type="hidden" name="hallId" value="<?php echo htmlspecialchars($_GET['hallId']); ?>">
+            <input type="hidden" name="showId" value="<?php echo htmlspecialchars($_GET['showId']); ?>">
 
             <div class="text-center mb-4">
                 <h3 class="mb-3">Select Your Seats</h3>
                 <div class="screen mb-2">Screen</div>
                 <div class="container">
-                <!-- Row A -->
-                <div class="d-flex justify-content-around mb-2">
-                    <label class="btn btn-outline-primary m-1">A1<input type="checkbox" name="seats" value="A1_10.00" class="seat-checkbox visually-hidden" aria-label="Seat A1"></label>
-                    <label class="btn btn-outline-primary m-1">A2<input type="checkbox" name="seats" value="A2_10.00" class="seat-checkbox visually-hidden" aria-label="Seat A2"></label>
-                    <label class="btn btn-outline-primary m-1">A3<input type="checkbox" name="seats" value="A3_10.00" class="seat-checkbox visually-hidden" aria-label="Seat A3"></label>
-                </div>
-                <!-- Row B -->
-                <div class="d-flex justify-content-around mb-2">
-                    <label class="btn btn-outline-primary m-1">B1<input type="checkbox" name="seats" value="B1_10.00" class="seat-checkbox visually-hidden" aria-label="Seat B1"></label>
-                    <label class="btn btn-outline-primary m-1">B2<input type="checkbox" name="seats" value="B2_10.00" class="seat-checkbox visually-hidden" aria-label="Seat B2"></label>
-                    <label class="btn btn-outline-primary m-1">B3<input type="checkbox" name="seats" value="B3_10.00" class="seat-checkbox visually-hidden" aria-label="Seat B3"></label>
-                </div>
-                <!-- Row C -->
-                <div class="d-flex justify-content-around mb-2">
-                    <label class="btn btn-outline-primary m-1">C1<input type="checkbox" name="seats" value="C1_10.00" class="seat-checkbox visually-hidden" aria-label="Seat C1"></label>
-                    <label class="btn btn-outline-primary m-1">C2<input type="checkbox" name="seats" value="C2_10.00" class="seat-checkbox visually-hidden" aria-label="Seat C2"></label>
-                    <label class="btn btn-outline-primary m-1">C3<input type="checkbox" name="seats" value="C3_10.00" class="seat-checkbox visually-hidden" aria-label="Seat C3"></label>
-                </div>
+                    <?php foreach ($rows as $row => $seats): ?>
+                        <div class="d-flex justify-content-around mb-2">
+                            <?php foreach ($seats as $seat): ?>
+                                <label class="btn btn-outline-primary m-1 <?php echo $seat->is_booked ? 'disabled' : ''; ?>">
+                                    <?php echo $seat->row . $seat->seat_number; ?>
+                                    <input type="checkbox" name="seats[]" value="<?php echo $seat->row . $seat->seat_number . '_' . $seat->price; ?>" class="seat-checkbox visually-hidden" aria-label="Seat <?php echo $seat->row . $seat->seat_number; ?>" <?php echo $seat->is_booked ? 'disabled' : ''; ?>>
+                                </label>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
 
-            <!-- Button Proceed -->
             <div class="row">
-            <div class="col-12 text-center">
-                <button type="submit" class="btn btn-primary">Add to Cart</button>
-            </div>
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                </div>
             </div>
         </form>
+
     <?php endif; ?>
 </main>
     
