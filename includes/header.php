@@ -84,7 +84,7 @@
         </nav>
         <nav class="secondary-menu container navbar navbar-expand-lg">
             <ul class="navbar-nav d-flex justify-content-center align-items-center">
-                <?php if (!isset($_SESSION['id'])) : ?>
+                <?php if (!isset($_SESSION['userId'])) : ?>
                     <!-- no session user -->
                     <li id="signupButtonNavbar" class="nav-item">
                         <a class="signButton" href="<?php echo ROOT;?>/auth/signup.php">SIGNUP</a>
@@ -98,7 +98,7 @@
                         <a href="<?php echo ROOT; ?>/auth/logout.php" class="nav-link signButton">SIGN OUT</a>
                     </li>
                     <li id="avatar-container" class="nav-item d-flex align-items-center justify-content-center">
-                        <a href="<?php echo ROOT; ?>/resources/Views/user.php?id=<?php echo $_SESSION['id']; ?>" class="nav-link">
+                        <a href="<?php echo ROOT; ?>/resources/Views/user.php?id=<?php echo $_SESSION['userId']; ?>" class="nav-link">
                             <div class="avatar-header"><img src="<?php echo ROOT; ?>/assets/img/users/<?php echo $_SESSION['image_path']; ?>" alt=""></div>
                         </a>
                     </li>

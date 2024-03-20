@@ -3,10 +3,10 @@
 
 <?php
 // validation single movie wall, if there is valid movie id
-if (!isset($_GET['id'])) {
+if (!isset($_GET['movieId'])) {
     echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/'</script>";
 } else {
-    $movieId = ($_GET['id']);
+    $movieId = ($_GET['movieId']);
 
     //INIT MOVIE METHOD FOR SINGLE MOVIE
     $singleMovie = $movieController->getMovieById($movieId);

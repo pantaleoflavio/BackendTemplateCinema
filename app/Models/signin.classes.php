@@ -36,7 +36,7 @@ class Signin extends DB {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // Impostazione delle variabili di sessione
-        $_SESSION['id'] = $user['id'];
+        $_SESSION['userId'] = $user['id'];
         $_SESSION['fullname'] = $user['fullname'];
         $_SESSION['email'] = $user['email'];
         $_SESSION['username'] = $user['username'];

@@ -46,7 +46,7 @@ $allHalls = $hallController->getAllHalls();
                             <img src="<?php echo ROOT; ?>/assets/img/movies/thumbs/<?php echo $allMovie->image_path; ?>" class="card-img-top" alt="Pinocchio">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $allMovie->name; ?></h5>
-                                <a href="<?php echo ROOT; ?>/resources/Views/single-movie.php?id=<?php echo $allMovie->id; ?>" class="btn btn-primary">Info movie</a>
+                                <a href="<?php echo ROOT; ?>/resources/Views/single-movie.php?movieId=<?php echo $allMovie->id; ?>" class="btn btn-primary">Info movie</a>
                             </div>
                         </div>
                     </div>

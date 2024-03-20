@@ -1,5 +1,11 @@
 <!-- Header and Nav Bar-->
 <?php include_once "../../includes/header.php" ?>
+<?php
+if (!isset($_SESSION['userId'])) {
+
+    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/'</script>";
+}
+?>
 
   <main class="container mt-5 mb-5 text-black bg-white">
     <div class="row">

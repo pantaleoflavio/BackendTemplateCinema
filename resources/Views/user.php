@@ -3,10 +3,10 @@
 
 <?php
 
-if (!isset($_SESSION['id'])) {
+if (!isset($_SESSION['userId'])) {
     echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/'</script>";
 } else {
-    $userId = $_SESSION['id'];
+    $userId = $_SESSION['userId'];
     $singleUser = $userController->getSingleUser($userId);
 }
 
