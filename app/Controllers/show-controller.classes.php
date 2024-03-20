@@ -13,6 +13,21 @@ class ShowController extends DB {
         return $showtimes;
     }
 
+    public function getShowById($id) {
+
+        $stmt = $this->connect()->prepare("SELECT * FROM shows WHERE id = ?");
+
+        if(!$stmt->execute([$id])){
+            $singleShow = null;
+        } else {
+            
+            $singleShowDB = $stmt->fetchAll((PDO::FETCH_ASSOC));
+            $singleShow = new Show($singleShowDB[0]['id'], $singleShowDB[0]['show_date'], $singleShowDB[0]['show_time'], $singleShowDB[0]['movie_id'], $singleShowDB[0]['hall_id']);
+        }
+
+        return $singleShow;
+    }
+
     
 }
 

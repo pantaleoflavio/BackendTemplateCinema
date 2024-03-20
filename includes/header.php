@@ -22,6 +22,7 @@
     $showSeatsController = new ShowSeatsController();
     $cartController = new CartController();
 
+    $cartItemCount = count($cartController->getCartProUser($_SESSION['userId']));
 ?>
 
 <!DOCTYPE html>
@@ -106,7 +107,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a href="cart.php" class="nav-link text-white">
-                            <i class="fa fa-shopping-basket"></i> <span class="badge badge-primary"><?php echo '0'; ?></span>
+                            <i class="fa fa-shopping-basket"></i> <span class="badge badge-primary"><?php echo $cartItemCount > 0 ? $cartItemCount : '0'; ?></span>
                         </a>
                     </li>
 
