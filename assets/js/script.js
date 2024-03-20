@@ -3,8 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //Variables
     const searchIcon = document.getElementById('searchIcon');
     const searchInput = document.getElementById('searchInput');
-    const signupButtonNavbar = document.getElementById('signupButtonNavbar');
-    const signinButtonNavbar = document.getElementById('signinButtonNavbar');
+    const elementsToHideBySearch = document.querySelectorAll('.elementsToHideBySearch');
     const footerArrow = document.getElementById('footerArrow');
     const bookNowForm = document.getElementById('bookNowForm');
     const loader = document.getElementById('loader');
@@ -22,17 +21,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function openSearchInput() {
-        signupButtonNavbar.style.display = 'none';
-        signinButtonNavbar.style.display = 'none';
+        elementsToHideBySearch.forEach(function(element) {
+            element.style.display = 'none';
+        });
         searchInput.style.display = 'block';
-        searchInput.classList.add('open');
+        //searchInput.classList.add('open');
     }
 
     function closeSearchInput() {
-        signupButtonNavbar.style.display = 'block';
-        signinButtonNavbar.style.display = 'block';
+        elementsToHideBySearch.forEach(function(element) {
+            element.style.display = 'block';
+        });
         searchInput.style.display = 'none';
-        searchInput.classList.remove('open');
+        //searchInput.classList.remove('open');
     }
 
     // If is not index redirect to index
@@ -50,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (isIndexPage) {
             // Se sei su index.php, apri la searchBar
             toggleSearchInput();
+            
         } else {
             // Se non sei su index.php, reindirizza l'utente a index.php
             window.location.href = basePath + "index.php";

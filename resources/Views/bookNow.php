@@ -24,37 +24,51 @@ if (isset($_GET['movieId'], $_GET['hallId'], $_GET['showId'])){
     foreach ($seats as $seat) {
         $rows[$seat->row][] = $seat;
     }
+
+    if (isset($_POST['addToCart'])) {
+        $movieId = intval($_GET['movieId']);
+        $hallId = intval($_GET['hallId']);
+        $showId = intval($_GET['showId']);
+        
+        $seatIds = $_POST['seats'];
+        $userId = $_SESSION['userId'];
+        $seatIdsString = implode(',', $seatIds);
+
+        $cartController->createCart($movieId, $hallId, $showId, $seatIdsString, $userId);
+        echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/cart.php'</script>";
+    }
 }
 
 ?>
 
 <main class="container my-4">
-    <?php if (!isset($_GET['movieId'])): ?>
-        <form action="" method="GET">
-            <div class="form-group">
-                <label for="movieSelect">Select a movie:</label>
-                <select name="movieId" id="movieSelect" class="form-control" onchange="this.form.submit()">
-                    <option value="">Choose...</option>
-                    <?php foreach ($allMovies as $movie): ?>
-                        <option value="<?php echo $movie->id; ?>"><?php echo $movie->name; ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-        </form>
-    <?php else : ?>
 
-    <!-- Infos and Cover Movie -->
-    <div id="movieInfoContainer" class="row mb-5">
-        <div id="imgContainer" class="col-md-4 d-flex justify-content-center">
-            <img src="<?php echo ROOT; ?>/assets/img/movies/thumbs/<?php echo $singleMovie->imagePath; ?>" alt="<?php echo $singleMovie->title; ?>" class="img-fluid">
+    <form action="" method="GET">
+        <div class="form-group my-3">
+            <label for="movieSelect">Select a movie:</label>
+            <select name="movieId" id="movieSelect" class="form-control" onchange="this.form.submit()">
+                <option value="">Choose...</option>
+                <?php foreach ($allMovies as $movie): ?>
+                    <option value="<?php echo $movie->id; ?>"><?php echo $movie->name; ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
-        <div class="col-md-8">
-            <h2><?php echo $singleMovie->title; ?></h2>
-            <p><?php echo $singleMovie->description; ?></p>
-            <p><strong>Director:</strong><?php echo $singleMovie->director; ?></p>
-            <p><strong>Duration:</strong><?php echo $singleMovie->duration; ?></p>
+    </form>
+
+    <?php if (isset($_GET['movieId'])): ?>
+
+        <!-- Infos and Cover Movie -->
+        <div id="movieInfoContainer" class="row mb-5">
+            <div id="imgContainer" class="col-md-4 d-flex justify-content-center">
+                <img src="<?php echo ROOT; ?>/assets/img/movies/thumbs/<?php echo $singleMovie->imagePath; ?>" alt="<?php echo $singleMovie->title; ?>" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+                <h2><?php echo $singleMovie->title; ?></h2>
+                <p><?php echo $singleMovie->description; ?></p>
+                <p><strong>Director:</strong><?php echo $singleMovie->director; ?></p>
+                <p><strong>Duration:</strong><?php echo $singleMovie->duration; ?></p>
+            </div>
         </div>
-    </div>
     <?php endif; ?>
 
     <!-- Select Hall -->
@@ -105,7 +119,7 @@ if (isset($_GET['movieId'], $_GET['hallId'], $_GET['showId'])){
 
     <!-- Select Place Section -->
     <?php if (isset($_GET['movieId']) && isset($_GET['hallId']) && isset($_GET['showId'])): ?>
-        <form id="formChooseShowAndSeat" action="checkout.php" method="GET">
+        <form id="formChooseShowAndSeat" action="" method="POST">
             <input type="hidden" name="movieId" value="<?php echo htmlspecialchars($_GET['movieId']); ?>">
             <input type="hidden" name="hallId" value="<?php echo htmlspecialchars($_GET['hallId']); ?>">
             <input type="hidden" name="showId" value="<?php echo htmlspecialchars($_GET['showId']); ?>">
@@ -119,7 +133,7 @@ if (isset($_GET['movieId'], $_GET['hallId'], $_GET['showId'])){
                             <?php foreach ($seats as $seat): ?>
                                 <label class="btn btn-outline-primary m-1 <?php echo $seat->is_booked ? 'disabled' : ''; ?>">
                                     <?php echo $seat->row . $seat->seat_number; ?>
-                                    <input type="checkbox" name="seats[]" value="<?php echo $seat->row . $seat->seat_number . '_' . $seat->price; ?>" class="seat-checkbox visually-hidden" aria-label="Seat <?php echo $seat->row . $seat->seat_number; ?>" <?php echo $seat->is_booked ? 'disabled' : ''; ?>>
+                                    <input type="checkbox" name="seats[]" value="<?php echo $seat->id; ?>" class="seat-checkbox visually-hidden" aria-label="Seat <?php echo $seat->row . $seat->seat_number; ?>" <?php echo $seat->is_booked ? 'disabled' : ''; ?>>
                                 </label>
                             <?php endforeach; ?>
                         </div>
@@ -129,7 +143,7 @@ if (isset($_GET['movieId'], $_GET['hallId'], $_GET['showId'])){
 
             <div class="row">
                 <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    <button type="submit" name="addToCart" class="btn btn-primary">Add to Cart</button>
                 </div>
             </div>
         </form>

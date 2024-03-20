@@ -11,6 +11,7 @@
     include __DIR__ . "/../app/Controllers/show-controller.classes.php";
     include __DIR__ . "/../app/Controllers/user-controller.classes.php";
     include __DIR__ . "/../app/Controllers/show-seats-controller.classes.php";
+    include __DIR__ . "/../app/Controllers/cart-controller.classes.php";
 
     // INIT CONTROLLERS
     $movieController = new MovieController();
@@ -19,6 +20,7 @@
     $showController = new ShowController();
     $userController = new UserController();
     $showSeatsController = new ShowSeatsController();
+    $cartController = new CartController();
 
 ?>
 
@@ -86,22 +88,28 @@
             <ul class="navbar-nav d-flex justify-content-center align-items-center">
                 <?php if (!isset($_SESSION['userId'])) : ?>
                     <!-- no session user -->
-                    <li id="signupButtonNavbar" class="nav-item">
+                    <li id="signupButtonNavbar" class="elementsToHideBySearch nav-item">
                         <a class="signButton" href="<?php echo ROOT;?>/auth/signup.php">SIGNUP</a>
                     </li>
-                    <li id="signinButtonNavbar" class="nav-item">
+                    <li id="signinButtonNavbar" class="elementsToHideBySearch nav-item">
                         <a class="signButton"  href="<?php echo ROOT;?>/auth/signin.php">SIGNIN</a>
                     </li>
                 <?php else : ?>
                     <!-- with session user -->
-                    <li id="signoutButtonNavbar" class="nav-item">
+                    <li id="signoutButtonNavbar" class="elementsToHideBySearch nav-item">
                         <a href="<?php echo ROOT; ?>/auth/logout.php" class="nav-link signButton">SIGN OUT</a>
                     </li>
-                    <li id="avatar-container" class="nav-item d-flex align-items-center justify-content-center">
+                    <li id="avatar-container" class="elementsToHideBySearch nav-item d-flex align-items-center justify-content-center">
                         <a href="<?php echo ROOT; ?>/resources/Views/user.php?id=<?php echo $_SESSION['userId']; ?>" class="nav-link">
                             <div class="avatar-header"><img src="<?php echo ROOT; ?>/assets/img/users/<?php echo $_SESSION['image_path']; ?>" alt=""></div>
                         </a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a href="cart.php" class="nav-link text-white">
+                            <i class="fa fa-shopping-basket"></i> <span class="badge badge-primary"><?php echo '0'; ?></span>
+                        </a>
+                    </li>
+
                 <?php endif; ?>
 
                 <li class="nav-item d-flex align-items-center justify-content-center">
