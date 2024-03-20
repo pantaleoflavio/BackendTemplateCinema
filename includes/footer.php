@@ -51,7 +51,7 @@
     <!-- Script Single Hall -->
     <script src="<?php echo ROOT; ?>/assets/js/single-hall.js"></script>
     <!--Script Book Now  -->
-        <script src="<?php //echo ROOT; ?>/assets/js/book-now.js"></script>
+    <script src="<?php echo ROOT; ?>/assets/js/book-now.js"></script>
    
 </body>
 </html>

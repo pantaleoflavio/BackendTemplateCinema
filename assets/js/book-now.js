@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // FUNCTIONS
     function controllCheckAtLeastOneSeat(e) {
-        const seatsSelected = document.querySelectorAll('input[name="seats"]:checked').length;
         
-        if (seatsSelected === 0) {
-            e.preventDefault();
+        const selectedSeats = document.querySelectorAll('input[type="checkbox"][name="seats[]"]:checked');
+        if (selectedSeats.length === 0) {
             alert('Please select at least one seat.');
+            e.preventDefault();
         }
     }
 

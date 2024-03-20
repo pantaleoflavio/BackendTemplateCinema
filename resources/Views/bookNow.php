@@ -105,7 +105,7 @@ if (isset($_GET['movieId'], $_GET['hallId'], $_GET['showId'])){
 
     <!-- Select Place Section -->
     <?php if (isset($_GET['movieId']) && isset($_GET['hallId']) && isset($_GET['showId'])): ?>
-        <form id="formChooseShowAndSeat" action="checkout.php" method="POST">
+        <form id="formChooseShowAndSeat" action="checkout.php" method="GET">
             <input type="hidden" name="movieId" value="<?php echo htmlspecialchars($_GET['movieId']); ?>">
             <input type="hidden" name="hallId" value="<?php echo htmlspecialchars($_GET['hallId']); ?>">
             <input type="hidden" name="showId" value="<?php echo htmlspecialchars($_GET['showId']); ?>">

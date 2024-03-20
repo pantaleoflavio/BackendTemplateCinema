@@ -5,6 +5,12 @@ if (!isset($_SESSION['userId'])) {
 
     echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/'</script>";
 }
+
+if (empty($_GET['seats'])) {
+    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/bookNow.php'</script>";
+    echo "<script>alert('Select a seat')</script>";
+    exit;
+}
 ?>
 
   <main class="container mt-5 mb-5 text-black bg-white">
