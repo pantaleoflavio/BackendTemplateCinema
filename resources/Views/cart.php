@@ -7,7 +7,13 @@ if (!isset($_SESSION['userId'])) {
 } else {
     $userId = $_SESSION['userId'];
     $cartItems = $cartController->getCartProUser($userId);
-    //var_dump($theCart);
+
+    if (isset($_GET['deleteCartElementById'])) {
+        $cartElementId = $_GET['deleteCartElementById'];
+        $deleteElementFromCart = $cartController->deleteElementFromCart($cartElementId);
+        echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/cart.php'</script>";
+    }
+
 
 }
 
@@ -21,26 +27,28 @@ if (!isset($_SESSION['userId'])) {
             <?php foreach ($cartItems as $item) : ?>
                 <div id="showDetails" class="col-12">
                     <h2>Show Details</h2>
-                    <p><strong>Movie:</strong> <?php echo $movieController->getMovieById($item->movie_id)->title?></p>
-                    <p><strong>Hall:</strong> <?php echo $hallController->getHallById($item->hall_id)->name?></p>
-                    <p><strong>Date and Time:</strong> <?php echo $showController->getShowById($item->show_time_id)->showDate?>, <?php echo $showController->getShowById($item->show_time_id)->showTime?></p>
+                    <p><strong>Movie:</strong> <?php echo htmlspecialchars($movieController->getMovieById($item->movie_id)->title)?></p>
+                    <p><strong>Hall:</strong> <?php echo htmlspecialchars($hallController->getHallById($item->hall_id)->name)?></p>
+                    <p><strong>Date and Time:</strong> <?php echo htmlspecialchars($showController->getShowById($item->show_time_id)->showDate)?>, <?php echo htmlspecialchars($showController->getShowById($item->show_time_id)->showTime)?></p>
                     <p><strong>Seats:</strong>
                         <?php
                             $seatIdsArray = explode(',', $item->seat_ids);
-                            $totalPrice = 0;
+                            $price = 0;
                             foreach ($seatIdsArray as $seatId) {
                                 $singleSeat = $showSeatsController->getSeatPerId($seatId);
-                                $totalPrice += $singleSeat->price;
-                                echo $singleSeat->seatNumber . $singleSeat->row. ", ";
+                                $price += $singleSeat->price;
+                                echo htmlspecialchars($singleSeat->seatNumber) . htmlspecialchars($singleSeat->row) . ", ";
                             }
-                        ?>
+
+                            ?>
                     </p>
-                    <p><strong>Total Price:</strong> <?php echo $totalPrice; ?> €</p>
+                    <p><strong>Price:</strong> <?php echo htmlspecialchars($price); ?> €</p>
+                    <div class=""><a style="text-decoration: none;" href="cart.php?deleteCartElementById=<?php echo $item->id ?>" class="bg-danger text-white">Delete this element</a></div>
                 </div>
             <?php endforeach;?>
 
             <div class="text-center my-4">
-                <button class="btn btn-success">go to checkout</button>
+                <a href="checkout.php" type="submit" class="btn btn-success">Go to Checkout</a>
             </div>
         </div>
     <?php else : ?>
