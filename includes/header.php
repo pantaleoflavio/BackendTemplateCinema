@@ -26,6 +26,7 @@
     
     if(isset($_SESSION['userId'])){
         $cartItemCount = count($cartController->getCartProUser($_SESSION['userId']));
+        $userImage = $userController->getSingleUser($_SESSION['userId'])->user_pic;
     }
 ?>
 
@@ -106,7 +107,7 @@
                     </li>
                     <li id="avatar-container" class="elementsToHideBySearch nav-item d-flex align-items-center justify-content-center">
                         <a href="<?php echo ROOT; ?>/resources/Views/user.php?id=<?php echo $_SESSION['userId']; ?>" class="nav-link">
-                            <div class="avatar-header"><img src="<?php echo ROOT; ?>/assets/img/users/<?php echo $_SESSION['image_path']; ?>" alt=""></div>
+                            <div class="avatar-header"><img src="<?php echo ROOT; ?>/assets/img/users/<?php echo $userImage; ?>" alt=""></div>
                         </a>
                     </li>
                     <li class="nav-item dropdown">

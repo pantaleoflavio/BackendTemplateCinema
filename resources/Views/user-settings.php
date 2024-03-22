@@ -9,6 +9,25 @@ if (!isset($_SESSION['userId'])) {
     $userId = $_SESSION['userId'];
     $user = $userController->getSingleUser($userId);
 
+    if (isset($_POST['userUpdate'])) {
+
+        $fullname = $_POST['fullname'];
+        $email = $_POST['email'];
+        $username = $_POST['username'];
+
+        if (!empty($_FILES['image']['name'])) {
+            $user_pic = $_FILES['image']['name'];
+            $user_image_temp = $_FILES['image']['tmp_name'];
+            move_uploaded_file($user_image_temp,  "../../assets/img/users/$user_pic");
+        } else {
+            $user_pic = $user->user_pic;
+        }
+        
+        $userUpdate = $userController->updateSingleUser($userId, $fullname, $email, $username, $user_pic);
+
+        echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/user-settings.php'</script>";
+    }
+
 }
 
 
@@ -42,7 +61,7 @@ if (!isset($_SESSION['userId'])) {
                                 </div>
                                 <div class="py-3 text-right">
                                     <button type="submit" name="userUpdate" class="btn btn-primary">UPDATE</button>
-                                    <div class="clearfix">
+                                <div class="clearfix">
                                 </div>
                             </fieldset>
                         </form>
