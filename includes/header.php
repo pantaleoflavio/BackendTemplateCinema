@@ -12,6 +12,7 @@
     include __DIR__ . "/../app/Controllers/user-controller.classes.php";
     include __DIR__ . "/../app/Controllers/show-seats-controller.classes.php";
     include __DIR__ . "/../app/Controllers/cart-controller.classes.php";
+    include __DIR__ . "/../app/Controllers/bill-controller.classes.php";
 
     // INIT CONTROLLERS
     $movieController = new MovieController();

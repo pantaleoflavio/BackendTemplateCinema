@@ -9,6 +9,9 @@ if (!isset($_SESSION['userId'])) {
     $cartItems = $cartController->getCartProUser($userId);
     $user = $userController->getSingleUser($userId);
 
+    //INIT BILL CONTROLLER
+    $billController = new BillController();
+
     if (isset($_POST['procedePay'])) {
         $customer = $_POST['fullname'];
         $adress = $_POST['adress'];
@@ -17,6 +20,9 @@ if (!isset($_SESSION['userId'])) {
         $total = $_POST['totalPrice'];
         $finalOrder = $_POST['orderList'];
 
+        $bill = $billController->createBill($customer, $adress, $email, $order_notes, $total, $finalOrder, $userId);
+
+        echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/success.php?successPayment'</script>";
     }
 
 }

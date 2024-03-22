@@ -41,11 +41,11 @@ class CartController extends DB {
         
     }
 
-    public function deleteElementFromCart($id){
-        $stmt = $this->connect()->prepare("DELETE FROM cart WHERE id = ?");
+    public function deleteElementFromCart($user_id){
+        $stmt = $this->connect()->prepare("DELETE FROM cart WHERE user_id = ?");
 
         try {
-            $stmt->bindParam(1, $id);
+            $stmt->bindParam(1, $user_id);
             $stmt->execute();
             return true; // Successo
 

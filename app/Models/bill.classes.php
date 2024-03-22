@@ -11,9 +11,10 @@ class Bill {
     public $orderList;
     public $user_id;
     public $deliveryStatus;
+    public $createdAt;
 
 
-    public function __construct($id, $customer, $adresse, $email, $order_notes, $total, $orderList, $user_id, $deliveryStatus) {
+    public function __construct($id, $customer, $adresse, $email, $order_notes, $total, $orderList, $user_id, $deliveryStatus, $createdAt) {
         $this->id = $id;
         $this->customer = $customer;
         $this->adresse = $adresse;
@@ -23,6 +24,7 @@ class Bill {
         $this->orderList = $orderList;
         $this->user_id = $user_id;
         $this->deliveryStatus = $deliveryStatus;
+        $this->createdAt = $createdAt;
     }
 
 
