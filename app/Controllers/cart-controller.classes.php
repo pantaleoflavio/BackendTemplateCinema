@@ -41,6 +41,21 @@ class CartController extends DB {
         
     }
 
+    public function deleteElementFromCart($id){
+        $stmt = $this->connect()->prepare("DELETE FROM cart WHERE id = ?");
+
+        try {
+            $stmt->bindParam(1, $id);
+            $stmt->execute();
+            return true; // Successo
+
+        } catch (PDOException $e) {
+            error_log("PDOException in deleteProductCart: " . $e->getMessage());
+            return false;
+        }
+        
+    }
+
     
 }
 
