@@ -22,6 +22,17 @@ if (!isset($_SESSION['userId'])) {
 
         $bill = $billController->createBill($customer, $adress, $email, $order_notes, $total, $finalOrder, $userId);
 
+        if (isset($_GET['seatIds']) && !empty($_GET['seatIds'])) {
+            $seatIds = explode(',', $_GET['seatIds']);
+            
+            foreach ($seatIds as $seatId) {
+                $seatId = (int) $seatId;
+                $seatIsBooked = $showSeatsController->seatBooked($seatId);
+                
+            }
+        }
+        
+
         echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/success.php?successPayment'</script>";
     }
 

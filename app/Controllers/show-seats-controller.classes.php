@@ -28,6 +28,19 @@ class ShowSeatsController extends DB {
         return $singleSeat;
     }
 
+    public function seatBooked($id) {
+        $stmt = $this->connect()->prepare("UPDATE show_seats SET is_booked = 1 WHERE id = ?");
+    
+        try {
+            $stmt->execute([$id]);
+    
+            return true; // Successo
+        } catch (PDOException $e) {
+            error_log("PDOException : " . $e->getMessage());
+            return false;
+        }
+    }
+
     
 }
 

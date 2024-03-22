@@ -44,11 +44,12 @@ if (!isset($_SESSION['userId'])) {
                     </p>
                     <p><strong>Price:</strong> <?php echo htmlspecialchars($price); ?> €</p>
                     <div class=""><a style="text-decoration: none;" href="cart.php?deleteCartElementById=<?php echo $item->id ?>" class="bg-danger text-white">Delete this element</a></div>
-                </div>
+                </div>  
+            <?php $checkoutUrl = "checkout.php?seatIds=" . urlencode($item->seat_ids);?>
             <?php endforeach;?>
 
             <div class="text-center my-4">
-                <a href="checkout.php" type="submit" class="btn btn-success">Go to Checkout</a>
+                <a href="<?php echo $checkoutUrl;?>" type="submit" class="btn btn-success">Go to Checkout</a>
             </div>
         </div>
     <?php else : ?>
