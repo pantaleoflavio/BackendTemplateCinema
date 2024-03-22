@@ -5,7 +5,7 @@ include __DIR__ . '/../Models/bill.classes.php';
 class BillController extends DB {
 
     public function getBillsProUser($user_id){
-        $stmt = $this->connect()->prepare("SELECT * FROM bill WHERE user_id = ?");
+        $stmt = $this->connect()->prepare("SELECT * FROM bills WHERE user_id = ?");
 
 
         if(!$stmt->execute([$user_id])){

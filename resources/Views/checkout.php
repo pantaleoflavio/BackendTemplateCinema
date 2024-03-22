@@ -9,9 +9,6 @@ if (!isset($_SESSION['userId'])) {
     $cartItems = $cartController->getCartProUser($userId);
     $user = $userController->getSingleUser($userId);
 
-    //INIT BILL CONTROLLER
-    $billController = new BillController();
-
     if (isset($_POST['procedePay'])) {
         $customer = $_POST['fullname'];
         $adress = $_POST['adress'];

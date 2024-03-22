@@ -22,6 +22,7 @@
     $userController = new UserController();
     $showSeatsController = new ShowSeatsController();
     $cartController = new CartController();
+    $billCOntroller = new billCOntroller();
     
     if(isset($_SESSION['userId'])){
         $cartItemCount = count($cartController->getCartProUser($_SESSION['userId']));

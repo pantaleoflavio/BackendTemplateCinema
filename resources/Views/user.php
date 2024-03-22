@@ -8,6 +8,7 @@ if (!isset($_SESSION['userId'])) {
 } else {
     $userId = $_SESSION['userId'];
     $singleUser = $userController->getSingleUser($userId);
+    $bills = $billCOntroller->getBillsProUser($userId);
 }
 
 
@@ -38,7 +39,7 @@ if (!isset($_SESSION['userId'])) {
         <!-- Prenotations hronology -->
         <section id="booking-history" class="col-12 col-lg-6">
             <h2>Cronologia Prenotazioni</h2>
-            <!-- Mostra la cronologia delle prenotazioni dell'utente qui -->
+            <?php var_dump($bills); ?>
         </section>
     </div>
 </main>
