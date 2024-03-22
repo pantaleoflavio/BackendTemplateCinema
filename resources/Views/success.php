@@ -7,7 +7,7 @@ if (!isset($_SESSION['userId'])) {
 }  else {
     
     if (isset($_GET['successPayment'])) {
-        $deleteCart = $cartController->deleteElementFromCart($_SESSION['userId']);
+        $deleteCart = $cartController->EmptyCartAfterPaying($_SESSION['userId']);
         
     }
 
