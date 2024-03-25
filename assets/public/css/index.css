@@ -89,7 +89,7 @@ main .booknow-container .booking-card .card-body {
   align-items: center;
   justify-content: center;
 }
-main .booknow-container .booking-card .card-body form {
+main .booknow-container .booking-card .card-body #booknowForm {
   width: 80%;
   font-weight: 300;
   font-size: 22px;

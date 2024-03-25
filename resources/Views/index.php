@@ -4,6 +4,7 @@
 // INIT METHOD FOR INDEX PAGE
 $allMovies = $movieController->getAllMovies();
 $allHalls = $hallController->getAllHalls();
+
 ?>
 
     <main>
@@ -91,44 +92,33 @@ $allHalls = $hallController->getAllHalls();
                             <img src="<?php echo ROOT; ?>/assets/img/sala-1.png" alt="" srcset="">
                         </div>
                         <div class="col-sm-12 col-md-6 card-body">
-                            <form id="bookNowForm">
+                            <form id="booknowForm" method="get" action="bookNow.php">
+
                                 <div class="mb-3">
-                                    <label for="chooseMovie" class="form-label">Choose a movie</label>
-                                    <select class="form-select" id="chooseMovie">
+                                    <label for="movieId" class="form-label">Choose a movie</label>
+                                    <select class="form-select" id="movieId" name="movieId">
                                         <option >Open this select menu</option>
-                                        <option >Jumanji</option>
-                                        <option >Frozen</option>
-                                        <option >Pinocchio</option>
-                                        <option >Tolo Tolo</option>
-                                        <option >Star Wars</option>
-                                        <option >Il primo Natale</option>
+                                        <?php foreach($allMovies as $movie) : ?>
+                                            <option value="<?php echo $movie->id; ?>" ><?php echo $movie->name; ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
+
                                 <div class="mb-3">
-                                    <label for="chooseDay" class="form-label">Choose a day</label>
-                                    <select class="form-select" id="chooseDay">
+                                    <label for="hallId" class="form-label">Choose a Hall</label>
+                                    <select class="form-select" id="hallId" name="hallId">
                                         <option selected>Open this select menu</option>
-                                        <option>23.04</option>
-                                        <option>24.04</option>
-                                        <option>25.04</option>
-                                        <option>26.04</option>
-                                        <option>27.04</option>
-                                        <option>28.04</option>
+                                        <?php foreach($allHalls as $hall) : ?>
+                                            <option value="<?php echo $hall->id; ?>"><?php echo $hall->name; ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="chooseShow" class="form-label">Choose a show</label>
-                                    <select class="form-select" id="chooseShow">
-                                        <option selected>Open this select menu</option>
-                                        <option>17</option>
-                                        <option>19:30</option>
-                                        <option>21</option>
-                                        <option>23:30</option>
-                                    </select>
-                                </div>
+
+
                                 <div class="d-grid gap-2 justify-content-center">
                                     <button class="btn btn-primary" type="submit">Search</button>
                                 </div>
+
                             </form>
                         </div>
                     </div>
