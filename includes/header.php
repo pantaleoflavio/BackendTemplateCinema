@@ -106,11 +106,11 @@
                         <a href="<?php echo ROOT; ?>/auth/logout.php" class="nav-link signButton">SIGN OUT</a>
                     </li>
                     <li id="avatar-container" class="elementsToHideBySearch nav-item d-flex align-items-center justify-content-center">
-                        <a href="<?php echo ROOT; ?>/resources/Views/user.php?id=<?php echo $_SESSION['userId']; ?>" class="nav-link">
+                        <a href="<?php echo ROOT; ?>/resources/Views/user.php?id=<?php echo $_SESSION['userId']; ?>" class="nav-link elementsToHideBySearch">
                             <div class="avatar-header"><img src="<?php echo ROOT; ?>/assets/img/users/<?php echo $userImage; ?>" alt=""></div>
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item elementsToHideBySearch">
                         <a href="cart.php" class="nav-link text-white">
                             <i class="fa fa-shopping-basket"></i> <span class="badge badge-primary"><?php echo $cartItemCount > 0 ? $cartItemCount : '0'; ?></span>
                         </a>
