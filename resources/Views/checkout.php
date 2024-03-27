@@ -17,6 +17,42 @@ if (!isset($_SESSION['userId'])) {
         $total = $_POST['totalPrice'];
         $finalOrder = $_POST['orderList'];
 
+
+        //GENERATION PDF TICKET
+
+        $dateTicket = date('Y-m-d_His');
+        // Creation new PDF Tocket
+        $pdfTicket = new TCPDF();
+        // Add a page
+        $pdfTicket->AddPage();
+        //font
+        $pdfTicket->SetFont('helvetica', '', 12);
+        $textTicket = $dateTicket . '<br>' .'Order and Ticket details: ' . $finalOrder . '<br>' . 'Customer: ' .  $customer . '<br>';
+        // ticket text
+        $pdfTicket->writeHTML($textTicket, true, false, true, false, '');
+        // Random content for QR Code
+        $QRContent = 'Data:' . uniqid() . ' Random:' . rand();
+        // Sposta il cursore verso il basso per lasciare spazio al QR Code
+        $pdfTicket->SetY($pdfTicket->GetY() + 10);
+        // Parametri per la generazione del QR Code
+        $styleQR = array(
+            'border' => 2,
+            'vpadding' => 'auto',
+            'hpadding' => 'auto',
+            'fgcolor' => array(0,0,0),
+            'bgcolor' => array(255,255,255),
+            'module_width' => 1,
+            'module_height' => 1
+        );
+        // add QR Code to PDF
+        $pdfTicket->write2DBarcode($QRContent, 'QRCODE,H', '', '', 50, 50, $styleQR, 'N');
+        // path and name of pdf
+        $pathTicket = 'C:\xampp\htdocs\BackendTemplateCinema/generatedTickets/ticket_' . $dateTicket . '.pdf';
+         // Save pdf
+        $pdfTicket->Output($pathTicket, 'F');
+        
+
+        //GENERATION BILL AND SEATS BECOME BOOKED
         $bill = $billController->createBill($customer, $adress, $email, $order_notes, $total, $finalOrder, $userId);
 
         if (isset($_GET['seatIds']) && !empty($_GET['seatIds'])) {
@@ -28,7 +64,6 @@ if (!isset($_SESSION['userId'])) {
                 
             }
         }
-        
 
         echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/success.php?successPayment'</script>";
     }

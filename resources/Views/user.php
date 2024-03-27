@@ -8,7 +8,7 @@ if (!isset($_SESSION['userId'])) {
 } else {
     $userId = $_SESSION['userId'];
     $singleUser = $userController->getSingleUser($userId);
-    $bookingHistory = $billCOntroller->getBillsProUser($userId);
+    $bookingHistory = $billController->getBillsProUser($userId);
 }
 
 

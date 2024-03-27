@@ -14,6 +14,9 @@
     include __DIR__ . "/../app/Controllers/cart-controller.classes.php";
     include __DIR__ . "/../app/Controllers/bill-controller.classes.php";
 
+    //ADD LIBRARIES FROM VENDOR
+    require_once __DIR__ . '/../vendor/autoload.php';
+
     // INIT CONTROLLERS
     $movieController = new MovieController();
     $hallController = new HallController();
@@ -22,7 +25,7 @@
     $userController = new UserController();
     $showSeatsController = new ShowSeatsController();
     $cartController = new CartController();
-    $billCOntroller = new billCOntroller();
+    $billController = new billCOntroller();
     
     if(isset($_SESSION['userId'])){
         $cartItemCount = count($cartController->getCartProUser($_SESSION['userId']));
