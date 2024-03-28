@@ -5,6 +5,19 @@
 $allMovies = $movieController->getAllMovies();
 $allHalls = $hallController->getAllHalls();
 
+//INIT CONTACT FORM
+$contactForm = new SendMailer();
+
+if (isset($_POST['sendMessage'])) {
+    $userName = $_POST['name'];
+    $userEmail = $_POST['email'];
+    $userMessage = $_POST['message'];
+
+    $contactForm->sendContactForm($userEmail, $userName, $userMessage);
+
+    echo "<script>alert('Email sent successfully')</script>";
+}
+
 ?>
 
     <main>
@@ -137,20 +150,20 @@ $allHalls = $hallController->getAllHalls();
                   <p class="text-left text-center-sm">Do you have questions? We'd love to respond. Fill out the form below and we will reply as soon as possible.</p>
                   
                   <!-- contact form -->
-                  <form>
+                  <form method="post">
                     <div class="mb-3">
-                      <label for="nome" class="form-label">Name</label>
-                      <input type="text" class="form-control" id="nome" placeholder="Il tuo nome">
+                      <label for="name" class="form-label">Name</label>
+                      <input type="text" class="form-control" id="name" name="name" placeholder="Il tuo nome">
                     </div>
                     <div class="mb-3">
                       <label for="email" class="form-label">Email</label>
-                      <input type="email" class="form-control" id="email" placeholder="La tua email">
+                      <input type="email" class="form-control" id="email" name="email" placeholder="La tua email">
                     </div>
                     <div class="mb-3">
                       <label for="messaggio" class="form-label">Message</label>
-                      <textarea class="form-control" id="messaggio" rows="3"></textarea>
+                      <textarea class="form-control" id="messaggio" name="message" rows="3"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Send</button>
+                    <button type="submit" name="sendMessage" class="btn btn-primary">Send</button>
                   </form>
                 </div>
                 

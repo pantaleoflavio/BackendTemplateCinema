@@ -49,5 +49,33 @@
 
             }
         }
+
+        public function sendContactForm($senderEmail, $senderName, $senderMessage) {
+            try {
+                // Set email where you want to receive the email 
+                $this->mailer->addAddress('tuoemail@esempio.com');
+        
+                // set sender of the mail
+                $this->mailer->setFrom('cinema@vision.com', 'Cinema Fake Vision');
+        
+                // User data
+                $this->mailer->addReplyTo($senderEmail, $senderName);
+        
+                // content of the email
+                $this->mailer->isHTML(true);
+                $this->mailer->Subject = 'New Contact Form Submission';
+                $this->mailer->Body    = "<h1>New Message From Contact Form</h1>
+                                          <p><b>Name:</b> {$senderName}</p>
+                                          <p><b>Email:</b> {$senderEmail}</p>
+                                          <p><b>Message:</b><br>" . nl2br(htmlspecialchars($senderMessage)) . "</p>";
+                $this->mailer->AltBody = "Name: {$senderName}\nEmail: {$senderEmail}\nMessage: {$senderMessage}";
+        
+                $this->mailer->send();
+                //echo 'Message sent successfully.';
+            } catch (Exception $e) {
+                echo "Message could not be sent. Mailer Error: {$this->mailer->ErrorInfo}";
+            }
+        }
+        
     }
 ?>
