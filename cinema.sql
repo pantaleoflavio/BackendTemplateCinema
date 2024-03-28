@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mar 27, 2024 alle 13:07
+-- Creato il: Mar 28, 2024 alle 11:29
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.1.17
 
@@ -45,11 +45,7 @@ CREATE TABLE `bills` (
 --
 
 INSERT INTO `bills` (`id`, `customer`, `adress`, `email`, `order_notes`, `total`, `orderList`, `user_id`, `deliveryStatus`, `created_at`) VALUES
-(2, 'Mary Jane', 'via parma', 'mary@jane.com', '', 80, '{\"movieTitle\":\"Tolo Tolo\",\"hallName\":\"mars\",\"showDetails\":\"17:00:00, 2023-01-01\",\"seats\":\"7A, 9A, 10A, 7B, 10B, \"}', 2, 0, '2024-03-22 11:28:55'),
-(3, 'Mary Jane', 'via parma', 'mary@jane.com', 'test2', 30, '{\"movieTitle\":\"Frozen\",\"hallName\":\"mars\",\"showDetails\":\"17:00:00, 2023-01-01\",\"seats\":\"4A, 4B, 2C, \"}', 2, 0, '2024-03-22 11:30:20'),
-(4, 'Mary Jane', 'via parma', 'mary@jane.com', 'test3', 20, '{\"movieTitle\":\"Tolo Tolo\",\"hallName\":\"mars\",\"showDetails\":\"17:00:00, 2023-01-01\",\"seats\":\"9A, 9C, \"}', 2, 0, '2024-03-22 11:31:16'),
-(5, 'Mary Jane', 'via parma', 'mary@jane.com', 'test 4', 10, '{\"movieTitle\":\"Tolo Tolo\",\"hallName\":\"mars\",\"showDetails\":\"17:00:00, 2023-01-01\",\"seats\":\"2A, \"}', 2, 0, '2024-03-22 12:14:20'),
-(6, 'Mary Jane', 'via parma', 'mary@jane.com', 'test evaluet seat booked', 20, '{\"movieTitle\":\"Frozen\",\"hallName\":\"mars\",\"showDetails\":\"17:00:00, 2023-01-01\",\"seats\":\"1A, 2A, \"}', 2, 0, '2024-03-22 12:36:02');
+(13, 'Mary Jane', 'via parma 23', 'mary@jane.com', 'test generally functionality, mail sender and pdf ticket generator', 50, '{\"movieTitle\":\"Frozen\",\"hallName\":\"mars\",\"showDetails\":\"13:00:00, 2023-01-01\",\"seats\":\"1A, 2A, 3A, 4A, 5A, \"}', 2, 0, '2024-03-28 10:18:53');
 
 -- --------------------------------------------------------
 
@@ -216,11 +212,11 @@ CREATE TABLE `show_seats` (
 --
 
 INSERT INTO `show_seats` (`id`, `show_id`, `seat_number`, `row`, `price`, `is_booked`) VALUES
-(1, 1, '1', 'A', 10, 0),
-(2, 1, '2', 'A', 10, 0),
-(3, 1, '3', 'A', 10, 0),
-(4, 1, '4', 'A', 10, 0),
-(5, 1, '5', 'A', 10, 0),
+(1, 1, '1', 'A', 10, 1),
+(2, 1, '2', 'A', 10, 1),
+(3, 1, '3', 'A', 10, 1),
+(4, 1, '4', 'A', 10, 1),
+(5, 1, '5', 'A', 10, 1),
 (6, 1, '6', 'A', 10, 0),
 (7, 1, '7', 'A', 10, 0),
 (8, 1, '8', 'A', 10, 0),
@@ -246,8 +242,8 @@ INSERT INTO `show_seats` (`id`, `show_id`, `seat_number`, `row`, `price`, `is_bo
 (28, 1, '8', 'C', 10, 0),
 (29, 1, '9', 'C', 10, 0),
 (30, 1, '10', 'C', 10, 0),
-(31, 11, '1', 'A', 10, 1),
-(32, 11, '2', 'A', 10, 1),
+(31, 11, '1', 'A', 10, 0),
+(32, 11, '2', 'A', 10, 0),
 (33, 11, '3', 'A', 10, 0),
 (34, 11, '4', 'A', 10, 0),
 (35, 11, '5', 'A', 10, 0),
@@ -289,7 +285,7 @@ INSERT INTO `show_seats` (`id`, `show_id`, `seat_number`, `row`, `price`, `is_bo
 (71, 12, '1', 'B', 10, 0),
 (72, 12, '2', 'B', 10, 0),
 (73, 12, '3', 'B', 10, 0),
-(74, 12, '4', 'B', 10, 1),
+(74, 12, '4', 'B', 10, 0),
 (75, 12, '5', 'B', 10, 0),
 (76, 12, '6', 'B', 10, 0),
 (77, 12, '7', 'B', 10, 0),
@@ -305,7 +301,37 @@ INSERT INTO `show_seats` (`id`, `show_id`, `seat_number`, `row`, `price`, `is_bo
 (87, 12, '7', 'C', 10, 0),
 (88, 12, '8', 'C', 10, 0),
 (89, 12, '9', 'C', 10, 0),
-(90, 12, '10', 'C', 10, 0);
+(90, 12, '10', 'C', 10, 0),
+(91, 2, '1', 'A', 10, 0),
+(92, 2, '2', 'A', 10, 0),
+(93, 2, '3', 'A', 10, 0),
+(94, 2, '4', 'A', 10, 0),
+(95, 2, '5', 'A', 10, 0),
+(96, 2, '6', 'A', 10, 0),
+(97, 2, '7', 'A', 10, 0),
+(98, 2, '8', 'A', 10, 0),
+(99, 2, '9', 'A', 10, 0),
+(100, 2, '10', 'A', 10, 0),
+(101, 2, '1', 'B', 10, 0),
+(102, 2, '2', 'B', 10, 0),
+(103, 2, '3', 'B', 10, 0),
+(104, 2, '4', 'B', 10, 0),
+(105, 2, '5', 'B', 10, 0),
+(106, 2, '6', 'B', 10, 0),
+(107, 2, '7', 'B', 10, 0),
+(108, 2, '8', 'B', 10, 0),
+(109, 2, '9', 'B', 10, 0),
+(110, 2, '10', 'B', 10, 0),
+(111, 2, '1', 'C', 10, 0),
+(112, 2, '2', 'C', 10, 0),
+(113, 2, '3', 'C', 10, 0),
+(114, 2, '4', 'C', 10, 0),
+(115, 2, '5', 'C', 10, 0),
+(116, 2, '6', 'C', 10, 0),
+(117, 2, '7', 'C', 10, 0),
+(118, 2, '8', 'C', 10, 0),
+(119, 2, '9', 'C', 10, 0),
+(120, 2, '10', 'C', 10, 0);
 
 -- --------------------------------------------------------
 
@@ -330,7 +356,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `fullname`, `email`, `username`, `image_path`, `password`, `role`, `created_at`) VALUES
 (1, 'John Doe', 'john@doe.com', 'johndoe', 'user.jpg', 'password', 'user', '2024-03-14 14:55:32'),
-(2, 'Mary Jane', 'mary@jane.com', 'maryjane87', 'new.jpg', '$2y$10$qurgKX3bwzsIAGMsBOta7.uthNosaXcmcyhxwAlzELz8tktVnfZ6.', 'user', '2024-03-14 16:28:23');
+(2, 'Mary Jane', 'mary@jane.com', 'maryjane', 'new.jpg', '$2y$10$qurgKX3bwzsIAGMsBOta7.uthNosaXcmcyhxwAlzELz8tktVnfZ6.', 'user', '2024-03-14 16:28:23');
 
 --
 -- Indici per le tabelle scaricate
@@ -402,13 +428,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT per la tabella `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT per la tabella `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT per la tabella `halls`
@@ -438,7 +464,7 @@ ALTER TABLE `shows`
 -- AUTO_INCREMENT per la tabella `show_seats`
 --
 ALTER TABLE `show_seats`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT per la tabella `users`
