@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mar 28, 2024 alle 11:29
+-- Creato il: Mar 28, 2024 alle 11:40
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.1.17
 
@@ -355,7 +355,6 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fullname`, `email`, `username`, `image_path`, `password`, `role`, `created_at`) VALUES
-(1, 'John Doe', 'john@doe.com', 'johndoe', 'user.jpg', 'password', 'user', '2024-03-14 14:55:32'),
 (2, 'Mary Jane', 'mary@jane.com', 'maryjane', 'new.jpg', '$2y$10$qurgKX3bwzsIAGMsBOta7.uthNosaXcmcyhxwAlzELz8tktVnfZ6.', 'user', '2024-03-14 16:28:23');
 
 --
