@@ -13,8 +13,9 @@
     include __DIR__ . "/../app/Controllers/show-seats-controller.classes.php";
     include __DIR__ . "/../app/Controllers/cart-controller.classes.php";
     include __DIR__ . "/../app/Controllers/bill-controller.classes.php";
-
-    //ADD LIBRARIES FROM VENDOR
+    
+    //ADD LIBRARIES FROM VENDOR AND FUNCTIONALITY CLASSES
+    include __DIR__ . "/../app/Core/sendmailer.classes.php";
     require_once __DIR__ . '/../vendor/autoload.php';
 
     // INIT CONTROLLERS

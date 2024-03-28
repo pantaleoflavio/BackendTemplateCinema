@@ -5,6 +5,8 @@ if (!isset($_SESSION['userId'])) {
 
     echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/'</script>";
 }  else {
+    $ticketSender = new SendMailer();
+
     $userId = $_SESSION['userId'];
     $cartItems = $cartController->getCartProUser($userId);
     $user = $userController->getSingleUser($userId);
@@ -50,7 +52,6 @@ if (!isset($_SESSION['userId'])) {
         $pathTicket = 'C:\xampp\htdocs\BackendTemplateCinema/generatedTickets/ticket_' . $dateTicket . '.pdf';
          // Save pdf
         $pdfTicket->Output($pathTicket, 'F');
-        
 
         //GENERATION BILL AND SEATS BECOME BOOKED
         $bill = $billController->createBill($customer, $adress, $email, $order_notes, $total, $finalOrder, $userId);
@@ -65,7 +66,10 @@ if (!isset($_SESSION['userId'])) {
             }
         }
 
+        $ticketSender->sendPDFTicket($email, $pathTicket); // insert in form $email befor payment your mail
+
         echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/success.php?successPayment'</script>";
+        
     }
 
 }

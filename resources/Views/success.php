@@ -20,6 +20,8 @@ if (!isset($_SESSION['userId'])) {
     <div class="row ">
         <div class="text-center my-4">
             <h1 class="text-success">the payment has been successful </h1>
+            <br>
+            <h3>YOu will receive per email your ticket</h3>
         </div>
         <div class="text-center my-4">
             <a href="index.php" class="btn btn-secondary">Return to home</a>
