@@ -29,7 +29,7 @@ if (!isset($_SESSION['userId'])) {
 
             <!-- Profile Pic -->
             <div class="profile-picture">
-                <img src="<?php echo ROOT; ?>/assets/img/users/<?php echo $singleUser->user_pic; ?>" alt="Profile Image">
+                <img src="<?php echo ROOT; ?>/assets/img/users/<?php echo $singleUser->user_pic; ?>" alt="Profile Image" class="img-fluid" style="max-width: 200px; height: auto;">
             </div>
 
             <!-- Link per modificare il profilo -->
