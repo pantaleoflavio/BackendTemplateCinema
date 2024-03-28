@@ -1,63 +1,84 @@
-# Fake Cinema Web App Template
+# Cinema Fake Web App
 
-## This is a template for a fictitious cinema web app. It can be used as a foundation for developing the frontend part of a website for a cinema, with the addition of necessary backend logic.
+### The Cinema Fake Web App is a full-stack platform for managing and booking movies at an imaginary cinema. This project combines a robust PHP back-end with an elegant front-end, based on a custom template I created from scratch.
 
-### Technologies Used
+## Technologies Used
 
-* HTML5
-* CSS3
-* SCSS
+### Front-End
+
+* HTML/CSS (with SASS)
 * JavaScript
+* Swiper.js (JavaScript library)
 * Bootstrap 5
-* Swiper JavaScript Library
-* Font Awesome Icons
+* Custom template (For details on the template, [click here](https://github.com/pantaleoflavio/cinemaAppFS))
 
-### Dependencies and Installation
+### Back-End
 
-#### To use this template, you need to have Node.js and npm installed on your system. Follow the steps below to install the dependencies:
+* PHP OOP
+* Package management with NPM and Composer
 
-* Make sure you have Node.js and npm installed. You can download and install them from the official Node.js website.
-* Clone the repository to your local machine.
-* Navigate to the project directory via the terminal or command prompt.
-* Run the following command to install the necessary npm dependencies:
-* `npm install`
-* This will install all dependencies listed in the package.json file.
+## Back-End Features
 
-### Project Structure
+* User authentication (login/signup/logout)
+* Dynamic display on index of movies and theaters
+* Dynamic display of individual movie and theater details
+* Booking ("Book Now") with dynamic display of selected movie, theater, available shows (date and time), and seating
+* Dynamic management of available seats
+* Dynamic cart with the ability to remove items
+* Dynamic checkout with order preparation and user data (authentication required)
+* Payment confirmation with the generation of a fake ticket in PDF format and email dispatch
+* Success page with cart clearance
+* "Book Now" functionality on index that redirects to the booking page after selecting movie and theater
+* Generic contact form implemented with PHPMailer
+* Dynamic display of the user page, with user information and order history, and the ability to modify user data
 
-* **index.html** : The main HTML file of the web app.
-* **single hall page** : Page displaying details about a single cinema hall.
-* **single movie page** : Page displaying details about a single movie.
-* **book now page** : Page displaying details about booking of ticket.
-* **cart page** : Page displaying details about user cart.
-* **checkout page** : Page displaying details about checkout.
-* **css/** : Contains all CSS and SCSS files for styling the web app.
-* **js/** : Contains all JavaScript files for the logic of the web app.
-* **assets/** :
+## How to Use the App
 
-  * **css/** : CSS and SCSS files.
-  * **js/** : JavaScript files.
-  * **images/** : Contains images used in the web app.
-  * **videos/** : Contains videos used in the web app.
-* **resources/** : Contains the view files.
-* **app/** : Folder containing subfolders for an MVC site structure
+### Prerequisites
 
-### Usage
+#### Before you start, make sure you have installed:
 
-#### You can use this template as a starting point to develop your cinema web app. Modify and customize the HTML, CSS, and JavaScript files according to your requirements. Make sure to also implement the necessary backend logic to make your web app fully functional.
+* Node.js and NPM: Useful for managing front-end dependencies and compiling SASS or other task runners.
+* XAMPP: Provides a local environment with PHP, Apache server, and MariaDB database, facilitating app execution and testing.
+* Composer: To manage the project's PHP dependencies.
 
-### Credits
+### Initial Setup
 
-##### This template utilizes the following external resources:
+1. Starting XAMPP: Launch Apache and MySQL services from the XAMPP Control Panel to have a local server and database operational.
 
-* Bootstrap 5: CSS framework for web development.
-* Swiper: JavaScript library for creating carousels and sliders.
-* Font Awesome: Icon set and toolkit.
+2. Cloning the Repository: Clone the project's repository into your local environment. If your Apache server points to a directory other than htdocs, make sure to clone the project into the correct directory.
 
-### Contributing
+```Copy code
+git clone https://github.com/pantaleoflavio/BackendTemplateCinema /path/to/htdocs/
+```
 
-We welcome contributions to improve this template! If you have suggestions for features, notice bugs, or want to enhance the functionality, feel free to open an issue or submit a pull request.
+3. Installing Dependencies:
 
-### License
+#### In the project's main directory, run the following command to install front-end dependencies via NPM:
 
-#### This template is distributed under the MIT License.
+```Copy code
+cd /path/to/htdocs/BackendTemplateCinema
+npm install
+```
+
+#### For PHP dependencies, make sure you're in the main project directory and then execute Composer:
+
+```Copy code
+composer install
+```
+
+4. Database Configuration:
+
+* Access http://localhost/phpmyadmin from your browser.
+* Import the cinema.sql file provided in the project to structure your database.
+
+5. Launching the Application: Open your browser and navigate to http://localhost/BackendTemplateCinema/resources/Views/ to start exploring the app.
+
+## Email Sending Configuration
+
+* For the email sending functionality, open app/Core/sendmailer.php and customize the configure() method with your SMTP server details. You'll need to modify SMTP_USERNAME and SMTP_PASSWORD with your credentials.
+
+* Per la funzionalita di invio email nel form dei contatti, e necessario modificare l'email del destinatario, dove vuoi che arrivi la email, nella funzione sendContactForm().
+
+## Project Concept
+****This project follows an MVC architecture, with a focus on the OOP approach to organize application logic. The front-end is based on a custom template I developed, allowing for a unique and interactive presentation of the cinema's contents.
