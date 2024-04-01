@@ -5,6 +5,9 @@
 
     require __DIR__ . '/../../vendor/autoload.php';
 
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
+    $dotenv->load();
+
     class SendMailer {
         protected $mailer;
 
@@ -15,12 +18,12 @@
 
         protected function configure() {
             $this->mailer->isSMTP();
-            $this->mailer->Host = 'smtp.gmail.com';
+            $this->mailer->Host = $_ENV['SMTP_HOST']; // the host that you use
             $this->mailer->SMTPAuth = true;
-            $this->mailer->Username = getenv('SMTP_USERNAME'); //use your email
-            $this->mailer->Password = getenv('SMTP_PASSWORD'); //use your password from your host generate
+            $this->mailer->Username = $_ENV['SMTP_USERNAME']; //use your email
+            $this->mailer->Password = $_ENV['SMTP_PASSWORD']; //use your password from your host generate
             $this->mailer->SMTPSecure = 'tls';
-            $this->mailer->Port = 587;
+            $this->mailer->Port = $_ENV['SMTP_PORT'];
             // $this->mailer->SMTPDebug = 2; // Abilita l'output di debug dettagliato
 
             
@@ -31,7 +34,7 @@
         public function sendPDFTicket($recipientEmail, $filePathName) {
             try {
                 // Imposta il destinatario
-                $this->mailer->addAddress($recipientEmail); 
+                $this->mailer->addAddress($recipientEmail);
 
                 // Contenuto dell'email
                 $this->mailer->isHTML(true);
@@ -53,7 +56,7 @@
         public function sendContactForm($senderEmail, $senderName, $senderMessage) {
             try {
                 // Set email where you want to receive the email 
-                $this->mailer->addAddress('tuoemail@esempio.com');
+                $this->mailer->addAddress($_ENV['SMTP_RECIPIENT']);
         
                 // set sender of the mail
                 $this->mailer->setFrom('cinema@vision.com', 'Cinema Fake Vision');

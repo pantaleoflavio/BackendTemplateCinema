@@ -1,19 +1,23 @@
 <?php
+ require_once __DIR__ . '/../../vendor/autoload.php';
+ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
+ $dotenv->load();
+
 class DB {
 
     protected function connect (){
         try { 
             // host
-            $localHost = "localhost";
+            $localHost = $_ENV['DB_HOST'];
 
             // dbname
-            $dbname = "cinema";
+            $dbname = $_ENV['DB_NAME'];
     
             // user
-            $user = "root";
+            $user = $_ENV['DB_USER'];
 
             // pass
-            $pass = "";
+            $pass = $_ENV['DB_PASS'];
     
             $conn = new PDO("mysql:host=".$localHost.";dbname=".$dbname.";",$user, $pass);
             return $conn;
