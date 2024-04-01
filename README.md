@@ -72,13 +72,28 @@ composer install
 * Access http://localhost/phpmyadmin from your browser.
 * Import the cinema.sql file provided in the project to structure your database.
 
-5. Launching the Application: Open your browser and navigate to http://localhost/BackendTemplateCinema/resources/Views/ to start exploring the app.
+5. Configuration of the File .env:
+
+* Create a file `.env` in your main directory of the project
+* Modify the file `.env` your configurations:
+
+```Copy code
+DB_HOST=hostnameYouUse
+DB_NAME=nameOfTheDatabase
+DB_USER=databaseUsername
+DB_PASS=databasePassword
+SMTP_HOST=hostYouWillUseForEmailTesting
+SMTP_USERNAME=your_email@email.com
+SMTP_PASSWORD=your_password
+SMTP_PORT=587
+SMTP_RECIPIENT=your_destination_email@email.com
+```
+
+6. Launching the Application: Open your browser and navigate to http://localhost/BackendTemplateCinema/resources/Views/ to start exploring the app.
 
 ## Email Sending Configuration
 
-* For the email sending functionality, open app/Core/sendmailer.php and customize the configure() method with your SMTP server details. You'll need to modify SMTP_USERNAME and SMTP_PASSWORD with your credentials.
-
-* For the email sending functionality in the contact form, it's necessary to modify the recipient's email address, where you want the email to arrive, in the sendContactForm() function.
+* To configure email sending, make sure the SMTP variables in your .env file are set correctly. It's not necessary to modify the code files directly for this configuration.
 
 ## Project Concept
 ****This project follows an MVC architecture, with a focus on the OOP approach to organize application logic. The front-end is based on a custom template I developed, allowing for a unique and interactive presentation of the cinema's contents.

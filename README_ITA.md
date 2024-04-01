@@ -68,16 +68,30 @@ composer install
 
 4. Configurazione del Database:
 
-* Accedi a http://localhost/phpmyadmin dal tuo browser.
 * Importa il file cinema.sql fornito nel progetto per strutturare il tuo database.
 
-5. Avvio dell'Applicazione: Apri il tuo browser e naviga a http://localhost/BackendTemplateCinema/resources/Views/ per iniziare a esplorare l'app.
+5. Configurazione del File .env:
+
+* Crea un file `.env` nella directory principale del progetto
+* Modifica il file `.env` con le tue configurazioni specifiche:
+
+```Copy code
+DB_HOST=nomeDellHostCheUtilizzi
+DB_NAME=nomeDelDatabase
+DB_USER=nomeDellUserDB
+DB_PASS=passwordDelDatabase
+SMTP_HOST=hostCheUtilizzeraiPerTestareLeEmail
+SMTP_USERNAME=tua_email@email.com
+SMTP_PASSWORD=tua_password
+SMTP_PORT=587
+SMTP_RECIPIENT=tua_email_di_destinazione@email.com
+```
+
+6. Avvio dell'Applicazione: Apri il tuo browser e naviga a http://localhost/BackendTemplateCinema/resources/Views/ per iniziare a esplorare l'app.
 
 ## Configurazione dell'Invio Email
 
-* Per la funzionalità di invio email, apri app/Core/sendmailer.php e personalizza il metodo configure() con i dettagli del tuo server SMTP. È necessario modificare SMTP_USERNAME e SMTP_PASSWORD con le tue credenziali.
-
-* Per la funzionalita di invio email nel form dei contatti, e necessario modificare l'email del destinatario, dove vuoi che arrivi la email, nella funzione sendContactForm().
+* Per configurare l'invio email, assicurati che le variabili SMTP nel tuo file .env siano impostate correttamente. Non è necessario modificare i file di codice direttamente per questa configurazione.
 
 ## Concept del Progetto
 ****Questo progetto segue un'architettura MVC, con un focus sull'approccio OOP per organizzare la logica applicativa. Il front-end è basato su un template personalizzato che ho sviluppato, consentendo una presentazione unica e interattiva dei contenuti del cinema.
