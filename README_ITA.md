@@ -68,6 +68,7 @@ composer install
 
 4. Configurazione del Database:
 
+* Access http://localhost/phpmyadmin from your browser.
 * Importa il file cinema.sql fornito nel progetto per strutturare il tuo database.
 
 5. Configurazione del File .env:
