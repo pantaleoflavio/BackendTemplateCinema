@@ -78,7 +78,7 @@ composer install
 
 * For the email sending functionality, open app/Core/sendmailer.php and customize the configure() method with your SMTP server details. You'll need to modify SMTP_USERNAME and SMTP_PASSWORD with your credentials.
 
-* Per la funzionalita di invio email nel form dei contatti, e necessario modificare l'email del destinatario, dove vuoi che arrivi la email, nella funzione sendContactForm().
+* For the email sending functionality in the contact form, it's necessary to modify the recipient's email address, where you want the email to arrive, in the sendContactForm() function.
 
 ## Project Concept
 ****This project follows an MVC architecture, with a focus on the OOP approach to organize application logic. The front-end is based on a custom template I developed, allowing for a unique and interactive presentation of the cinema's contents.
