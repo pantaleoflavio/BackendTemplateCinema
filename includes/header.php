@@ -95,37 +95,38 @@
                 </ul>
         </nav>
         <nav class="secondary-menu container navbar navbar-expand-lg">
-            <!-- Bottone toggle per mobile -->
-            <button class="navbar-toggler bg-primary" type="button" data-toggle="collapse" data-target="#navbarSecondary" aria-controls="navbarSecondary" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
             <!-- Contenitore del menu dropdown -->
-            <div class="collapse navbar-collapse" id="navbarSecondary">
+            <div class="collapse navbar-collapse" id="navbarSecondary" style="background-color: #01011b; z-index: 99; margin-top:100px;">
                 <ul class="navbar-nav d-flex justify-content-center align-items-center">
                     <?php if (!isset($_SESSION['userId'])) : ?>
                         <!-- no session user -->
-                        <li id="signupButtonNavbar" class="elementsToHideBySearch nav-item">
-                            <a class="signButton" href="<?php echo ROOT;?>/auth/signup.php">SIGNUP</a>
+                        <li id="signupButtonNavbar" class="nav-item">
+                            <a class="nav-link signButton" href="<?php echo ROOT;?>/auth/signup.php">SIGNUP</a>
                         </li>
-                        <li id="signinButtonNavbar" class="elementsToHideBySearch nav-item">
-                            <a class="signButton" href="<?php echo ROOT;?>/auth/signin.php">SIGNIN</a>
+                        <li id="signinButtonNavbar" class="nav-item">
+                            <a class="nav-link signButton" href="<?php echo ROOT;?>/auth/signin.php">SIGNIN</a>
                         </li>
                     <?php else : ?>
                         <!-- with session user -->
-                        <li id="signoutButtonNavbar" class="elementsToHideBySearch nav-item">
+                        <li id="signoutButtonNavbar" class="nav-item">
                             <a href="<?php echo ROOT; ?>/auth/logout.php" class="nav-link signButton">SIGN OUT</a>
                         </li>
-                        <li id="avatar-container" class="elementsToHideBySearch nav-item d-flex align-items-center justify-content-center">
-                            <a href="<?php echo ROOT; ?>/resources/Views/user.php?id=<?php echo $_SESSION['userId']; ?>" class="nav-link elementsToHideBySearch">
-                                <div class="avatar-header"><img src="<?php echo ROOT; ?>/assets/img/users/<?php echo $userImage; ?>" alt=""></div>
+                        <li id="avatar-container" class="nav-item d-flex align-items-center justify-content-center">
+                            <a href="<?php echo ROOT; ?>/user.php?id=<?php echo $_SESSION['userId']; ?>" class="nav-link">
+                                <div class="avatar-header"><img src="<?php echo ROOT; ?>/assets/img/users/<?php echo $userImage; ?>" alt="User Image"></div>
                             </a>
                         </li>
-                        <li class="nav-item elementsToHideBySearch">
-                            <a href="cart.php" class="nav-link text-white">
+                        <li class="nav-item">
+                            <a href="<?php echo ROOT; ?>/cart.php" class="nav-link text-white">
                                 <i class="fa fa-shopping-basket"></i> <span class="badge badge-primary"><?php echo $cartItemCount > 0 ? $cartItemCount : '0'; ?></span>
                             </a>
                         </li>
+                        <?php if ($_SESSION['role'] === 'admin') : ?>
+                            <li id="adminButtonNavbar" class="nav-item">
+                                <a href="<?php echo ROOT; ?>/admin.php" class="nav-link signButton">Admin</a>
+                            </li>
+                        <?php endif; ?>
                     <?php endif; ?>
                     <li class="nav-item d-flex align-items-center justify-content-center">
                         <a id="searchIcon" class="nav-link signButton" href="#"><i class="fa fa-search"></i></a> 
@@ -133,7 +134,12 @@
                     </li>
                 </ul>
             </div>
+            <!-- Bottone toggle per mobile -->
+            <button class="navbar-toggler bg-primary" style="z-index: 99;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSecondary" aria-controls="navbarSecondary" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </nav>
+
 
 
     </header>
