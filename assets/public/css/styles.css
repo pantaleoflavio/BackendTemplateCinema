@@ -104,6 +104,14 @@ header .secondary-menu {
   justify-content: flex-end;
   align-items: center;
 }
+header .secondary-menu #navbarSecondary {
+  margin-top: 0;
+}
+@media (max-width: 992px) {
+  header .secondary-menu #navbarSecondary {
+    margin-top: 120px;
+  }
+}
 header .secondary-menu .navbar-nav {
   display: flex;
   justify-content: space-between;

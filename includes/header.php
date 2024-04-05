@@ -97,7 +97,7 @@
         <nav class="secondary-menu container navbar navbar-expand-lg">
 
             <!-- Contenitore del menu dropdown -->
-            <div class="collapse navbar-collapse" id="navbarSecondary" style="background-color: #01011b; z-index: 99; margin-top:100px;">
+            <div class="collapse navbar-collapse" id="navbarSecondary" style="background-color: #01011b; z-index: 99;">
                 <ul class="navbar-nav d-flex justify-content-center align-items-center">
                     <?php if (!isset($_SESSION['userId'])) : ?>
                         <!-- no session user -->
