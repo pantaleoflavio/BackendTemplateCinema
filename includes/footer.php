@@ -46,6 +46,8 @@
     <script src="<?php echo ROOT; ?>/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Script -->
     <script src="<?php echo ROOT; ?>/assets/js/script.js"></script>
+    <!-- Script Dropdown Sec Menu -->
+    <script src="<?php echo ROOT; ?>/assets/js/dropdownSecMenuHandler.js"></script>
     <!-- Script Hero Gallery-->
     <script src="<?php echo ROOT; ?>/assets/js/heroGallery.js"></script>
     <!-- Script Single Movie -->
