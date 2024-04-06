@@ -101,10 +101,10 @@
                 <ul class="navbar-nav d-flex justify-content-center align-items-center">
                     <?php if (!isset($_SESSION['userId'])) : ?>
                         <!-- no session user -->
-                        <li id="signupButtonNavbar" class="nav-item">
-                            <a class="nav-link signButton" href="<?php echo ROOT;?>/auth/signup.php">SIGNUP</a>
+                        <li id="signupButtonNavbar" class="nav-item mx-2">
+                            <a class="nav-link signButton " href="<?php echo ROOT;?>/auth/signup.php">SIGNUP</a>
                         </li>
-                        <li id="signinButtonNavbar" class="nav-item">
+                        <li id="signinButtonNavbar" class="nav-item mx-2">
                             <a class="nav-link signButton" href="<?php echo ROOT;?>/auth/signin.php">SIGNIN</a>
                         </li>
                     <?php else : ?>
@@ -124,7 +124,7 @@
                         </li>
                         <?php if ($_SESSION['role'] === 'admin') : ?>
                             <li id="adminButtonNavbar" class="nav-item">
-                                <a href="<?php echo ROOT; ?>/admin.php" class="nav-link signButton">Admin</a>
+                                <a href="<?php echo ROOT; ?>/resources/Views/admin/index.php" class="nav-link signButton">Admin</a>
                             </li>
                         <?php endif; ?>
                     <?php endif; ?>

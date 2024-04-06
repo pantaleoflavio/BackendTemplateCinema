@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mar 28, 2024 alle 11:40
+-- Creato il: Apr 06, 2024 alle 18:02
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.1.17
 
@@ -45,7 +45,12 @@ CREATE TABLE `bills` (
 --
 
 INSERT INTO `bills` (`id`, `customer`, `adress`, `email`, `order_notes`, `total`, `orderList`, `user_id`, `deliveryStatus`, `created_at`) VALUES
-(13, 'Mary Jane', 'via parma 23', 'mary@jane.com', 'test generally functionality, mail sender and pdf ticket generator', 50, '{\"movieTitle\":\"Frozen\",\"hallName\":\"mars\",\"showDetails\":\"13:00:00, 2023-01-01\",\"seats\":\"1A, 2A, 3A, 4A, 5A, \"}', 2, 0, '2024-03-28 10:18:53');
+(13, 'Mary Jane', 'via parma 23', 'mary@jane.com', 'test generally functionality, mail sender and pdf ticket generator', 50, '{\"movieTitle\":\"Frozen\",\"hallName\":\"mars\",\"showDetails\":\"13:00:00, 2023-01-01\",\"seats\":\"1A, 2A, 3A, 4A, 5A, \"}', 2, 0, '2024-03-28 10:18:53'),
+(14, 'Mary Jane', 'via parma 23', 'flavio.pantaleo@yahoo.com', 'group cinema', 90, '{\"movieTitle\":\"Frozen\",\"hallName\":\"mars\",\"showDetails\":\"13:00:00, 2023-01-01\",\"seats\":\"6A, 7A, 8A, 6B, 7B, 8B, 6C, 7C, 8C, \"}', 2, 0, '2024-03-28 12:51:46'),
+(16, 'Mary Jane', 'via parma 23', 'flavio.pantaleo@yahoo.com', 'test file env', 130, '{\"movieTitle\":\"Tolo Tolo\",\"hallName\":\"uranus\",\"showDetails\":\"15:00:00, 2023-01-02\",\"seats\":\"1A, 2A, 3A, 4A, 5A, 1B, 2B, 3B, 5B, 1C, 2C, 3C, 5C, \"}', 2, 0, '2024-04-01 14:51:12'),
+(17, 'Mary Jane', 'via parma 23', 'flavio.pantaleo@yahoo.com', 'final test', 60, '{\"movieTitle\":\"Frozen\",\"hallName\":\"mars\",\"showDetails\":\"17:00:00, 2023-01-01\",\"seats\":\"1A, 2A, 9A, 4B, 9B, 4C, \"}', 2, 0, '2024-04-01 15:16:06'),
+(18, 'Mary Jane', 'via parma 23', 'flavio.pantaleo@yahoo.com', 'final test', 60, '{\"movieTitle\":\"Frozen\",\"hallName\":\"mars\",\"showDetails\":\"17:00:00, 2023-01-01\",\"seats\":\"1A, 2A, 9A, 4B, 9B, 4C, \"}', 2, 0, '2024-04-01 15:16:09'),
+(19, 'Mary Jane', 'via parma 23', 'flavio.pantaleo@yahoo.com', '', 60, '{\"movieTitle\":\"Tolo Tolo\",\"hallName\":\"uranus\",\"showDetails\":\"15:00:00, 2023-01-02\",\"seats\":\"6A, 7A, 6B, 7B, 6C, 7C, \"}', 2, 0, '2024-04-01 15:18:32');
 
 -- --------------------------------------------------------
 
@@ -217,9 +222,9 @@ INSERT INTO `show_seats` (`id`, `show_id`, `seat_number`, `row`, `price`, `is_bo
 (3, 1, '3', 'A', 10, 1),
 (4, 1, '4', 'A', 10, 1),
 (5, 1, '5', 'A', 10, 1),
-(6, 1, '6', 'A', 10, 0),
-(7, 1, '7', 'A', 10, 0),
-(8, 1, '8', 'A', 10, 0),
+(6, 1, '6', 'A', 10, 1),
+(7, 1, '7', 'A', 10, 1),
+(8, 1, '8', 'A', 10, 1),
 (9, 1, '9', 'A', 10, 0),
 (10, 1, '10', 'A', 10, 0),
 (11, 1, '1', 'B', 10, 0),
@@ -227,9 +232,9 @@ INSERT INTO `show_seats` (`id`, `show_id`, `seat_number`, `row`, `price`, `is_bo
 (13, 1, '3', 'B', 10, 0),
 (14, 1, '4', 'B', 10, 0),
 (15, 1, '5', 'B', 10, 0),
-(16, 1, '6', 'B', 10, 0),
-(17, 1, '7', 'B', 10, 0),
-(18, 1, '8', 'B', 10, 0),
+(16, 1, '6', 'B', 10, 1),
+(17, 1, '7', 'B', 10, 1),
+(18, 1, '8', 'B', 10, 1),
 (19, 1, '9', 'B', 10, 0),
 (20, 1, '10', 'B', 10, 0),
 (21, 1, '1', 'C', 10, 0),
@@ -237,35 +242,35 @@ INSERT INTO `show_seats` (`id`, `show_id`, `seat_number`, `row`, `price`, `is_bo
 (23, 1, '3', 'C', 10, 0),
 (24, 1, '4', 'C', 10, 0),
 (25, 1, '5', 'C', 10, 0),
-(26, 1, '6', 'C', 10, 0),
-(27, 1, '7', 'C', 10, 0),
-(28, 1, '8', 'C', 10, 0),
+(26, 1, '6', 'C', 10, 1),
+(27, 1, '7', 'C', 10, 1),
+(28, 1, '8', 'C', 10, 1),
 (29, 1, '9', 'C', 10, 0),
 (30, 1, '10', 'C', 10, 0),
-(31, 11, '1', 'A', 10, 0),
-(32, 11, '2', 'A', 10, 0),
+(31, 11, '1', 'A', 10, 1),
+(32, 11, '2', 'A', 10, 1),
 (33, 11, '3', 'A', 10, 0),
 (34, 11, '4', 'A', 10, 0),
 (35, 11, '5', 'A', 10, 0),
 (36, 11, '6', 'A', 10, 0),
 (37, 11, '7', 'A', 10, 0),
 (38, 11, '8', 'A', 10, 0),
-(39, 11, '9', 'A', 10, 0),
+(39, 11, '9', 'A', 10, 1),
 (40, 11, '10', 'A', 10, 0),
 (41, 11, '1', 'B', 10, 0),
 (42, 11, '2', 'B', 10, 0),
 (43, 11, '3', 'B', 10, 0),
-(44, 11, '4', 'B', 10, 0),
+(44, 11, '4', 'B', 10, 1),
 (45, 11, '5', 'B', 10, 0),
 (46, 11, '6', 'B', 10, 0),
 (47, 11, '7', 'B', 10, 0),
 (48, 11, '8', 'B', 10, 0),
-(49, 11, '9', 'B', 10, 0),
+(49, 11, '9', 'B', 10, 1),
 (50, 11, '10', 'B', 10, 0),
 (51, 11, '1', 'C', 10, 0),
 (52, 11, '2', 'C', 10, 0),
 (53, 11, '3', 'C', 10, 0),
-(54, 11, '4', 'C', 10, 0),
+(54, 11, '4', 'C', 10, 1),
 (55, 11, '5', 'C', 10, 0),
 (56, 11, '6', 'C', 10, 0),
 (57, 11, '7', 'C', 10, 0),
@@ -302,35 +307,35 @@ INSERT INTO `show_seats` (`id`, `show_id`, `seat_number`, `row`, `price`, `is_bo
 (88, 12, '8', 'C', 10, 0),
 (89, 12, '9', 'C', 10, 0),
 (90, 12, '10', 'C', 10, 0),
-(91, 2, '1', 'A', 10, 0),
-(92, 2, '2', 'A', 10, 0),
-(93, 2, '3', 'A', 10, 0),
-(94, 2, '4', 'A', 10, 0),
-(95, 2, '5', 'A', 10, 0),
-(96, 2, '6', 'A', 10, 0),
-(97, 2, '7', 'A', 10, 0),
+(91, 2, '1', 'A', 10, 1),
+(92, 2, '2', 'A', 10, 1),
+(93, 2, '3', 'A', 10, 1),
+(94, 2, '4', 'A', 10, 1),
+(95, 2, '5', 'A', 10, 1),
+(96, 2, '6', 'A', 10, 1),
+(97, 2, '7', 'A', 10, 1),
 (98, 2, '8', 'A', 10, 0),
 (99, 2, '9', 'A', 10, 0),
 (100, 2, '10', 'A', 10, 0),
-(101, 2, '1', 'B', 10, 0),
-(102, 2, '2', 'B', 10, 0),
-(103, 2, '3', 'B', 10, 0),
-(104, 2, '4', 'B', 10, 0),
-(105, 2, '5', 'B', 10, 0),
-(106, 2, '6', 'B', 10, 0),
-(107, 2, '7', 'B', 10, 0),
+(101, 2, '1', 'B', 10, 1),
+(102, 2, '2', 'B', 10, 1),
+(103, 2, '3', 'B', 10, 1),
+(104, 2, '4', 'B', 10, 1),
+(105, 2, '5', 'B', 10, 1),
+(106, 2, '6', 'B', 10, 1),
+(107, 2, '7', 'B', 10, 1),
 (108, 2, '8', 'B', 10, 0),
-(109, 2, '9', 'B', 10, 0),
+(109, 2, '9', 'B', 10, 1),
 (110, 2, '10', 'B', 10, 0),
-(111, 2, '1', 'C', 10, 0),
-(112, 2, '2', 'C', 10, 0),
-(113, 2, '3', 'C', 10, 0),
-(114, 2, '4', 'C', 10, 0),
-(115, 2, '5', 'C', 10, 0),
-(116, 2, '6', 'C', 10, 0),
-(117, 2, '7', 'C', 10, 0),
+(111, 2, '1', 'C', 10, 1),
+(112, 2, '2', 'C', 10, 1),
+(113, 2, '3', 'C', 10, 1),
+(114, 2, '4', 'C', 10, 1),
+(115, 2, '5', 'C', 10, 1),
+(116, 2, '6', 'C', 10, 1),
+(117, 2, '7', 'C', 10, 1),
 (118, 2, '8', 'C', 10, 0),
-(119, 2, '9', 'C', 10, 0),
+(119, 2, '9', 'C', 10, 1),
 (120, 2, '10', 'C', 10, 0);
 
 -- --------------------------------------------------------
@@ -355,7 +360,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fullname`, `email`, `username`, `image_path`, `password`, `role`, `created_at`) VALUES
-(2, 'Mary Jane', 'mary@jane.com', 'maryjane', 'new.jpg', '$2y$10$qurgKX3bwzsIAGMsBOta7.uthNosaXcmcyhxwAlzELz8tktVnfZ6.', 'user', '2024-03-14 16:28:23');
+(2, 'Mary Jane', 'mary@jane.com', 'maryjane', 'new.jpg', '$2y$10$qurgKX3bwzsIAGMsBOta7.uthNosaXcmcyhxwAlzELz8tktVnfZ6.', 'user', '2024-03-14 16:28:23'),
+(3, 'Peter Parker', 'peter@parker.com', 'spiderman', 'spidey.jpg', '$2y$10$a9Y5PNfIkU2uv9gxf077s.93RLKwIgAaWbLjaoQCn1vKcLA9IUU7C', 'user', '2024-03-28 12:53:20'),
+(4, 'John Dean', 'john@dean.com', 'johndean', 'user.jpg', '$2y$10$0cQQWEFcsidGh.WPF.dGbudAI8oacdYTwyMPt5RdFDqxI6AIni2Q.', 'admin', '2024-04-05 13:00:23');
 
 --
 -- Indici per le tabelle scaricate
@@ -427,13 +434,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT per la tabella `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT per la tabella `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT per la tabella `halls`
@@ -469,7 +476,7 @@ ALTER TABLE `show_seats`
 -- AUTO_INCREMENT per la tabella `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Limiti per le tabelle scaricate
