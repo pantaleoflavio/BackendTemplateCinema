@@ -113,7 +113,7 @@
                             <a href="<?php echo ROOT; ?>/auth/logout.php" class="nav-link signButton">SIGN OUT</a>
                         </li>
                         <li id="avatar-container" class="nav-item d-flex align-items-center justify-content-center">
-                            <a href="<?php echo ROOT; ?>/user.php?id=<?php echo $_SESSION['userId']; ?>" class="nav-link">
+                            <a href="<?php echo ROOT; ?>/resources/Views/user.php?id=<?php echo $_SESSION['userId']; ?>" class="nav-link">
                                 <div class="avatar-header"><img src="<?php echo ROOT; ?>/assets/img/users/<?php echo $userImage; ?>" alt="User Image"></div>
                             </a>
                         </li>
