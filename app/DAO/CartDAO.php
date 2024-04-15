@@ -5,7 +5,7 @@ use App\Core\DB;
 use PDO;
 
 class CartDAO extends DB {
-    public function getCartByUserId($user_id) {
+    public function getCartProUser($user_id) {
         $stmt = $this->connect()->prepare("SELECT * FROM cart WHERE user_id = ?");
         $stmt->execute([$user_id]);
         return $stmt->fetchAll(PDO::FETCH_OBJ);

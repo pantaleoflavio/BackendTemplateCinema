@@ -11,12 +11,8 @@ class UserController {
         $this->userDAO = new UserDAO();
     }
 
-    public function getUserById($id) {
-        $userData = $this->userDAO->getUserById($id);
-        if ($userData) {
-            return new User($userData->id, $userData->fullname, $userData->email, $userData->username, $userData->user_pic, $userData->role);
-        }
-        return null;
+    public function getSingleUser($id) {
+        return $this->userDAO->getSingleUser($id);
     }
 
     public function updateUser($id, $fullname, $email, $username, $user_pic) {
