@@ -1,4 +1,8 @@
 <?php
+
+namespace App\Controllers;
+use App\Models\Signup;
+
 class SignupController extends Signup {
 
     private $fullname;

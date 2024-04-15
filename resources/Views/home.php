@@ -1,12 +1,9 @@
-<!-- Header and Nav Bar-->
-<?php include_once "../../includes/header.php" ?>
+<!-- resources/Views/home.php -->
+
 <?php 
 // INIT METHOD FOR INDEX PAGE
 $allMovies = $movieController->getAllMovies();
 $allHalls = $hallController->getAllHalls();
-
-//INIT CONTACT FORM
-$contactForm = new SendMailer();
 
 if (isset($_POST['sendMessage'])) {
     $userName = $_POST['name'];
@@ -20,7 +17,6 @@ if (isset($_POST['sendMessage'])) {
 
 ?>
 
-    <main>
         <!-- Slider main container Hero Gallery -->
         <div id="heroGalleryContainer" class="swiper">
             <!-- Additional required wrapper -->
@@ -60,7 +56,7 @@ if (isset($_POST['sendMessage'])) {
                             <img src="<?php echo ROOT; ?>/assets/img/movies/thumbs/<?php echo $allMovie->image_path; ?>" class="card-img-top" alt="Pinocchio">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $allMovie->name; ?></h5>
-                                <a href="<?php echo ROOT; ?>/resources/Views/single-movie.php?movieId=<?php echo $allMovie->id; ?>" class="btn btn-primary">Info movie</a>
+                                <a href="index.php?page=single-movie&movieId=<?php echo $allMovie->id; ?>" class="btn btn-primary">Info movie</a>
                             </div>
                         </div>
                     </div>
@@ -83,7 +79,7 @@ if (isset($_POST['sendMessage'])) {
                             <img src="<?php echo ROOT; ?>/assets/img/halls/<?php echo $allHall->cover_path; ?>" class="card-img-top" alt="Jupiter">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $allHall->name; ?></h5>
-                                <a href="<?php echo ROOT; ?>/resources/Views/single-hall.php?id=<?php echo $allHall->id; ?>" class="btn btn-primary">Info Hall</a>
+                                <a href="index.php?page=single-hall&id=<?php echo $allHall->id; ?>" class="btn btn-primary">Info Hall</a>
                             </div>
                         </div>
                     </div>
@@ -176,10 +172,3 @@ if (isset($_POST['sendMessage'])) {
               </div>
             </div>
         </div>
-          
-          
-
-    </main>
-
-    <!-- Footer -->
-    <?php include_once "../../includes/footer.php" ?>

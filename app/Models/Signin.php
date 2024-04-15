@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Models;
+use App\Core\DB;
+use PDO;
+
 class Signin extends DB {
     protected function getUser($email, $password){
         // Preparazione della query per ottenere la password hashata dall'utente

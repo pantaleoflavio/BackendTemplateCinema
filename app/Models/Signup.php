@@ -1,4 +1,9 @@
 <?php
+
+    namespace App\Models;
+    use App\Core\DB;
+    use PDOException;
+    
     class Signup extends DB {
 
         protected function setUser($fullname, $email, $username, $image, $password) {

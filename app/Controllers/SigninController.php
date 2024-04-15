@@ -1,4 +1,7 @@
 <?php
+namespace App\Controllers;
+use App\Models\Signin;
+
 class SigninController extends Signin {
 
     private $email;

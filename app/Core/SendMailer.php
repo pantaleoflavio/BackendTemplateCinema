@@ -1,5 +1,9 @@
 <?php
 
+    namespace App\Core;
+
+    use Dotenv;
+
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 

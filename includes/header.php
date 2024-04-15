@@ -1,32 +1,5 @@
 <?php
-    session_start();
-    // Definisci la costante per la root del sito
-    define('ROOT', "http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema");
 
-    //INCLUDE DB AND CONTROLLER CLASSES
-    include __DIR__ . "/../app/Core/db.classes.php";
-    include __DIR__ . "/../app/Controllers/movie-controller.classes.php";
-    include __DIR__ . "/../app/Controllers/hall-controller.classes.php";
-    include __DIR__ . "/../app/Controllers/hall-images-controller.classes.php";
-    include __DIR__ . "/../app/Controllers/show-controller.classes.php";
-    include __DIR__ . "/../app/Controllers/user-controller.classes.php";
-    include __DIR__ . "/../app/Controllers/show-seats-controller.classes.php";
-    include __DIR__ . "/../app/Controllers/cart-controller.classes.php";
-    include __DIR__ . "/../app/Controllers/bill-controller.classes.php";
-    
-    //ADD LIBRARIES FROM VENDOR AND FUNCTIONALITY CLASSES
-    include __DIR__ . "/../app/Core/sendmailer.classes.php";
-    require_once __DIR__ . '/../vendor/autoload.php';
-
-    // INIT CONTROLLERS
-    $movieController = new MovieController();
-    $hallController = new HallController();
-    $hallImagesController = new HallImagesController();
-    $showController = new ShowController();
-    $userController = new UserController();
-    $showSeatsController = new ShowSeatsController();
-    $cartController = new CartController();
-    $billController = new billCOntroller();
     
     if(isset($_SESSION['userId'])){
         $cartItemCount = count($cartController->getCartProUser($_SESSION['userId']));
@@ -72,7 +45,7 @@
     <!-- Navigation Bar with logo and secondary menu -->
     <header>
         <div class="container logo-container">
-            <a class="navbar-brand" href="<?php echo ROOT; ?>/resources/Views/index.php">
+            <a class="navbar-brand" href="index.php?page=home">
                 <img src="<?php echo ROOT; ?>/assets/img/musa-vision-logo.png" alt="CINE VISION" height="40">
             </a>
         </div>
@@ -81,16 +54,16 @@
                 <ul class="navbar-nav ">
                     <!-- Elementi del menu principale -->
                     <li class="nav-item">
-                        <a class="nav-link active" href="<?php echo ROOT; ?>/resources/Views/index.php#movies-wall"><i class="fa-solid fa-film"></i>Movies</a>
+                        <a class="nav-link active" href="index.php?page=home#movies-wall"><i class="fa-solid fa-film"></i>Movies</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="<?php echo ROOT; ?>/resources/Views/index.php#halls-wall"><i class="fa-solid fa-couch"></i>Halls</a>
+                        <a class="nav-link active" href="index.php?page=home#halls-wall"><i class="fa-solid fa-couch"></i>Halls</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="<?php echo ROOT; ?>/resources/Views/index.php#booknow-hall"><i class="fa-solid fa-ticket"></i>Book now</a>
+                        <a class="nav-link active" href="index.php?page=home#booknow-hall"><i class="fa-solid fa-ticket"></i>Book now</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="<?php echo ROOT; ?>/resources/Views/index.php#contact"><i class="fa-solid fa-phone"></i>Contacts</a>
+                        <a class="nav-link active" href="index.php?page=home#contact"><i class="fa-solid fa-phone"></i>Contacts</a>
                     </li>
                 </ul>
         </nav>
@@ -102,18 +75,18 @@
                     <?php if (!isset($_SESSION['userId'])) : ?>
                         <!-- no session user -->
                         <li id="signupButtonNavbar" class="nav-item mx-2">
-                            <a class="nav-link signButton " href="<?php echo ROOT;?>/auth/signup.php">SIGNUP</a>
+                            <a class="nav-link signButton " href="index.php?page=signup">SIGNUP</a>
                         </li>
                         <li id="signinButtonNavbar" class="nav-item mx-2">
-                            <a class="nav-link signButton" href="<?php echo ROOT;?>/auth/signin.php">SIGNIN</a>
+                            <a class="nav-link signButton" href="index.php?page=signin">SIGNIN</a>
                         </li>
                     <?php else : ?>
                         <!-- with session user -->
                         <li id="signoutButtonNavbar" class="nav-item">
-                            <a href="<?php echo ROOT; ?>/auth/logout.php" class="nav-link signButton">SIGN OUT</a>
+                            <a href="index.php?page=logout" class="nav-link signButton">SIGN OUT</a>
                         </li>
                         <li id="avatar-container" class="nav-item d-flex align-items-center justify-content-center">
-                            <a href="<?php echo ROOT; ?>/resources/Views/user.php?id=<?php echo $_SESSION['userId']; ?>" class="nav-link">
+                            <a href="index.php?page=user.php?id=<?php echo $_SESSION['userId']; ?>" class="nav-link">
                                 <div class="avatar-header"><img src="<?php echo ROOT; ?>/assets/img/users/<?php echo $userImage; ?>" alt="User Image"></div>
                             </a>
                         </li>
@@ -124,7 +97,7 @@
                         </li>
                         <?php if ($_SESSION['role'] === 'admin') : ?>
                             <li id="adminButtonNavbar" class="nav-item">
-                                <a href="<?php echo ROOT; ?>/resources/Views/admin/index.php" class="nav-link signButton">Admin</a>
+                                <a href="index.php?page=admin/index.php" class="nav-link signButton">Admin</a>
                             </li>
                         <?php endif; ?>
                     <?php endif; ?>

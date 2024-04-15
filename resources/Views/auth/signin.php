@@ -1,16 +1,12 @@
-
-<!-- Header and Nav Bar-->
-<?php include_once "../includes/header.php" ?>
-
 <?php 
+    use App\Controllers\SigninController;
+
     if (isset($_POST['signin'])) {
 
         $input_email = $_POST['signinEmail'];
         $input_password = $_POST['signinPassword'];
 
         // AUTH INCLUDES
-        include __DIR__ . "/../app/Models/signin.classes.php";
-        include __DIR__ . "/../app/Controllers/signin-controller.classes.php";
 
         $signin = new SigninController($input_email, $input_password);
 
@@ -31,7 +27,6 @@
     }
 ?>
 
-<main class="container mt-5">
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <h2 class="text-center">Sign In</h2>
@@ -48,7 +43,3 @@
             </form>
         </div>
     </div>
-</main>
-
-<!-- Footer -->
-<?php include_once "../includes/footer.php" ?>

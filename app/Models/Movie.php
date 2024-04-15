@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Models;
+
 class Movie {
 
     public $id;
@@ -7,19 +9,19 @@ class Movie {
     public $code;
     public $description;
     public $duration;
-    public $releaseData;
+    public $releaseDate;
     public $trailer;
     public $imagePath;
     public $coverPath;
     public $director;
 
-    public function __construct($id, $title, $code, $description, $duration, $releaseData, $trailer, $imagePath, $coverPath, $director) {
+    public function __construct($id, $title, $code, $description, $duration, $releaseDate, $trailer, $imagePath, $coverPath, $director) {
         $this->id = $id;
         $this->title = $title;
         $this->code = $code;
         $this->description = $description;
         $this->duration = $duration;
-        $this->releaseData = $releaseData;
+        $this->releaseDate = $releaseDate;
         $this->trailer = $trailer;
         $this->imagePath = $imagePath;
         $this->coverPath = $coverPath;

@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Models;
 class ShowSeats {
 
     public $id;

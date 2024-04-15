@@ -4,7 +4,7 @@
         <div class="row align-items-center text-center">
             <!-- Logo Column -->
             <div class="col-12 col-md-3 mb-3">
-            <a href="<?php echo ROOT; ?>/resources/Views/index.php" class="navbar-brand d-inline">
+            <a href="index.php?page=home" class="navbar-brand d-inline">
                 <img src="<?php echo ROOT; ?>/assets/img/musa-vision-logo.png" alt="CINE VISION" height="100">
             </a>
             </div>
