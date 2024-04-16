@@ -1,10 +1,9 @@
-<!-- Header and Nav Bar-->
-<?php include_once "../../includes/header.php" ?>
+<!-- resources/Views/single-movie.php -->
 
 <?php
 // validation single movie wall, if there is valid movie id
 if (!isset($_GET['movieId'])) {
-    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/'</script>";
+    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/'</script>";
 } else {
     $movieId = ($_GET['movieId']);
 
@@ -13,7 +12,6 @@ if (!isset($_GET['movieId'])) {
 }
 ?>
 
-    <main>
         <div id="singlePageContainer" style="background-image: url('<?php echo ROOT; ?>/assets/img/movies/covers/<?php echo $singleMovie->coverPath; ?>');">
             <video id="background-video" class="" autoplay muted playsinline>
                 <source src="<?php echo ROOT; ?>/assets/videos/sample_mp4.mp4" type="video/mp4">
@@ -43,7 +41,7 @@ if (!isset($_GET['movieId'])) {
                             </div>
                             <div>
                                 <h4>data di uscita:</h4>
-                                <h5><?php echo $singleMovie->releaseData; ?></53>
+                                <h5><?php echo $singleMovie->releaseDate; ?></53>
                             </div>
                             <div>
                                 <h4>durata:</h4>
@@ -56,7 +54,7 @@ if (!isset($_GET['movieId'])) {
                                 </h5>
                             </div>
                             <div>
-                                <a href="<?php echo ROOT; ?>/resources/Views/bookNow.php?movieId=<?php echo $singleMovie->id; ?>" class="btn btn-primary">
+                                <a href="index.php?page=bookNow&movieId=<?php echo $singleMovie->id; ?>" class="btn btn-primary">
                                     Book Now
                                 </a>
                             </div>
@@ -65,7 +63,3 @@ if (!isset($_GET['movieId'])) {
                 </div>
             </div>
         </div>
-    </main>
-    
-    <!-- Footer -->
-    <?php include_once "../../includes/footer.php" ?>

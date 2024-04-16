@@ -1,10 +1,9 @@
-<!-- Header and Nav Bar-->
-<?php include_once "../../includes/header.php" ?>
+<!-- resources/Views/single-hall.php -->
 
 <?php
 // validation single hall wall, if there is valid hall id
 if (!isset($_GET['id'])) {
-  echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/'</script>";
+  echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/'</script>";
 } else {
     $hallId = ($_GET['id']);
 
@@ -14,7 +13,6 @@ if (!isset($_GET['id'])) {
 }
 ?>
 
-  <main>
     <div id="single-hall-wall">
       <div id="single-hall-infos" class="row vw-100 vh-60 flex-row">
           <div class="row vh-100 d-flex justify-content-center align-items-center">
@@ -48,7 +46,7 @@ if (!isset($_GET['id'])) {
                       </h5>
                   </div>
                   <div>
-                      <a href="<?php echo ROOT; ?>/resources/Views/bookNow.php" class="btn btn-primary">
+                      <a href="index.php?page=bookNow" class="btn btn-primary">
                           Book Now
                       </a>
                   </div>
@@ -67,7 +65,3 @@ if (!isset($_GET['id'])) {
         </div>
       </div>
     </div>
-  </main>
-
-<!-- Footer -->
-<?php include_once "../../includes/footer.php" ?>

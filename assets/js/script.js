@@ -5,56 +5,43 @@ document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('searchInput');
     const elementsToHideBySearch = document.querySelectorAll('.elementsToHideBySearch');
     const footerArrow = document.getElementById('footerArrow');
-    const bookNowForm = document.getElementById('bookNowForm');
-    const loader = document.getElementById('loader');
     
     // FUNCTIONS
-    // Open search icon input by click on search icon in navbar
-    function toggleSearchInput() {
-        const isIndexPage = window.location.pathname.endsWith('/index.php') || window.location.pathname === '/' || window.location.pathname.match(/\/resources\/Views\/$/);
-
-        if (searchInput.style.display === 'none') {
-            openSearchInput();
-        } else {
-            closeSearchInput();
-        }
+    // Funzione per controllare se la pagina attuale è 'index.php' o la root
+    function isIndexPage() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const page = urlParams.get('page');
+        const pathname = window.location.pathname;
+        const basePath = '/BackendTemplateCinema/';
+    
+        // Verifica che il pathname sia uno dei percorsi base e che la pagina sia 'home' o non definita
+        return (pathname === basePath || pathname === basePath + 'index.php' || pathname === '/') &&
+               (!page || page === 'home');
     }
 
+    // Funzione per reindirizzare alla home
+    function redirectToHome() {
+        window.location.href = '/BackendTemplateCinema/index.php?page=home';
+    }
+
+    // Funzione per aprire la barra di ricerca
     function openSearchInput() {
-        elementsToHideBySearch.forEach(function(element) {
-            element.style.display = 'none';
-        });
         searchInput.style.display = 'block';
-        //searchInput.classList.add('open');
+        elementsToHideBySearch.forEach(element => element.style.display = 'none');
     }
 
+    // Funzione per chiudere la barra di ricerca
     function closeSearchInput() {
-        elementsToHideBySearch.forEach(function(element) {
-            element.style.display = 'block';
-        });
         searchInput.style.display = 'none';
-        //searchInput.classList.remove('open');
+        elementsToHideBySearch.forEach(element => element.style.display = 'block');
     }
 
-    // If is not index redirect to index
-    function redirectToIndex(e) {
-        e.preventDefault();
-        
-        // Ottieni il percorso base della tua app
-        const basePath = '/BackendTemplateCinema/resources/Views/';
-    
-        // Controlla se l'utente si trova su index.php tenendo conto del percorso base
-        const isIndexPage = window.location.pathname.endsWith(basePath + 'index.php') ||
-                            window.location.pathname === basePath ||
-                            window.location.pathname === basePath.slice(0, -1); // Rimuove l'ultimo slash se presente
-    
-        if (isIndexPage) {
-            // Se sei su index.php, apri la searchBar
-            toggleSearchInput();
-            
+    // Funzione toggle per la barra di ricerca
+    function toggleSearchInput() {
+        if (searchInput.style.display === 'block') {
+            closeSearchInput();
         } else {
-            // Se non sei su index.php, reindirizza l'utente a index.php
-            window.location.href = basePath + "index.php";
+            openSearchInput();
         }
     }
 
@@ -74,29 +61,22 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
-    // Load Spinner for Book Now
-    function loadingBookNowSpinner(e) {
-        e.preventDefault();
-        const basePath = '/BackendTemplateCinema/resources/Views/';
-
-        // Show loader
-        const loader = document.querySelector('.lds-ring');
-        loader.classList.add('show');
-
-        // Load simulation and redirect
-        setTimeout(function() {
-            window.location.href = (basePath + 'bookNow.php');
-        }, 2000);
-    }
 
     // EVENT LISTENER
-    searchIcon.addEventListener('click', redirectToIndex);
+    searchIcon.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Se non siamo sulla pagina index o home, reindirizza
+        if (!isIndexPage()) {
+            redirectToHome();
+        } else {
+            // Altrimenti, apri la barra di ricerca
+            toggleSearchInput();
+        }
+    });
     footerArrow.addEventListener('click', function() {
         window.scrollTo({top: 0, behavior: 'smooth'});
     });
     searchInput.addEventListener('input', searchFunction);
-    bookNowForm.addEventListener('submit', loadingBookNowSpinner);
-
 });
 
 

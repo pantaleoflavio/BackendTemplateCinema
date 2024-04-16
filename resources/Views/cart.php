@@ -1,17 +1,17 @@
-<!-- Header and Nav Bar-->
-<?php include_once "../../includes/header.php" ?>
+<!-- resources/Views/cart.php -->
+
 <?php
 if (!isset($_SESSION['userId'])) {
 
-    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/'</script>";
+    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/'</script>";
 } else {
     $userId = $_SESSION['userId'];
     $cartItems = $cartController->getCartProUser($userId);
 
     if (isset($_GET['deleteCartElementById'])) {
         $cartElementId = $_GET['deleteCartElementById'];
-        $deleteElementFromCart = $cartController->deleteElementFromCart($cartElementId);
-        echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/cart.php'</script>";
+        $deleteElementFromCart = $cartController->removeFromCart($cartElementId);
+        echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=cart'</script>";
     }
 
 
@@ -19,8 +19,7 @@ if (!isset($_SESSION['userId'])) {
 
 
 ?>
-
-  <main class="container mt-5 mb-5 text-black bg-white">
+<div class="container">
     <?php if ($cartItemCount > 0) : ?>
         <div class="row">
             <h1>Your Cart</h1>
@@ -35,7 +34,7 @@ if (!isset($_SESSION['userId'])) {
                             $seatIdsArray = explode(',', $item->seat_ids);
                             $price = 0;
                             foreach ($seatIdsArray as $seatId) {
-                                $singleSeat = $showSeatsController->getSeatPerId($seatId);
+                                $singleSeat = $showSeatsController->getSeatById($seatId);
                                 $price += $singleSeat->price;
                                 echo htmlspecialchars($singleSeat->seatNumber) . htmlspecialchars($singleSeat->row) . ", ";
                             }
@@ -43,9 +42,9 @@ if (!isset($_SESSION['userId'])) {
                             ?>
                     </p>
                     <p><strong>Price:</strong> <?php echo htmlspecialchars($price); ?> €</p>
-                    <div class=""><a style="text-decoration: none;" href="cart.php?deleteCartElementById=<?php echo $item->id ?>" class="bg-danger text-white">Delete this element</a></div>
+                    <div class=""><a style="text-decoration: none;" href="index.php?page=cart&deleteCartElementById=<?php echo $item->id ?>" class="bg-danger text-white">Delete this element</a></div>
                 </div>  
-            <?php $checkoutUrl = "checkout.php?seatIds=" . urlencode($item->seat_ids);?>
+            <?php $checkoutUrl = "index.php?page=checkout&seatIds=" . urlencode($item->seat_ids);?>
             <?php endforeach;?>
 
             <div class="text-center my-4">
@@ -57,7 +56,4 @@ if (!isset($_SESSION['userId'])) {
             <h1>Your Cart is empty</h1>
         </div>
     <?php endif; ?>
-</main>
-
-<!-- Footer -->
-<?php include_once "../../includes/footer.php" ?>
+</div>
