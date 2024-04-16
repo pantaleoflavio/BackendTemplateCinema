@@ -16,11 +16,7 @@ class ShowSeatsController {
     }
 
     public function getSeatById($id) {
-        $seatData = $this->showSeatsDAO->getSeatById($id);
-        if ($seatData) {
-            return new ShowSeats($seatData->id, $seatData->show_id, $seatData->seat_number, $seatData->row, $seatData->price, $seatData->is_booked);
-        }
-        return null;
+        return $this->showSeatsDAO->getSeatById($id);
     }
 
     public function setSeatToBooked($id) {

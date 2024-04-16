@@ -54,7 +54,7 @@ if (!isset($_GET['movieId'])) {
                                 </h5>
                             </div>
                             <div>
-                                <a href="<?php echo ROOT; ?>/resources/Views/bookNow.php?movieId=<?php echo $singleMovie->id; ?>" class="btn btn-primary">
+                                <a href="index.php?page=bookNow&movieId=<?php echo $singleMovie->id; ?>" class="btn btn-primary">
                                     Book Now
                                 </a>
                             </div>

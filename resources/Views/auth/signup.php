@@ -1,10 +1,8 @@
-<!-- Header and Nav Bar-->
-<?php include_once "../includes/header.php" ?>
+<!-- resources/Views/auth/signup.php -->
 
 <?php
   // AUTH INCLUDES
-  include __DIR__ . '/../app/Models/signup.classes.php';
-  include __DIR__ . '/../app/Controllers/signup-controller.classes.php';
+  use App\Controllers\SignupController;
 
   
     if (isset($_POST['signup'])) {
@@ -26,7 +24,7 @@
         try {
             $signup->signupUser();
             echo "<script>alert('Register successfully')</script>";
-            echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/auth/signin.php'</script>";
+            echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=signin'</script>";
 
         } catch (Exception $e) {
             // Mostra un messaggio di errore più dettagliato
@@ -42,11 +40,11 @@
 
 ?>
 
-<main class="container mt-5">
+<div class="container mt-5">
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <h2 class="text-center">Sign Up</h2>
-            <form action="signup.php" method="post" class="mt-4">
+            <form action="" method="post" class="mt-4">
                 <div class="form-group">
                     <label for="signUpName">Your full name</label>
                     <input type="text" class="form-control" name="signUpName" id="signUpName" required>
@@ -71,7 +69,4 @@
             </form>
         </div>
     </div>
-</main>
-
-<!-- Footer -->
-<?php include_once "../includes/footer.php" ?>
+</div>

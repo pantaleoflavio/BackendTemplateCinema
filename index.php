@@ -26,12 +26,17 @@
     $cartController = new CartController();
     $billController = new billCOntroller();
     
-    //INIT CONTACT FORM
+    //INIT Sendmailer
     use App\Core\SendMailer;
-    $contactForm = new SendMailer();
-    
+    $sendMailer = new SendMailer();
+
     // Variable for route managing
     $page = $_GET['page'] ?? 'home';
+
+    // Mappa la route vuota o 'home' alla vista home.php
+    if ($page === '' || $page === 'home') {
+        $page = 'home';
+    }
 
     // Include l'header
     require_once "includes/header.php";
@@ -51,7 +56,10 @@
             // Pagine di amministrazione
             include_once __DIR__ . "/resources/Views/admin/" . $page . ".php";
             break;
-    
+
+        case 'home':
+            include_once __DIR__ . "/resources/Views/home.php";
+            break;
         default:
             // Routing generale
             if (file_exists(__DIR__ . "/resources/Views/" . $page . ".php")) {

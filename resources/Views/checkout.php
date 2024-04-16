@@ -1,11 +1,10 @@
-<!-- Header and Nav Bar-->
-<?php include_once "../../includes/header.php" ?>
+<!-- resources/Views/checkout.php -->
+
 <?php
 if (!isset($_SESSION['userId'])) {
 
-    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/'</script>";
+    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/'</script>";
 }  else {
-    $ticketSender = new SendMailer();
 
     $userId = $_SESSION['userId'];
     $cartItems = $cartController->getCartProUser($userId);
@@ -61,14 +60,14 @@ if (!isset($_SESSION['userId'])) {
             
             foreach ($seatIds as $seatId) {
                 $seatId = (int) $seatId;
-                $seatIsBooked = $showSeatsController->seatBooked($seatId);
+                $seatIsBooked = $showSeatsController->setSeatToBooked($seatId);
                 
             }
         }
 
-        $ticketSender->sendPDFTicket($email, $pathTicket); // insert in form $email befor payment your mail
+        $sendMailer->sendPDFTicket($email, $pathTicket); // insert in form $email befor payment your mail
 
-        echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/success.php?successPayment'</script>";
+        echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=success&successPayment'</script>";
         
     }
 
@@ -77,7 +76,7 @@ if (!isset($_SESSION['userId'])) {
 
 ?>
 
-  <main class="container mt-5 mb-5 text-black bg-white">
+<div class="container mt-5 mb-5 text-black bg-white">
     <div class="row"><h1 class="text-success d-flex justify-content-center">Checkout</h1></div>
     <form method="post" action="">
     <div class="row">
@@ -95,7 +94,7 @@ if (!isset($_SESSION['userId'])) {
                             $seatDetails = "";
                             $price = 0;
                             foreach ($seatIdsArray as $seatId) {
-                                $singleSeat = $showSeatsController->getSeatPerId($seatId);
+                                $singleSeat = $showSeatsController->getSeatById($seatId);
                                 $price += $singleSeat->price;
                                 $seatDetail = htmlspecialchars($singleSeat->seatNumber) . htmlspecialchars($singleSeat->row) . ", ";
                                 echo $seatDetail;
@@ -145,8 +144,4 @@ if (!isset($_SESSION['userId'])) {
         </div>
         </div>
     </form>
-
-</main>
-
-<!-- Footer -->
-<?php include_once "../../includes/footer.php" ?>
+</div>

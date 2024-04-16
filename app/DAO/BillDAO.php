@@ -12,7 +12,7 @@ class BillDAO extends DB {
     }
 
     public function createBill($customer, $adresse, $email, $order_notes, $total, $orderList, $user_id) {
-        $stmt = $this->connect()->prepare("INSERT INTO bills (customer, adresse, email, order_notes, total, orderList, user_id) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $this->connect()->prepare("INSERT INTO bills (customer, adress, email, order_notes, total, orderList, user_id) VALUES (?, ?, ?, ?, ?, ?, ?)");
         return $stmt->execute([$customer, $adresse, $email, $order_notes, $total, $orderList, $user_id]);
     }
 }

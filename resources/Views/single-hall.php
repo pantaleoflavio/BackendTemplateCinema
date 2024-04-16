@@ -46,7 +46,7 @@ if (!isset($_GET['id'])) {
                       </h5>
                   </div>
                   <div>
-                      <a href="<?php echo ROOT; ?>/resources/Views/bookNow.php" class="btn btn-primary">
+                      <a href="index.php?page=bookNow" class="btn btn-primary">
                           Book Now
                       </a>
                   </div>

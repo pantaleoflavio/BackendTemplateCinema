@@ -1,21 +1,20 @@
-<!-- Header and Nav Bar-->
-<?php include_once "../../includes/header.php" ?>
+<!-- resources/Views/user.php -->
 
 <?php
 
 if (!isset($_SESSION['userId'])) {
-    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/resources/Views/'</script>";
+    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/'</script>";
 } else {
     $userId = $_SESSION['userId'];
     $singleUser = $userController->getSingleUser($userId);
-    $bookingHistory = $billController->getBillsProUser($userId);
+    $bookingHistory = $billController->getBillsByUserId($userId);
 }
 
 
 
 ?>
 
-<main class="container my-4">
+<div class="container my-4">
     <div class="row">
         <h1 class="d-flex justify-content-center">This is your page</h1>
     </div>
@@ -34,7 +33,7 @@ if (!isset($_SESSION['userId'])) {
 
             <!-- Link per modificare il profilo -->
             <div class="mt-2">
-                <a class="btn btn-secondary text-white" style="text-decoration: none;" href="user-settings.php">Modify your Profile</a>
+                <a class="btn btn-secondary text-white" style="text-decoration: none;" href="index.php?page=user-settings">Modify your Profile</a>
             </div>
         </section>
     
@@ -72,7 +71,4 @@ if (!isset($_SESSION['userId'])) {
             ?>
         </section>
     </div>
-</main>
-
-<!-- Footer -->
-<?php include_once "../../includes/footer.php" ?>
+</div>

@@ -4,7 +4,7 @@
         <div class="row align-items-center text-center">
             <!-- Logo Column -->
             <div class="col-12 col-md-3 mb-3">
-            <a href="index.php?page=home" class="navbar-brand d-inline">
+            <a href="<?php echo ROOT; ?>/index.php?page=home" class="navbar-brand d-inline">
                 <img src="<?php echo ROOT; ?>/assets/img/musa-vision-logo.png" alt="CINE VISION" height="100">
             </a>
             </div>
@@ -34,9 +34,6 @@
         </div>
     </footer>
 
-    <!-- Loading Spinner -->
-    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-    
 
     <!-- Swipe JS library -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

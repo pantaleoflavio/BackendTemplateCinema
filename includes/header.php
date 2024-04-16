@@ -45,7 +45,7 @@
     <!-- Navigation Bar with logo and secondary menu -->
     <header>
         <div class="container logo-container">
-            <a class="navbar-brand" href="index.php?page=home">
+            <a class="navbar-brand" href="<?php echo ROOT; ?>/index.php?page=home">
                 <img src="<?php echo ROOT; ?>/assets/img/musa-vision-logo.png" alt="CINE VISION" height="40">
             </a>
         </div>
@@ -86,18 +86,18 @@
                             <a href="index.php?page=logout" class="nav-link signButton">SIGN OUT</a>
                         </li>
                         <li id="avatar-container" class="nav-item d-flex align-items-center justify-content-center">
-                            <a href="index.php?page=user.php?id=<?php echo $_SESSION['userId']; ?>" class="nav-link">
+                            <a href="index.php?page=user&id=<?php echo $_SESSION['userId']; ?>" class="nav-link">
                                 <div class="avatar-header"><img src="<?php echo ROOT; ?>/assets/img/users/<?php echo $userImage; ?>" alt="User Image"></div>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?php echo ROOT; ?>/cart.php" class="nav-link text-white">
+                            <a href="<?php echo ROOT; ?>/index.php?page=cart" class="nav-link text-white">
                                 <i class="fa fa-shopping-basket"></i> <span class="badge badge-primary"><?php echo $cartItemCount > 0 ? $cartItemCount : '0'; ?></span>
                             </a>
                         </li>
                         <?php if ($_SESSION['role'] === 'admin') : ?>
                             <li id="adminButtonNavbar" class="nav-item">
-                                <a href="index.php?page=admin/index.php" class="nav-link signButton">Admin</a>
+                                <a href="index.php?page=admin" class="nav-link signButton">Admin</a>
                             </li>
                         <?php endif; ?>
                     <?php endif; ?>

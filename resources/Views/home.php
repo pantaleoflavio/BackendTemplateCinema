@@ -10,7 +10,7 @@ if (isset($_POST['sendMessage'])) {
     $userEmail = $_POST['email'];
     $userMessage = $_POST['message'];
 
-    $contactForm->sendContactForm($userEmail, $userName, $userMessage);
+    $sendMailer->sendContactForm($userEmail, $userName, $userMessage);
 
     echo "<script>alert('Email sent successfully')</script>";
 }
@@ -101,34 +101,34 @@ if (isset($_POST['sendMessage'])) {
                             <img src="<?php echo ROOT; ?>/assets/img/sala-1.png" alt="" srcset="">
                         </div>
                         <div class="col-sm-12 col-md-6 card-body">
-                            <form id="booknowForm" method="get" action="bookNow.php">
+                        <form id="booknowForm" method="get" action="index.php">
+                            <input type="hidden" name="page" value="bookNow">
 
-                                <div class="mb-3">
-                                    <label for="movieId" class="form-label">Choose a movie</label>
-                                    <select class="form-select" id="movieId" name="movieId">
-                                        <option >Open this select menu</option>
-                                        <?php foreach($allMovies as $movie) : ?>
-                                            <option value="<?php echo $movie->id; ?>" ><?php echo $movie->name; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
+                            <div class="mb-3">
+                                <label for="movieId" class="form-label">Choose a movie</label>
+                                <select class="form-select" id="movieId" name="movieId" required>
+                                    <option value="" >Open this select menu</option>
+                                    <?php foreach($allMovies as $movie) : ?>
+                                        <option value="<?php echo $movie->id; ?>" ><?php echo $movie->name; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
 
-                                <div class="mb-3">
-                                    <label for="hallId" class="form-label">Choose a Hall</label>
-                                    <select class="form-select" id="hallId" name="hallId">
-                                        <option selected>Open this select menu</option>
-                                        <?php foreach($allHalls as $hall) : ?>
-                                            <option value="<?php echo $hall->id; ?>"><?php echo $hall->name; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
+                            <div class="mb-3">
+                                <label for="hallId" class="form-label">Choose a Hall</label>
+                                <select class="form-select" id="hallId" name="hallId" required>
+                                    <option value="" selected>Open this select menu</option>
+                                    <?php foreach($allHalls as $hall) : ?>
+                                        <option value="<?php echo $hall->id; ?>"><?php echo $hall->name; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
 
+                            <div class="d-grid gap-2 justify-content-center">
+                                <button class="btn btn-primary" type="submit">Search</button>
+                            </div>
+                        </form>
 
-                                <div class="d-grid gap-2 justify-content-center">
-                                    <button class="btn btn-primary" type="submit">Search</button>
-                                </div>
-
-                            </form>
                         </div>
                     </div>
 
@@ -172,3 +172,6 @@ if (isset($_POST['sendMessage'])) {
               </div>
             </div>
         </div>
+
+    <!-- Loading Spinner -->
+    <div id="loader" class="lds-ring"><div></div><div></div><div></div><div></div></div>

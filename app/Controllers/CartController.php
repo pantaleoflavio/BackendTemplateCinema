@@ -14,8 +14,8 @@ class CartController {
         return $this->cartDAO->getCartProUser($user_id);
     }
 
-    public function addToCart($movie_id, $hall_id, $show_id, $seat_ids, $user_id) {
-        return $this->cartDAO->addToCart($movie_id, $hall_id, $show_id, $seat_ids, $user_id);
+    public function addToCart($movie_id, $hall_id, $show_time_id, $seat_ids, $user_id) {
+        return $this->cartDAO->addToCart($movie_id, $hall_id, $show_time_id, $seat_ids, $user_id);
     }
 
     public function removeFromCart($id) {
