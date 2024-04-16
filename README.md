@@ -78,7 +78,7 @@ composer install
 * Modify the file `.env` with your configurations.
 
 
-6. Launching the Application: Open your browser and navigate to http://localhost/BackendTemplateCinema/resources/Views/ to start exploring the app.
+6. Launching the Application: Open your browser and navigate to http://localhost/BackendTemplateCinema/ to start exploring the app.
 
 ## Email Sending Configuration
 

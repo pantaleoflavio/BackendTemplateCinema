@@ -76,7 +76,7 @@ composer install
 * Rinomina il file `.env.exampe` in `.env` nella directory principale del progetto
 * Modifica il file `.env` con le tue configurazioni specifiche.
 
-6. Avvio dell'Applicazione: Apri il tuo browser e naviga a http://localhost/BackendTemplateCinema/resources/Views/ per iniziare a esplorare l'app.
+6. Avvio dell'Applicazione: Apri il tuo browser e naviga a http://localhost/BackendTemplateCinema/ per iniziare a esplorare l'app.
 
 ## Configurazione dell'Invio Email
 

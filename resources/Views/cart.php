@@ -19,7 +19,7 @@ if (!isset($_SESSION['userId'])) {
 
 
 ?>
-
+<div class="container">
     <?php if ($cartItemCount > 0) : ?>
         <div class="row">
             <h1>Your Cart</h1>
@@ -56,3 +56,4 @@ if (!isset($_SESSION['userId'])) {
             <h1>Your Cart is empty</h1>
         </div>
     <?php endif; ?>
+</div>

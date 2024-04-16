@@ -49,7 +49,7 @@ if (isset($_GET['movieId'], $_GET['hallId'], $_GET['showId'])){
     
 
 ?>
-
+<div class="container">
     <form action="index.php" method="GET">
         <input type="hidden" name="page" value="bookNow">
         <div class="form-group my-3">
@@ -133,7 +133,7 @@ if (isset($_GET['movieId'], $_GET['hallId'], $_GET['showId'])){
 
     <!-- Select Place Section -->
     <?php if (isset($_GET['movieId']) && isset($_GET['hallId']) && isset($_GET['showId'])): ?>
-        <form id="formChooseShowAndSeat" action="" method="POST">
+        <form id="formChooseShowAndSeat" action="" method="POST" >
             <input type="hidden" name="movieId" value="<?php echo htmlspecialchars($_GET['movieId']); ?>">
             <input type="hidden" name="hallId" value="<?php echo htmlspecialchars($_GET['hallId']); ?>">
             <input type="hidden" name="showId" value="<?php echo htmlspecialchars($_GET['showId']); ?>">
@@ -157,9 +157,10 @@ if (isset($_GET['movieId'], $_GET['hallId'], $_GET['showId'])){
 
             <div class="row">
                 <div class="col-12 text-center">
-                    <button type="submit" name="addToCart" class="btn btn-primary">Add to Cart</button>
+                    <button type="submit" name="addToCart" class="btn btn-primary mb-4">Add to Cart</button>
                 </div>
             </div>
         </form>
 
     <?php endif; ?>
+</div>
