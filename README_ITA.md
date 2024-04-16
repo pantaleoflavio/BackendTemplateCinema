@@ -73,20 +73,8 @@ composer install
 
 5. Configurazione del File .env:
 
-* Crea un file `.env` nella directory principale del progetto
-* Modifica il file `.env` con le tue configurazioni specifiche:
-
-```Copy code
-DB_HOST=nomeDellHostCheUtilizzi
-DB_NAME=nomeDelDatabase
-DB_USER=nomeDellUserDB
-DB_PASS=passwordDelDatabase
-SMTP_HOST=hostCheUtilizzeraiPerTestareLeEmail
-SMTP_USERNAME=tua_email@email.com
-SMTP_PASSWORD=tua_password
-SMTP_PORT=587
-SMTP_RECIPIENT=tua_email_di_destinazione@email.com
-```
+* Rinomina il file `.env.exampe` in `.env` nella directory principale del progetto
+* Modifica il file `.env` con le tue configurazioni specifiche.
 
 6. Avvio dell'Applicazione: Apri il tuo browser e naviga a http://localhost/BackendTemplateCinema/resources/Views/ per iniziare a esplorare l'app.
 
