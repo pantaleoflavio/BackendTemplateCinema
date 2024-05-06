@@ -15,7 +15,7 @@ class ShowSeats {
         $this->seatNumber = $seatNumber;
         $this->row = $row;
         $this->price = $price;
-        $this->$isBooked = $isBooked;
+        $this->isBooked = $isBooked;
     }
 
 
