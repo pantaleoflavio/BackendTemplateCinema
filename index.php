@@ -32,6 +32,7 @@
 
     // Variable for route managing
     $page = $_GET['page'] ?? 'home';
+    $subPage = $_GET['subPage'] ?? 'index';
 
     // Mappa la route vuota o 'home' alla vista home.php
     if ($page === '' || $page === 'home') {
@@ -39,10 +40,15 @@
     }
 
     // Include l'header
-    require_once "includes/header.php";
+    if ($page === 'admin') {
+        require_once "includes/admin_header.php";
+    } else {
+        require_once "includes/header.php";
+        // Contenuto principale
+        echo '<main class="">';
+    }
+    
 
-    // Contenuto principale
-    echo '<main class="">';
 
     switch ($page) {
         case 'signin':
@@ -54,7 +60,7 @@
     
         case 'admin':
             // Pagine di amministrazione
-            include_once __DIR__ . "/resources/Views/admin/" . $page . ".php";
+            include_once __DIR__ . "/resources/Views/" . $page . "/" . $subPage . ".php";
             break;
 
         case 'home':
@@ -70,8 +76,15 @@
             break;
     }
 
-    echo '</main>';
-
+    
     // Include il footer
-    include_once "includes/footer.php";
+    
+    if ($page === 'admin') {
+        require_once "includes/admin_footer.php";
+    } else {
+        require_once "includes/footer.php";
+        // Fine Contenuto principale
+        echo '</main>';
+    }
+    
 ?>
