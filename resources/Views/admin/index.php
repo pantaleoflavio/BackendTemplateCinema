@@ -1,9 +1,10 @@
 <!-- resources/Views/admin/index.php -->
 <?php
     $allShows = $showController->getAllShowWithMovieHallAndSeats();
-
     $allMovies = $movieController->getAllMovies();
-
+    $userCount = count($userController->getAllUsers());
+    // Index for the tables
+    $index = 1;
 ?>
 
 <!-- Main content -->
@@ -28,14 +29,17 @@
                 <tbody>
                     <?php foreach($allShows as $show) : ?>
                         <tr>
-                            <td></td>
+                            <td><?php echo $index; ?></td>
                             <td><?php echo $show->name; ?></td>
                             <td><?php echo $show->show_date . " - " . $show->show_time; ?></td>
                             <td><?php echo $show->hall_name; ?></td>
                             <td><?php echo $show->total_seats; ?></td>
                             <td><?php echo $show->available_seats; ?></td>
                         </tr>
-                    <?php endforeach; ?>
+                    <?php
+                        $index ++;
+                        endforeach;
+                    ?>
                 </tbody>
             </table>
         </div>
@@ -77,7 +81,7 @@
     <h4>Total users</h4>
     <div id="totalUsers">
         <div class="alert alert-info" role="alert">
-            Total number of users signed: <strong>1234</strong>
+            Total number of users signed: <strong><?php echo $userCount; ?></strong>
         </div>
     </div>
 </main>
