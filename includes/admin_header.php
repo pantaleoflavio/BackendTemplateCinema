@@ -2,7 +2,8 @@
     if($_SESSION['role'] !== 'admin'){
         echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/'</script>";
     }
-
+    // Index for the tables in the admin pages
+    $index = 1;
 ?>
 
 <!DOCTYPE html>

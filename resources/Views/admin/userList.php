@@ -3,8 +3,7 @@
 <?php
 
     $userList = $userController->getAllUsers();
-    // Index for the table
-    $index = 1;
+
 ?>
 
         <!-- Main content -->

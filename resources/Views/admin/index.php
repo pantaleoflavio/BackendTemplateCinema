@@ -3,8 +3,7 @@
     $allShows = $showController->getAllShowWithMovieHallAndSeats();
     $allMovies = $movieController->getAllMovies();
     $userCount = count($userController->getAllUsers());
-    // Index for the tables
-    $index = 1;
+
 ?>
 
 <!-- Main content -->

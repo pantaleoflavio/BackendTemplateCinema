@@ -1,5 +1,11 @@
 <!-- resources/Views/admin/movieList.php -->
 
+<?php
+
+    $movieList = $movieController->getAllMovies();
+
+?>
+
             <!-- Main content -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -23,22 +29,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>The Matrix</td>
-                                <td>A computer hacker learns from mysterious rebels...</td>
-                                <td>136 min</td>
-                                <td>1999</td>
-                                <td><a href="trailer.html" class="btn btn-sm btn-outline-secondary">View Trailer</a></td>
-                                <td><a href="moviePhoto.html" class="btn btn-sm btn-outline-secondary">View Image</a></td>
-                                <td><a href="movieCover.html" class="btn btn-sm btn-outline-secondary">View Cover</a></td>
-                                <td>Lana Wachowski, Lilly Wachowski</td>
-                                <td>
-                                    <button class="btn btn-primary btn-sm">Edit</button>
-                                    <button class="btn btn-danger btn-sm">Delete</button>
-                                </td>
-                            </tr>
-                            <!-- More movies can be listed here -->
+                            <?php foreach($movieList as $movie) : ?>
+                                <tr>
+                                    <th scope="row"><?php echo $index; ?></th>
+                                    <td><?php echo $movie->name; ?></td>
+                                    <td><?php echo $movie->description; ?></td>
+                                    <td><?php echo $movie->duration; ?> min</td>
+                                    <td><?php echo $movie->release_date; ?></td>
+                                    <td><a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=trailer" class="btn btn-sm btn-outline-secondary">View Trailer</a></td>
+                                    <td><a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=movieImage" class="btn btn-sm btn-outline-secondary">View Image</a></td>
+                                    <td><a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=movieCover" class="btn btn-sm btn-outline-secondary">View Cover</a></td>
+                                    <td><?php echo $movie->director; ?></td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm">Edit</button>
+                                        <button class="btn btn-danger btn-sm">Delete</button>
+                                    </td>
+                                </tr>
+                            <?php
+                                $index ++;
+                                endforeach;
+                            ?>
                         </tbody>
                     </table>
                 </div>
