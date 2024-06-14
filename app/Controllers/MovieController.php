@@ -19,4 +19,12 @@ class MovieController {
     public function getMovieById($id){
         return $this->movieDAO->getMovieById($id);
     }
+
+    public function updateMovieTrailer($id, $newTrailerPath) {
+        return $this->movieDAO->updateMovieTrailer($id, $newTrailerPath);
+    }
+
+    public function clearMovieTrailer($movieId) {
+        return $this->movieDAO->clearMovieTrailer($movieId);
+    }
 }

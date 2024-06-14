@@ -29,4 +29,29 @@ class MovieDAO extends DB {
             return null;
         } 
     }
+
+    public function updateMovieTrailer($movieId, $newTrailerPath) {
+        try {
+            $sql = "UPDATE movies SET trailer = ? WHERE id = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$newTrailerPath, $movieId]);
+            return $stmt->rowCount();
+        } catch (PDOException $e) {
+            error_log("PDOException in updateMovieTrailer: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function clearMovieTrailer($movieId) {
+        try {
+            $sql = "UPDATE movies SET trailer = NULL WHERE id = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$movieId]);
+            return $stmt->rowCount();  // Restituisce il numero di righe modificate
+        } catch (PDOException $e) {
+            error_log("PDOException in clearMovieTrailer: " . $e->getMessage());
+            return false;
+        }
+    }
+    
 }
