@@ -43,7 +43,7 @@
             <form method="post" class="ms-2 me-2">
                 <button type="submit" name="deleteTrailer" class="btn btn-danger">Delete Trailer</button>
             </form>
-            <a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=movieList" class="btn btn-secondary">Back</a> <!-- Button to go back -->
+            <a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=movieList" class="btn btn-secondary">Back</a>
     </div>
 </div>
 

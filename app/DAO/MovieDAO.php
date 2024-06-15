@@ -47,9 +47,57 @@ class MovieDAO extends DB {
             $sql = "UPDATE movies SET trailer = NULL WHERE id = ?";
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute([$movieId]);
-            return $stmt->rowCount();  // Restituisce il numero di righe modificate
+            return $stmt->rowCount();
         } catch (PDOException $e) {
             error_log("PDOException in clearMovieTrailer: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function updateMoviePicture($movieId, $newPicturePath) {
+        try {
+            $sql = "UPDATE movies SET image_path = ? WHERE id = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$newPicturePath, $movieId]);
+            return $stmt->rowCount();
+        } catch (PDOException $e) {
+            error_log("PDOException in updateMoviePicture: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function clearMoviePicture($movieId) {
+        try {
+            $sql = "UPDATE movies SET image_path = NULL WHERE id = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$movieId]);
+            return $stmt->rowCount(); 
+        } catch (PDOException $e) {
+            error_log("PDOException in clearMoviePicture: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function updateMovieCover($movieId, $newCoverPath) {
+        try {
+            $sql = "UPDATE movies SET cover_path = ? WHERE id = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$newCoverPath, $movieId]);
+            return $stmt->rowCount();
+        } catch (PDOException $e) {
+            error_log("PDOException in updateMovieCover: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function clearMovieCover($movieId) {
+        try {
+            $sql = "UPDATE movies SET cover_path = NULL WHERE id = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$movieId]);
+            return $stmt->rowCount(); 
+        } catch (PDOException $e) {
+            error_log("PDOException in clearMovieCover: " . $e->getMessage());
             return false;
         }
     }

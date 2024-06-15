@@ -37,8 +37,8 @@
                                     <td><?php echo $movie->duration; ?> min</td>
                                     <td><?php echo $movie->release_date; ?></td>
                                     <td><a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=trailer&movieId=<?php echo $movie->id; ?>" class="btn btn-sm btn-outline-secondary">View Trailer</a></td>
-                                    <td><a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=movieImage" class="btn btn-sm btn-outline-secondary">View Image</a></td>
-                                    <td><a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=movieCover" class="btn btn-sm btn-outline-secondary">View Cover</a></td>
+                                    <td><a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=movieImage&movieId=<?php echo $movie->id; ?>" class="btn btn-sm btn-outline-secondary">View Image</a></td>
+                                    <td><a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=movieCover&movieId=<?php echo $movie->id; ?>" class="btn btn-sm btn-outline-secondary">View Cover</a></td>
                                     <td><?php echo $movie->director; ?></td>
                                     <td>
                                         <button class="btn btn-primary btn-sm">Edit</button>
