@@ -4,6 +4,18 @@
 
     $movieList = $movieController->getAllMovies();
 
+    if (isset($_POST['deleteMovie']) && isset($_POST['movieId'])) {
+        $result = $movieController->deleteMovieById($_POST['movieId']);
+        
+        if ($result) {
+            echo "<script>alert('Movie deleted successfully');</script>";
+            echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=admin&subPage=movieList'</script>";
+        } else {
+            echo "<script>alert('Failed to delete movie');</script>";
+        }
+    }
+
+
 ?>
 
             <!-- Main content -->
@@ -41,9 +53,13 @@
                                     <td><a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=movieCover&movieId=<?php echo $movie->id; ?>" class="btn btn-sm btn-outline-secondary">View Cover</a></td>
                                     <td><?php echo $movie->director; ?></td>
                                     <td>
-                                        <button class="btn btn-primary btn-sm">Edit</button>
-                                        <button class="btn btn-danger btn-sm">Delete</button>
+                                        <a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=editMovie&movieId=<?php echo $movie->id; ?>" class="btn btn-primary btn-sm">Edit</a>
+                                        <form method="post" action="<?php echo ROOT; ?>/index.php?page=admin&subPage=movieList" onsubmit="return confirm('Are you sure you want to delete this movie?');">
+                                            <input type="hidden" name="movieId" value="<?php echo $movie->id; ?>">
+                                            <button type="submit" name="deleteMovie" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
                                     </td>
+
                                 </tr>
                             <?php
                                 $index ++;
@@ -51,6 +67,9 @@
                             ?>
                         </tbody>
                     </table>
+                </div>
+                <div class="mb-3">
+                    <a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=addMovie" class="btn btn-success">Add New Movie</a>
                 </div>
             </main>
         </div>
