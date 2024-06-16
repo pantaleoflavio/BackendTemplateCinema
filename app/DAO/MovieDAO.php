@@ -21,7 +21,7 @@ class MovieDAO extends DB {
             $stmt->execute([$id]);
             $movieDB = $stmt->fetch(PDO::FETCH_ASSOC);
             if ($movieDB) {
-                return new Movie($movieDB['id'], $movieDB['name'], $movieDB['code'], $movieDB['description'], $movieDB['duration'], $movieDB['release_date'], $movieDB['trailer'], $movieDB['image_path'], $movieDB['cover_path'], $movieDB['director']);
+                return new Movie($movieDB['id'], $movieDB['name'], $movieDB['description'], $movieDB['duration'], $movieDB['release_date'], $movieDB['trailer'], $movieDB['image_path'], $movieDB['cover_path'], $movieDB['director']);
             }
             return null;
         } catch (PDOException $e) {
@@ -101,5 +101,35 @@ class MovieDAO extends DB {
             return false;
         }
     }
+
+    public function deleteMovieById($movieId) {
+        try {
+
+            $sql = "DELETE FROM movies WHERE id = ?";
+            $stmt = $this->connect()->prepare($sql);
+    
+            $stmt->execute([$movieId]);
+    
+            return $stmt->rowCount() > 0;
+        } catch (PDOException $e) {
+            error_log("PDOException in deleteMovieById: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function addMovie($name, $description, $duration, $release_date, $trailerPath, $imagePath, $coverPath, $director) {
+        try {
+            $sql = "INSERT INTO movies (name, description, duration, release_date, trailer, image_path, cover_path, director) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$name, $description, $duration, $release_date, $trailerPath, $imagePath, $coverPath, $director]);
+    
+            return $stmt->rowCount() > 0;
+        } catch (PDOException $e) {
+            error_log("PDOException in addMovie: " . $e->getMessage());
+            return false;
+        }
+    }
+    
+    
     
 }

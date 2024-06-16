@@ -43,4 +43,13 @@ class MovieController {
     public function clearMovieCover($movieId) {
         return $this->movieDAO->clearMovieCover($movieId);
     }
+
+    public function deleteMovieById($movieId) {
+        return $this->movieDAO->deleteMovieById($movieId);
+    }
+    
+    public function addMovie($name, $description, $duration, $release_date, $trailerPath, $imagePath, $coverPath, $director) {
+        return $this->movieDAO->addMovie($name, $description, $duration, $release_date, $trailerPath, $imagePath, $coverPath, $director);
+    }
+
 }
