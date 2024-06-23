@@ -42,4 +42,19 @@ class HallDAO extends DB {
         }
     }
 
+    public function deleteHallById($hallId) {
+        try {
+
+            $sql = "DELETE FROM halls WHERE id = ?";
+            $stmt = $this->connect()->prepare($sql);
+    
+            $stmt->execute([$hallId]);
+    
+            return $stmt->rowCount() > 0;
+        } catch (PDOException $e) {
+            error_log("PDOException in deleteHallById: " . $e->getMessage());
+            return false;
+        }
+    }
+
 }

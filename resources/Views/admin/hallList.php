@@ -3,6 +3,16 @@
 
     $hallList = $hallController->getAllHalls();
     
+    if (isset($_POST['deleteHall']) && isset($_POST['hallId'])) {
+        $result = $hallController->deleteHallById($_POST['hallId']);
+        
+        if ($result) {
+            echo "<script>alert('Hall deleted successfully');</script>";
+            echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=admin&subPage=hallList'</script>";
+        } else {
+            echo "<script>alert('Failed to delete Hall');</script>";
+        }
+    }
 ?>
             <!-- Main content -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -31,7 +41,10 @@
                                     <td><a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=manageHallGallery" class="btn btn-sm btn-outline-secondary">View Gallery</a></td>
                                     <td>
                                         <button class="btn btn-primary btn-sm">Edit</button>
-                                        <button class="btn btn-danger btn-sm">Delete</button>
+                                        <form method="post" action="<?php echo ROOT; ?>/index.php?page=admin&subPage=hallList" onsubmit="return confirm('Are you sure you want to delete this hall?');">
+                                            <input type="hidden" name="hallId" value="<?php echo $hall->id; ?>">
+                                            <button type="submit" name="deleteHall" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                             <?php
@@ -40,5 +53,8 @@
                             ?>
                         </tbody>
                     </table>
+                </div>
+                <div class="mb-3">
+                    <a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=addHall" class="btn btn-success">Add New Hall</a>
                 </div>
             </main>
