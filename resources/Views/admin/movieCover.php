@@ -8,6 +8,8 @@ if (isset($_GET['movieId'])) {
 
     if ($movie && isset($movie->coverPath)) {
         $movieCover = $movie->coverPath;
+    } else {
+        $movieCover = null; 
     }
 
     if (isset($_POST['submitNewCover'])) {

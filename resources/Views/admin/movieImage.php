@@ -6,8 +6,10 @@ if (isset($_GET['movieId'])) {
     $movieId = $_GET['movieId'];
     $movie = $movieController->getMovieById($movieId);
 
-    if ($movie && isset($movie->imagePath)) {
+    if ($movie && isset($movie->imagePath) && !empty($movie->imagePath)) {
         $movieImage = $movie->imagePath;
+    } else {
+        $movieImage = null; 
     }
 
     if (isset($_POST['submitNewImage'])) {
