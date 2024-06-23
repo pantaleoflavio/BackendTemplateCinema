@@ -52,4 +52,8 @@ class MovieController {
         return $this->movieDAO->addMovie($name, $description, $duration, $release_date, $trailerPath, $imagePath, $coverPath, $director);
     }
 
+    public function updateMovie($movieId, $name, $description, $duration, $release_date, $director) {
+        return $this->movieDAO->updateMovie($movieId, $name, $description, $duration, $release_date, $director);
+    }
+
 }

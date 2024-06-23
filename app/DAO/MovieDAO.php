@@ -130,6 +130,18 @@ class MovieDAO extends DB {
         }
     }
     
-    
+    public function updateMovie($movieId, $name, $description, $duration, $release_date, $director) {
+        try {
+
+            $sql = "UPDATE movies SET name = ?, description = ?, duration = ?, release_date = ?, director = ? WHERE id = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$name, $description, $duration, $release_date, $director, $movieId]);
+
+            return $stmt->rowCount() > 0;
+        } catch (PDOException $e) {
+            error_log("PDOException in updateMovie: " . $e->getMessage());
+            return false;
+        }
+    }
     
 }
