@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Hall Image</title>
-    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container mt-4">
+
+
+    <div class="container mt-4 col-md-9 col-lg-10">
         <h2>Manage Hall Image</h2>
         <div class="mb-3">
             <img src="../../../assets/img/halls/mars.jpg" alt="Main Hall" class="img-fluid">
@@ -18,5 +11,4 @@
             <a href="hallList.html" class="btn btn-secondary">Back</a>
         </div>
     </div>
-</body>
-</html>
+

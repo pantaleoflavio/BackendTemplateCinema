@@ -1,4 +1,8 @@
-    <!-- Swipe JS library -->
+        <!-- End DIV Container Fluid -->
+        </div>
+    <!-- End Div Row -->
+    </div>
+   <!-- Swipe JS library -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

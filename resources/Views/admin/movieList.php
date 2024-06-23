@@ -72,5 +72,4 @@
                     <a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=addMovie" class="btn btn-success">Add New Movie</a>
                 </div>
             </main>
-        </div>
-    </div>
+
