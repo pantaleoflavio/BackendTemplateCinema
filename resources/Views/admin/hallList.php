@@ -25,7 +25,7 @@
                                 <tr>
                                     <th scope="row"><?php echo $index; ?></th>
                                     <td><?php echo $hall->name; ?></td>
-                                    <td><a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=manageHallImage" class="btn btn-sm btn-outline-secondary">View Image</a></td>
+                                    <td><a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=manageHallImage&hallId=<?php echo $hall->id; ?>" class="btn btn-sm btn-outline-secondary">View Image</a></td>
                                     <td><?php echo $hall->seats; ?></td>
                                     <td><?php echo $hall->services; ?></td>
                                     <td><a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=manageHallGallery" class="btn btn-sm btn-outline-secondary">View Gallery</a></td>
