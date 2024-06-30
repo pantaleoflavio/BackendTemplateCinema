@@ -31,6 +31,20 @@ class HallDAO extends DB {
         }
     }
 
+    public function updateHall($hallId, $name, $code, $seats, $services) {
+        try {
+
+            $sql = "UPDATE halls SET name = ?, code = ?, seats = ?, services = ? WHERE id = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$name, $code, $seats, $services, $hallId]);
+
+            return $stmt->rowCount() > 0;
+        } catch (PDOException $e) {
+            error_log("PDOException in updateHall: " . $e->getMessage());
+            return false;
+        }
+    }
+
     public function clearHallPicture($hallId) {
         try {
             $sql = "UPDATE halls SET cover_path = NULL WHERE id = ?";

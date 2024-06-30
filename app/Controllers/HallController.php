@@ -36,6 +36,10 @@ class HallController {
         return $this->hallDAO->addHall($name, $code, $seats, $coverPath, $services);
     }
 
+    public function updateHall($hallId, $name, $code, $seats, $services) {
+        return $this->hallDAO->updateHall($hallId, $name, $code, $seats, $services);
+    }
+
     public function deleteHallById($hallId) {
         return $this->hallDAO->deleteHallById($hallId);
     }
