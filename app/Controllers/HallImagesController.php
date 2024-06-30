@@ -13,4 +13,16 @@ class HallImagesController {
     public function getPicsBySingleHall($hallId) {
         return $this->hallImagesDAO->getPicsBySingleHall($hallId);
     }
+
+    public function addSingleImage($hallId, $imagePath) {
+        return $this->hallImagesDAO->addSingleImage($hallId, $imagePath);
+    }
+
+    public function updateSingleImage($imageId, $newImagePath) {
+        return $this->hallImagesDAO->updateSingleImage($imageId, $newImagePath);
+    }
+
+    public function deleteSingleImage($imageId) {
+        return $this->hallImagesDAO->deleteSingleImage($imageId);
+    }
 }

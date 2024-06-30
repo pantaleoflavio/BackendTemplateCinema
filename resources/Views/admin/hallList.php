@@ -38,7 +38,7 @@
                                     <td><a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=manageHallImage&hallId=<?php echo $hall->id; ?>" class="btn btn-sm btn-outline-secondary">View Image</a></td>
                                     <td><?php echo $hall->seats; ?></td>
                                     <td><?php echo $hall->services; ?></td>
-                                    <td><a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=manageHallGallery" class="btn btn-sm btn-outline-secondary">View Gallery</a></td>
+                                    <td><a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=manageHallGallery&hallId=<?php echo $hall->id; ?>" class="btn btn-sm btn-outline-secondary">View Gallery</a></td>
                                     <td>
                                         <button class="btn btn-primary btn-sm">Edit</button>
                                         <form method="post" action="<?php echo ROOT; ?>/index.php?page=admin&subPage=hallList" onsubmit="return confirm('Are you sure you want to delete this hall?');">
