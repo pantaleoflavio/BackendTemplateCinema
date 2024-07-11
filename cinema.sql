@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 06, 2024 alle 18:02
+-- Creato il: Lug 10, 2024 alle 18:10
 -- Versione del server: 10.4.32-MariaDB
--- Versione PHP: 8.1.17
+-- Versione PHP: 8.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -50,7 +50,14 @@ INSERT INTO `bills` (`id`, `customer`, `adress`, `email`, `order_notes`, `total`
 (16, 'Mary Jane', 'via parma 23', 'flavio.pantaleo@yahoo.com', 'test file env', 130, '{\"movieTitle\":\"Tolo Tolo\",\"hallName\":\"uranus\",\"showDetails\":\"15:00:00, 2023-01-02\",\"seats\":\"1A, 2A, 3A, 4A, 5A, 1B, 2B, 3B, 5B, 1C, 2C, 3C, 5C, \"}', 2, 0, '2024-04-01 14:51:12'),
 (17, 'Mary Jane', 'via parma 23', 'flavio.pantaleo@yahoo.com', 'final test', 60, '{\"movieTitle\":\"Frozen\",\"hallName\":\"mars\",\"showDetails\":\"17:00:00, 2023-01-01\",\"seats\":\"1A, 2A, 9A, 4B, 9B, 4C, \"}', 2, 0, '2024-04-01 15:16:06'),
 (18, 'Mary Jane', 'via parma 23', 'flavio.pantaleo@yahoo.com', 'final test', 60, '{\"movieTitle\":\"Frozen\",\"hallName\":\"mars\",\"showDetails\":\"17:00:00, 2023-01-01\",\"seats\":\"1A, 2A, 9A, 4B, 9B, 4C, \"}', 2, 0, '2024-04-01 15:16:09'),
-(19, 'Mary Jane', 'via parma 23', 'flavio.pantaleo@yahoo.com', '', 60, '{\"movieTitle\":\"Tolo Tolo\",\"hallName\":\"uranus\",\"showDetails\":\"15:00:00, 2023-01-02\",\"seats\":\"6A, 7A, 6B, 7B, 6C, 7C, \"}', 2, 0, '2024-04-01 15:18:32');
+(19, 'Mary Jane', 'via parma 23', 'flavio.pantaleo@yahoo.com', '', 60, '{\"movieTitle\":\"Tolo Tolo\",\"hallName\":\"uranus\",\"showDetails\":\"15:00:00, 2023-01-02\",\"seats\":\"6A, 7A, 6B, 7B, 6C, 7C, \"}', 2, 0, '2024-04-01 15:18:32'),
+(20, 'Mary Jane', 'via veneto', 'flavio.pantaleo@yahoo.com', 'test', 20, '{\"movieTitle\":\"Tolo Tolo\",\"hallName\":\"mars\",\"showDetails\":\"2023-01-01, 17:00:00\",\"seats\":\"6A, 6B, \"}', 2, 0, '2024-04-16 11:52:10'),
+(21, 'Mary Jane', 'via veneto', 'flavio.pantaleo@yahoo.com', 'test', 20, '{\"movieTitle\":\"Tolo Tolo\",\"hallName\":\"mars\",\"showDetails\":\"2023-01-01, 17:00:00\",\"seats\":\"6A, 6B, \"}', 2, 0, '2024-04-16 11:54:18'),
+(22, 'Mary Jane', 'via veneto', 'flavio.pantaleo@yahoo.com', 'test', 20, '{\"movieTitle\":\"Tolo Tolo\",\"hallName\":\"mars\",\"showDetails\":\"2023-01-01, 17:00:00\",\"seats\":\"6A, 6B, \"}', 2, 0, '2024-04-16 11:55:32'),
+(23, 'Mary Jane', 'via veneto', 'flavio.pantaleo@yahoo.com', 'Test with PDF Ticket generator and Email Sender', 50, '{\"movieTitle\":\"Tolo Tolo\",\"hallName\":\"mars\",\"showDetails\":\"2023-01-01, 17:00:00\",\"seats\":\"1A, 2A, 3A, 8C, 9C, \"}', 2, 0, '2024-04-21 13:59:37'),
+(24, 'John Dean', 'via veneto', 'flavio.pantaleo@yahoo.com', 'test', 20, '{\"movieTitle\":\"Frozen\",\"hallName\":\"mars\",\"showDetails\":\"2023-01-01, 13:00:00\",\"seats\":\"3B, 3C, \"}', 4, 0, '2024-05-06 13:59:24'),
+(25, 'John Dean', 'via veneto', 'flavio.pantaleo@yahoo.com', '', 10, '{\"movieTitle\":\"Frozen\",\"hallName\":\"mars\",\"showDetails\":\"2023-01-01, 13:00:00\",\"seats\":\"5C, \"}', 4, 0, '2024-05-06 14:01:34'),
+(26, 'John Dean', 'via veneto', 'flavio.pantaleo@yahoo.com', '', 10, '{\"movieTitle\":\"Frozen\",\"hallName\":\"mars\",\"showDetails\":\"2023-01-01, 13:00:00\",\"seats\":\"5C, \"}', 4, 0, '2024-05-06 14:01:58');
 
 -- --------------------------------------------------------
 
@@ -91,7 +98,8 @@ INSERT INTO `halls` (`id`, `name`, `code`, `seats`, `cover_path`, `services`) VA
 (2, 'uranus', NULL, 110, 'uranus.jpg', 'aria condizionata, sedili reclinabili'),
 (3, 'saturn', NULL, 94, 'saturn.png', 'aria condizionata, sedili reclinabili, bagno delux, 3D, poggia bevande'),
 (4, 'mercury', NULL, 60, 'mercury.png', 'aria condizionata, 3D, poggia bevande'),
-(5, 'jupiter', NULL, 140, 'jupiter.jpg', 'aria condizionata');
+(5, 'jupiter', NULL, 140, 'jupiter.jpg', 'aria condizionata'),
+(13, 'Neptune', NULL, 39, 'neptune.jpg', 'No services');
 
 -- --------------------------------------------------------
 
@@ -110,7 +118,6 @@ CREATE TABLE `hall_images` (
 --
 
 INSERT INTO `hall_images` (`id`, `hall_id`, `image_path`) VALUES
-(1, 1, 'mars.jpg'),
 (2, 1, 'mars1.png'),
 (3, 1, 'mars2.png'),
 (4, 1, 'mars3.jpg'),
@@ -118,7 +125,6 @@ INSERT INTO `hall_images` (`id`, `hall_id`, `image_path`) VALUES
 (6, 3, 'saturn.png'),
 (7, 2, 'uranus.jpg'),
 (8, 5, 'jupiter.jpg'),
-(9, 5, 'jupiter1.png'),
 (10, 5, 'jupiter2.jpg'),
 (11, 5, 'jupiter3.jpg'),
 (12, 1, 'mars4.jpg'),
@@ -128,7 +134,8 @@ INSERT INTO `hall_images` (`id`, `hall_id`, `image_path`) VALUES
 (16, 2, 'uranus3.jpg'),
 (17, 3, 'saturn1.jpg'),
 (18, 3, 'saturn2.jpg'),
-(19, 3, 'saturn3.jpg');
+(19, 3, 'saturn3.jpg'),
+(20, 1, 'mars.jpg');
 
 -- --------------------------------------------------------
 
@@ -139,13 +146,12 @@ INSERT INTO `hall_images` (`id`, `hall_id`, `image_path`) VALUES
 CREATE TABLE `movies` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `code` varchar(10) NOT NULL,
   `description` text DEFAULT NULL,
   `duration` int(11) NOT NULL,
-  `release_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `release_date` date DEFAULT NULL,
   `trailer` varchar(255) DEFAULT NULL,
-  `image_path` varchar(255) NOT NULL,
-  `cover_path` varchar(255) NOT NULL,
+  `image_path` varchar(255) DEFAULT NULL,
+  `cover_path` varchar(255) DEFAULT NULL,
   `director` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -153,17 +159,17 @@ CREATE TABLE `movies` (
 -- Dump dei dati per la tabella `movies`
 --
 
-INSERT INTO `movies` (`id`, `name`, `code`, `description`, `duration`, `release_date`, `trailer`, `image_path`, `cover_path`, `director`) VALUES
-(1, 'Frozen', 'm001', 'When the newly crowned Queen Elsa accidentally uses her power to turn things into ice to curse her home in infinite winter, her sister Anna teams up with a mountain man, his playful reindeer, and a snowman to change the weather condition.', 120, '2024-01-25 13:04:12', 'sample_mp4.mp4', 'frozen.jpg', 'frozen-cover.png', 'Chris Buck e Jennifer Lee'),
-(2, 'Tolo Tolo', 'm002', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec suscipit condimentum risus, at elementum ex tempor at. Mauris vel sapien vitae tortor faucibus porta a in turpis. Proin ultrices, enim ac tincidunt ullamcorper, libero ante sodales enim, eget pharetra nisi sapien eget metus.', 111, '2024-01-25 13:04:12', 'sample_mp4.mp4', 'tolotolo.jpg', 'tolotolo-cover.jpg', 'Checco Zalone'),
-(3, 'Pinocchio', 'm003', 'Pellentesque fermentum ante sem, ac congue nisi aliquet sit amet. Curabitur tempus consectetur purus, sed auctor sapien commodo ac.', 132, '2024-01-25 13:04:12', 'sample_mp4.mp4', 'pinocchio.jpg', 'pinocchio.cover.jpg', 'Chris Buck'),
-(4, 'Star Wars', 'm004', 'Curabitur ultrices aliquam varius. In maximus libero at porta pretium. Etiam sagittis nec quam ac ullamcorper. Sed quam justo, tempor ut rhoncus nec, elementum et orci', 145, '2024-01-25 13:04:12', 'sample_mp4.mp4', 'starwars.jpg', 'starwars-cover.jpg', 'Cennifer Lee'),
-(5, 'Jumanji', 'm005', 'Praesent lobortis pretium ligula. Proin in enim eu enim euismod lobortis in non libero.', 99, '2024-01-25 13:04:12', 'sample_mp4.mp4', 'jumanji.jpg', 'jumanji-cover.jpg', 'Buck Lee'),
-(6, 'Spies under Cover', 'm006', 'Mauris tincidunt non tellus ac finibus. Vivamus mollis id tortor eget consequat.', 120, '2024-01-25 13:04:12', 'sample_mp4.mp4', 'spiesundercover.jpg', 'spiesundercover-cover.jpg', 'Chris Lee'),
-(7, 'La Bella Addormentata', 'm007', 'Maecenas rutrum, nisl et scelerisque malesuada, sem purus vehicula mauris, faucibus tincidunt magna ante eu lorem. Praesent varius erat ac mi sollicitudin volutpat.', 91, '2024-01-25 13:04:12', 'sample_mp4.mp4', 'labellaaddormentata.jpg', 'labellaaddormentata-cover.jpg', 'Chris Buckennifer'),
-(8, 'Last Christmas', 'm008', 'Nunc tempor, nisi eget scelerisque pellentesque, justo est mattis est, id sagittis purus felis vel velit.', 120, '2024-01-25 13:04:12', 'sample_mp4.mp4', 'lastchristmas.jpg', 'lastchristmas-cover.jpg', 'Chris Jennifer'),
-(9, 'La Dea Fortuna', 'm009', 'Etiam in venenatis nunc. Integer dignissim ante nec dapibus imperdiet.', 100, '2024-01-25 13:04:12', 'sample_mp4.mp4', 'ladeafortuna.jpg', 'ladeafortuna-cover.jpg', 'Jun Lee'),
-(10, 'Il Primo Natale', 'm010', 'Etiam in venenatis nunc. Integer dignissim ante nec dapibus imperdiet.', 103, '2024-01-25 13:11:07', 'sample_mp4.mp4', 'ilprimonatale.jpg', 'ilprimonatale-cover.webp', 'Gerry Scotti');
+INSERT INTO `movies` (`id`, `name`, `description`, `duration`, `release_date`, `trailer`, `image_path`, `cover_path`, `director`) VALUES
+(1, 'Frozen', 'When the newly crowned Queen Elsa accidentally uses her power to turn things into ice to curse her home in infinite winter, her sister Anna teams up with a mountain man, his playful reindeer, and a snowman to change the weather condition.', 120, '2024-01-25', NULL, 'frozen.jpg', 'frozen-cover.png', 'Chris Buck e Jennifer Lee'),
+(2, 'Tolo Tolo', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec suscipit condimentum risus, at elementum ex tempor at. Mauris vel sapien vitae tortor faucibus porta a in turpis. Proin ultrices, enim ac tincidunt ullamcorper, libero ante sodales enim, eget pharetra nisi sapien eget metus.', 111, '2024-01-25', 'sample_mp4.mp4', 'tolotolo.jpg', 'tolotolo-cover.jpg', 'Checco Zalone'),
+(3, 'Pinocchio', 'Pellentesque fermentum ante sem, ac congue nisi aliquet sit amet. Curabitur tempus consectetur purus, sed auctor sapien commodo ac.', 132, '2024-01-25', 'sample_mp4.mp4', 'pinocchio.jpg', 'pinocchio.cover.jpg', 'Chris Buck'),
+(4, 'Star Wars', 'Curabitur ultrices aliquam varius. In maximus libero at porta pretium. Etiam sagittis nec quam ac ullamcorper. Sed quam justo, tempor ut rhoncus nec, elementum et orci', 145, '2024-01-25', 'sample_mp4.mp4', 'starwars.jpg', 'starwars-cover.jpg', 'Cennifer Lee'),
+(5, 'Jumanji', 'Praesent lobortis pretium ligula. Proin in enim eu enim euismod lobortis in non libero.', 99, '2024-01-25', 'sample_mp4.mp4', 'jumanji.jpg', 'jumanji-cover.jpg', 'Buck Lee'),
+(7, 'La Bella Addormentata', 'Maecenas rutrum, nisl et scelerisque malesuada, sem purus vehicula mauris, faucibus tincidunt magna ante eu lorem. Praesent varius erat ac mi sollicitudin volutpat.', 91, '2024-01-25', 'sample_mp4.mp4', 'labellaaddormentata.jpg', 'labellaaddormentata-cover.jpg', 'Chris Buckennifer'),
+(8, 'Last Christmas', 'Nunc tempor, nisi eget scelerisque pellentesque, justo est mattis est, id sagittis purus felis vel velit.', 120, '2024-01-25', 'sample_mp4.mp4', 'lastchristmas.jpg', 'lastchristmas-cover.jpg', 'Chris Jennifer'),
+(9, 'La Dea Fortuna', 'Etiam in venenatis nunc. Integer dignissim ante nec dapibus imperdiet.', 100, '2024-01-25', 'sample_mp4.mp4', 'ladeafortuna.jpg', 'ladeafortuna-cover.jpg', 'Jun Lee'),
+(10, 'Il Primo Natale', 'Etiam in venenatis nunc. Integer dignissim ante nec dapibus imperdiet.', 103, '2024-01-25', 'sample_mp4.mp4', 'ilprimonatale.jpg', 'ilprimonatale-cover.webp', 'Gerry Scotti'),
+(14, 'Spies under Cover', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. In sed exercitationem tempora adipisci nemo provident molestias? Eligendi, sint minima deserunt consequuntur quo voluptatum reprehenderit omnis?', 86, '2024-06-27', 'videos/sample_mp4.mp4', 'spiesundercover.jpg', 'spiesundercover-cover.jpg', 'Incredible Hulk');
 
 -- --------------------------------------------------------
 
@@ -189,7 +195,6 @@ INSERT INTO `shows` (`id`, `show_date`, `show_time`, `movie_id`, `hall_id`) VALU
 (3, '2023-01-03', '17:00:00', 3, 3),
 (4, '2023-01-04', '19:00:00', 4, 4),
 (5, '2023-01-05', '21:00:00', 5, 5),
-(6, '2023-01-06', '13:00:00', 6, 1),
 (7, '2023-01-07', '15:00:00', 7, 2),
 (8, '2023-01-08', '17:00:00', 8, 3),
 (9, '2023-01-09', '19:00:00', 9, 4),
@@ -217,14 +222,14 @@ CREATE TABLE `show_seats` (
 --
 
 INSERT INTO `show_seats` (`id`, `show_id`, `seat_number`, `row`, `price`, `is_booked`) VALUES
-(1, 1, '1', 'A', 10, 1),
-(2, 1, '2', 'A', 10, 1),
-(3, 1, '3', 'A', 10, 1),
-(4, 1, '4', 'A', 10, 1),
-(5, 1, '5', 'A', 10, 1),
-(6, 1, '6', 'A', 10, 1),
-(7, 1, '7', 'A', 10, 1),
-(8, 1, '8', 'A', 10, 1),
+(1, 1, '1', 'A', 10, 0),
+(2, 1, '2', 'A', 10, 0),
+(3, 1, '3', 'A', 10, 0),
+(4, 1, '4', 'A', 10, 0),
+(5, 1, '5', 'A', 10, 0),
+(6, 1, '6', 'A', 10, 0),
+(7, 1, '7', 'A', 10, 0),
+(8, 1, '8', 'A', 10, 0),
 (9, 1, '9', 'A', 10, 0),
 (10, 1, '10', 'A', 10, 0),
 (11, 1, '1', 'B', 10, 0),
@@ -232,9 +237,9 @@ INSERT INTO `show_seats` (`id`, `show_id`, `seat_number`, `row`, `price`, `is_bo
 (13, 1, '3', 'B', 10, 0),
 (14, 1, '4', 'B', 10, 0),
 (15, 1, '5', 'B', 10, 0),
-(16, 1, '6', 'B', 10, 1),
-(17, 1, '7', 'B', 10, 1),
-(18, 1, '8', 'B', 10, 1),
+(16, 1, '6', 'B', 10, 0),
+(17, 1, '7', 'B', 10, 0),
+(18, 1, '8', 'B', 10, 0),
 (19, 1, '9', 'B', 10, 0),
 (20, 1, '10', 'B', 10, 0),
 (21, 1, '1', 'C', 10, 0),
@@ -242,35 +247,35 @@ INSERT INTO `show_seats` (`id`, `show_id`, `seat_number`, `row`, `price`, `is_bo
 (23, 1, '3', 'C', 10, 0),
 (24, 1, '4', 'C', 10, 0),
 (25, 1, '5', 'C', 10, 0),
-(26, 1, '6', 'C', 10, 1),
-(27, 1, '7', 'C', 10, 1),
-(28, 1, '8', 'C', 10, 1),
+(26, 1, '6', 'C', 10, 0),
+(27, 1, '7', 'C', 10, 0),
+(28, 1, '8', 'C', 10, 0),
 (29, 1, '9', 'C', 10, 0),
 (30, 1, '10', 'C', 10, 0),
-(31, 11, '1', 'A', 10, 1),
-(32, 11, '2', 'A', 10, 1),
+(31, 11, '1', 'A', 10, 0),
+(32, 11, '2', 'A', 10, 0),
 (33, 11, '3', 'A', 10, 0),
 (34, 11, '4', 'A', 10, 0),
 (35, 11, '5', 'A', 10, 0),
 (36, 11, '6', 'A', 10, 0),
 (37, 11, '7', 'A', 10, 0),
 (38, 11, '8', 'A', 10, 0),
-(39, 11, '9', 'A', 10, 1),
+(39, 11, '9', 'A', 10, 0),
 (40, 11, '10', 'A', 10, 0),
 (41, 11, '1', 'B', 10, 0),
 (42, 11, '2', 'B', 10, 0),
 (43, 11, '3', 'B', 10, 0),
-(44, 11, '4', 'B', 10, 1),
+(44, 11, '4', 'B', 10, 0),
 (45, 11, '5', 'B', 10, 0),
 (46, 11, '6', 'B', 10, 0),
 (47, 11, '7', 'B', 10, 0),
 (48, 11, '8', 'B', 10, 0),
-(49, 11, '9', 'B', 10, 1),
+(49, 11, '9', 'B', 10, 0),
 (50, 11, '10', 'B', 10, 0),
 (51, 11, '1', 'C', 10, 0),
 (52, 11, '2', 'C', 10, 0),
 (53, 11, '3', 'C', 10, 0),
-(54, 11, '4', 'C', 10, 1),
+(54, 11, '4', 'C', 10, 0),
 (55, 11, '5', 'C', 10, 0),
 (56, 11, '6', 'C', 10, 0),
 (57, 11, '7', 'C', 10, 0),
@@ -307,20 +312,20 @@ INSERT INTO `show_seats` (`id`, `show_id`, `seat_number`, `row`, `price`, `is_bo
 (88, 12, '8', 'C', 10, 0),
 (89, 12, '9', 'C', 10, 0),
 (90, 12, '10', 'C', 10, 0),
-(91, 2, '1', 'A', 10, 1),
-(92, 2, '2', 'A', 10, 1),
-(93, 2, '3', 'A', 10, 1),
-(94, 2, '4', 'A', 10, 1),
-(95, 2, '5', 'A', 10, 1),
-(96, 2, '6', 'A', 10, 1),
-(97, 2, '7', 'A', 10, 1),
+(91, 2, '1', 'A', 10, 0),
+(92, 2, '2', 'A', 10, 0),
+(93, 2, '3', 'A', 10, 0),
+(94, 2, '4', 'A', 10, 0),
+(95, 2, '5', 'A', 10, 0),
+(96, 2, '6', 'A', 10, 0),
+(97, 2, '7', 'A', 10, 0),
 (98, 2, '8', 'A', 10, 0),
 (99, 2, '9', 'A', 10, 0),
 (100, 2, '10', 'A', 10, 0),
-(101, 2, '1', 'B', 10, 1),
-(102, 2, '2', 'B', 10, 1),
-(103, 2, '3', 'B', 10, 1),
-(104, 2, '4', 'B', 10, 1),
+(101, 2, '1', 'B', 10, 0),
+(102, 2, '2', 'B', 10, 0),
+(103, 2, '3', 'B', 10, 0),
+(104, 2, '4', 'B', 10, 0),
 (105, 2, '5', 'B', 10, 1),
 (106, 2, '6', 'B', 10, 1),
 (107, 2, '7', 'B', 10, 1),
@@ -328,11 +333,11 @@ INSERT INTO `show_seats` (`id`, `show_id`, `seat_number`, `row`, `price`, `is_bo
 (109, 2, '9', 'B', 10, 1),
 (110, 2, '10', 'B', 10, 0),
 (111, 2, '1', 'C', 10, 1),
-(112, 2, '2', 'C', 10, 1),
+(112, 2, '2', 'C', 10, 0),
 (113, 2, '3', 'C', 10, 1),
-(114, 2, '4', 'C', 10, 1),
+(114, 2, '4', 'C', 10, 0),
 (115, 2, '5', 'C', 10, 1),
-(116, 2, '6', 'C', 10, 1),
+(116, 2, '6', 'C', 10, 0),
 (117, 2, '7', 'C', 10, 1),
 (118, 2, '8', 'C', 10, 0),
 (119, 2, '9', 'C', 10, 1),
@@ -360,9 +365,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fullname`, `email`, `username`, `image_path`, `password`, `role`, `created_at`) VALUES
-(2, 'Mary Jane', 'mary@jane.com', 'maryjane', 'new.jpg', '$2y$10$qurgKX3bwzsIAGMsBOta7.uthNosaXcmcyhxwAlzELz8tktVnfZ6.', 'user', '2024-03-14 16:28:23'),
+(2, 'Mary Jane', 'mary@jane.com', 'maryjane99', 'mary.jpg', '$2y$10$qurgKX3bwzsIAGMsBOta7.uthNosaXcmcyhxwAlzELz8tktVnfZ6.', 'user', '2024-03-14 16:28:23'),
 (3, 'Peter Parker', 'peter@parker.com', 'spiderman', 'spidey.jpg', '$2y$10$a9Y5PNfIkU2uv9gxf077s.93RLKwIgAaWbLjaoQCn1vKcLA9IUU7C', 'user', '2024-03-28 12:53:20'),
-(4, 'John Dean', 'john@dean.com', 'johndean', 'user.jpg', '$2y$10$0cQQWEFcsidGh.WPF.dGbudAI8oacdYTwyMPt5RdFDqxI6AIni2Q.', 'admin', '2024-04-05 13:00:23');
+(4, 'John Dean', 'john@dean.com', 'johndean', 'user.jpg', '$2y$10$0cQQWEFcsidGh.WPF.dGbudAI8oacdYTwyMPt5RdFDqxI6AIni2Q.', 'admin', '2024-04-05 13:00:23'),
+(5, 'Bruce Wayne', 'bat@man.com', 'batman', 'user.jpg', '$2y$10$Om08E95BtPYQX484hGv6Me6Kxg4Srnmiaoz4XXWOlQfPtvq4uOjLG', 'user', '2024-04-16 12:19:26');
 
 --
 -- Indici per le tabelle scaricate
@@ -400,8 +406,7 @@ ALTER TABLE `hall_images`
 -- Indici per le tabelle `movies`
 --
 ALTER TABLE `movies`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `code` (`code`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `shows`
@@ -434,31 +439,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT per la tabella `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT per la tabella `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT per la tabella `halls`
 --
 ALTER TABLE `halls`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT per la tabella `hall_images`
 --
 ALTER TABLE `hall_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT per la tabella `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT per la tabella `shows`
@@ -476,7 +481,7 @@ ALTER TABLE `show_seats`
 -- AUTO_INCREMENT per la tabella `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Limiti per le tabelle scaricate
