@@ -71,12 +71,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo ROOT; ?>/index.php?page=admin&subPage=???">
+                            <a class="nav-link" href="<?php echo ROOT; ?>/index.php?page=admin&subPage=manageWeeklyShows">
                                 <i class="fa-solid fa-ticket"></i> Weekliy Shows
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo ROOT; ?>/index.php?page=admin&subPage=???">
+                            <a class="nav-link" href="">
                                 <i class="fa-brands fa-shopify"></i> Received Orders
                             </a>
                         </li>
