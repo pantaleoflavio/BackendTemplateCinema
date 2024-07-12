@@ -13,7 +13,7 @@ if (isset($_GET['movieId'])) {
     }
 
     if (isset($_POST['submitNewImage'])) {
-        $targetDir = $_SERVER['DOCUMENT_ROOT'] . "/BackendTemplateCinema/assets/img/movies/thumbs/";
+        $targetDir = $_SERVER['DOCUMENT_ROOT'] . "/assets/img/movies/thumbs/";
         $fileName = basename($_FILES["newImage"]["name"]);
         $targetFilePath = $targetDir . $fileName;
         $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
@@ -22,7 +22,7 @@ if (isset($_GET['movieId'])) {
             if (move_uploaded_file($_FILES["newImage"]["tmp_name"], $targetFilePath)) {
                 $movieController->updateMoviePicture($movieId, $fileName);
                 echo "<script>alert('Immagine aggiornata con successo!');</script>";
-                echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=admin&subPage=movieImage&movieId=$movieId'</script>";
+                echo "<script>window.location.href='" . ROOT . "/index.php?page=admin&subPage=movieImage&movieId=$movieId'</script>";
             } else {
                 echo "<script>alert('Errore durante l'upload del file.');</script>";
             }
@@ -34,14 +34,14 @@ if (isset($_GET['movieId'])) {
     if (isset($_POST['deleteImage'])) {
         if ($movieController->clearMoviePicture($movieId)) {
             echo "<script>alert('Immagine eliminata con successo!');</script>";
-            echo "<script>window.location.href = 'http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=admin&subPage=movieImage&movieId=$movieId'</script>";
+            echo "<script>window.location.href = '" . ROOT . "/index.php?page=admin&subPage=movieImage&movieId=$movieId'</script>";
         } else {
             echo "<script>alert('Errore durante l'eliminazione dell'immagine.');</script>";
         }
     }
 
 } else {
-    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=admin'</script>";
+    echo "<script>window.location.href='" . ROOT . "/index.php?page=admin'</script>";
 }
 ?>
 

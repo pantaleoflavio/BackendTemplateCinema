@@ -7,7 +7,7 @@
 
         if (isset($_POST['submitNewTrailer'])) {
 
-            $targetDir = $_SERVER['DOCUMENT_ROOT'] . "/BackendTemplateCinema/assets/videos/";
+            $targetDir = $_SERVER['DOCUMENT_ROOT'] . "/assets/videos/";
             $fileName = basename($_FILES["newTrailer"]["name"]);
             $targetFilePath = $targetDir . $fileName;
             $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
@@ -17,7 +17,7 @@
                     
                     $movieController->updateMovieTrailer($movieId, $fileName);
                     echo "<script>alert('Trailer aggiornato con successo!');</script>";
-                    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=admin&subPage=trailer&movieId=$movieId'</script>";
+                    echo "<script>window.location.href='" . ROOT . "/index.php?page=admin&subPage=trailer&movieId=$movieId'</script>";
                 } else {
                     echo "<script>alert('Errore durante l'upload del file.');</script>";
                 }
@@ -28,7 +28,7 @@
 
         }
     } else {
-        echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/admin/'</script>";
+        echo "<script>window.location.href='" . ROOT . "/index.php?page=admin'</script>";
     }
 ?>
 

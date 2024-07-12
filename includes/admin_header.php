@@ -1,6 +1,6 @@
 <?php
     if($_SESSION['role'] !== 'admin'){
-        echo "<script>window.location.href='" . ROOT . "/index.php?page=admin&subPage=hallList'</script>";
+        echo "<script>window.location.href='" . ROOT . "/index.php?page=home'</script>";
     }
     // Index for the tables in the admin pages
     $index = 1;

@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addMovie']) ) {
     // helper function for files, for to load in right way each movies file
     function uploadFile($fileInfo, $subdir = '') {
         
-        $uploadDir = $_SERVER['DOCUMENT_ROOT'] . "/BackendTemplateCinema/assets/" . $subdir;
+        $uploadDir = $_SERVER['DOCUMENT_ROOT'] . "/assets/" . $subdir;
         $fileName = basename($fileInfo["name"]);
         $targetFilePath = $uploadDir . $fileName;
         
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addMovie']) ) {
 
     if ($result) {
         echo "<script>alert('Movie added successfully');</script>";
-        echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=admin&subPage=movieList'</script>";
+        echo "<script>window.location.href='" . ROOT . "/index.php?page=admin&subPage=movieList'</script>";
     } else {
         echo "<script>alert('Error adding movie');</script>";
     }

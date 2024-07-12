@@ -19,7 +19,7 @@
         }
 
     } else {
-        echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=admin'</script>";
+        echo "<script>window.location.href='" . ROOT . "/index.php?page=admin'</script>";
     }
 
 

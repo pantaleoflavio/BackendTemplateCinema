@@ -9,7 +9,7 @@
         
         if ($result) {
             echo "<script>alert('Movie deleted successfully');</script>";
-            echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=admin&subPage=movieList'</script>";
+            echo "<script>window.location.href='" . ROOT . "/index.php?page=admin&subPage=movieList'</script>";
         } else {
             echo "<script>alert('Failed to delete movie');</script>";
         }

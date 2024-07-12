@@ -13,7 +13,7 @@ if (isset($_GET['movieId'])) {
     }
 
     if (isset($_POST['submitNewCover'])) {
-        $targetDir = $_SERVER['DOCUMENT_ROOT'] . "/BackendTemplateCinema/assets/img/movies/covers/";
+        $targetDir = $_SERVER['DOCUMENT_ROOT'] . "/assets/img/movies/covers/";
         $fileName = basename($_FILES["newCover"]["name"]);
         $targetFilePath = $targetDir . $fileName;
         $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
@@ -22,7 +22,7 @@ if (isset($_GET['movieId'])) {
             if (move_uploaded_file($_FILES["newCover"]["tmp_name"], $targetFilePath)) {
                 $movieController->updateMovieCover($movieId, $fileName);
                 echo "<script>alert('Cover aggiornata con successo!');</script>";
-                echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=admin&subPage=movieCover&movieId=$movieId'</script>";
+                echo "<script>window.location.href='" . ROOT . "/index.php?page=admin&subPage=movieCover&movieId=$movieId'</script>";
             } else {
                 echo "<script>alert('Errore durante l'upload del file.');</script>";
             }
@@ -34,14 +34,14 @@ if (isset($_GET['movieId'])) {
     if (isset($_POST['deleteCover'])) {
         if ($movieController->clearMovieCover($movieId)) {
             echo "<script>alert('Cover eliminata con successo!');</script>";
-            echo "<script>window.location.href = 'http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=admin&subPage=movieCover&movieId=$movieId'</script>";
+            echo "<script>window.location.href = '" . ROOT . "/index.php?page=admin&subPage=movieCover&movieId=$movieId'</script>";
         } else {
             echo "<script>alert('Errore durante l'eliminazione della cover.');</script>";
         }
     }
 
 } else {
-    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=admin'</script>";
+    echo "<script>window.location.href='" . ROOT . "/index.php?page=admin'</script>";
 }
 ?>
 
