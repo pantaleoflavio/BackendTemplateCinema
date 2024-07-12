@@ -45,7 +45,6 @@ services:
     volumes:
       - db_data:/var/lib/mysql
       - ./cinema.sql:/docker-entrypoint-initdb.d/cinema.sql
-      - ./healthcheck.sh:/usr/local/bin/healthcheck.sh
     env_file:
       - .env
     networks:
