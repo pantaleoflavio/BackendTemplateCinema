@@ -6,50 +6,58 @@ services:
     ports:
       - "8080:80"
     environment:
-      MYSQL_HOST: $(DB_HOST)
-      MYSQL_DATABASE: $(DB_NAME)
-      MYSQL_USER: $(DB_USER)
-      MYSQL_PASSWORD: $(DB_PASS)
+      MYSQL_HOST: ${DB_HOST}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
     volumes:
       - .:/var/www/html
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     env_file:
       - .env
     networks:
       - app-network
 
   db:
-    image:  mariadb:10.4.32
+    image: mariadb:10.4.32
     container_name: database
     restart: always
     environment:
       MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: "1"
-      MYSQL_HOST: $(DB_HOST)
-      MYSQL_DATABASE: $(DB_NAME)
-      MYSQL_USER: $(DB_USER)
-      MYSQL_PASSWORD: $(DB_PASS)
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
       MARIADB_AUTO_UPGRADE: "1"
+    healthcheck:
+      test: ["CMD", "/usr/local/bin/healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 10s
+      interval: 10s
+      timeout: 5s
+      retries: 3
     volumes:
       - db_data:/var/lib/mysql
       - ./cinema.sql:/docker-entrypoint-initdb.d/cinema.sql
+      - ./healthcheck.sh:/usr/local/bin/healthcheck.sh
     env_file:
       - .env
     networks:
       - app-network
 
   phpmyadmin:
-    image:  phpmyadmin:5.2.1
+    image: phpmyadmin:5.2.1
     container_name: phpmyadmin
     restart: always
     environment:
-      PMA_HOST: $(DB_HOST)
-      PMA_USER: $(DB_USER)
-      PMA_PASSWORD: $(DB_PASS)
+      PMA_HOST: ${DB_HOST}
+      PMA_USER: ${DB_USER}
+      PMA_PASSWORD: ${DB_PASS}
     ports:
       - "8081:80"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     env_file:
       - .env
     networks:

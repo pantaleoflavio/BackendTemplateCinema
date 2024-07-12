@@ -47,4 +47,3 @@ COPY . .
 
 # Espone le porte necessarie
 EXPOSE 80
-
