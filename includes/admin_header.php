@@ -21,8 +21,8 @@
     <!-- FAVICON -->
     <link rel="icon" type="image/png" href="<?php echo ROOT; ?>/favicon/favicon.png">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?php echo ROOT; ?>/node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     
     <!-- Bootstrap 5 -->
     <link rel="stylesheet" href="<?php echo ROOT; ?>/node_modules//bootstrap/dist/css/bootstrap.min.css">
