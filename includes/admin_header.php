@@ -27,22 +27,19 @@
     <!-- Bootstrap 5 CDN-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <!-- Swipe JS library -->
-    <link rel="stylesheet" href="<?php echo ROOT; ?>/node_modules/swiper/swiper-bundle.min.css">
-
     <!-- Personal Styles -->
     <link rel="stylesheet" href="<?php echo ROOT; ?>/assets/public/css/index-admin.css" rel="stylesheet">
 
 </head>
 <body>
-    <div class="container-fluid bg-light">
+    <div class="container-fluid">
         <div class="row">
             <button class="btn btn-primary d-block d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">Menu</span>
             </button>
             
             <!-- Sidebar -->
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block text-warning sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="position-sticky pt-3">
                     <ul class="nav nav-pills flex-column">
                         <li class="nav-item">
