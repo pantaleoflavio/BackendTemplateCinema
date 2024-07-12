@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const urlParams = new URLSearchParams(window.location.search);
         const page = urlParams.get('page');
         const pathname = window.location.pathname;
-        const basePath = '/BackendTemplateCinema/';
+        const basePath = '/';
     
         // Verifica che il pathname sia uno dei percorsi base e che la pagina sia 'home' o non definita
         return (pathname === basePath || pathname === basePath + 'index.php' || pathname === '/') &&
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Funzione per reindirizzare alla home
     function redirectToHome() {
-        window.location.href = '/BackendTemplateCinema/index.php?page=home';
+        window.location.href = '/index.php?page=home';
     }
 
     // Funzione per aprire la barra di ricerca

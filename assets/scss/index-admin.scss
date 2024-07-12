@@ -1,0 +1,27 @@
+// sidebar.scss
+$sidebar-bg: #5a6571;
+$sidebar-color: #ffffff;
+
+body{
+    background-color: $sidebar-bg;
+    
+    #sidebarMenu {
+        min-height: 100vh;
+        background-color: $sidebar-bg;
+        color: $sidebar-color;
+        
+        a {
+            color: #000000; 
+            &:hover {
+            background-color: lighten($sidebar-bg, 10%);
+            }
+        }
+    }
+
+    .card {
+        margin-bottom: 10px;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+}
+

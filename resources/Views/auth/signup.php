@@ -24,7 +24,7 @@
         try {
             $signup->signupUser();
             echo "<script>alert('Register successfully')</script>";
-            echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=signin'</script>";
+            echo "<script>window.location.href='" . ROOT . "/index.php?page=signin'</script>";
 
         } catch (Exception $e) {
             // Mostra un messaggio di errore più dettagliato

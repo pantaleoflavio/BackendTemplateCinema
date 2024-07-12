@@ -2,7 +2,7 @@
 <?php
 if (!isset($_SESSION['userId'])) {
 
-    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/'</script>";
+    echo "<script>window.location.href='" . ROOT . "/index.php?page=home'</script>";
 }  else {
     
     if (isset($_GET['successPayment'])) {
@@ -23,7 +23,7 @@ if (!isset($_SESSION['userId'])) {
             <h3>YOu will receive per email your ticket</h3>
         </div>
         <div class="text-center my-4">
-            <a href="index.php" class="btn btn-secondary">Return to home</a>
+            <a href="<?php echo ROOT; ?>/index.php?page=home" class="btn btn-secondary">Return to home</a>
         </div>
     </div>
 </div>

@@ -1,0 +1,77 @@
+services:
+  web:
+    image: php:8.2.18-apache
+    container_name: cinema
+    build: .
+    ports:
+      - "8080:80"
+    environment:
+      - BASE_URL=http://localhost:8080
+      - SMTP_HOST=smtp.gmail.com
+      - SMTP_USERNAME=senju.konoa@gmail.com
+      - SMTP_PASSWORD=hjnumxufzjyprcfu
+      - SMTP_PORT=587
+      - SMTP_RECIPIENT=flavio.pantaleo@yahoo.com
+      - MYSQL_HOST=${DB_HOST}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - .env
+    networks:
+      - app-network
+
+  db:
+    image: mariadb:10.4.32
+    container_name: database
+    restart: always
+    environment:
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: "1"
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+      MARIADB_AUTO_UPGRADE: "1"
+    healthcheck:
+      test: ["CMD", "/usr/local/bin/healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 10s
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./cinema.sql:/docker-entrypoint-initdb.d/cinema.sql
+      - ./healthcheck.sh:/usr/local/bin/healthcheck.sh
+    env_file:
+      - .env
+    networks:
+      - app-network
+
+  phpmyadmin:
+    image: phpmyadmin:5.2.1
+    container_name: phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: ${DB_HOST}
+      PMA_USER: ${DB_USER}
+      PMA_PASSWORD: ${DB_PASS}
+    ports:
+      - "8081:80"
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - .env
+    networks:
+      - app-network
+
+volumes:
+  db_data:
+
+networks:
+  app-network:
+    driver: bridge

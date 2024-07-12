@@ -3,7 +3,7 @@
 <?php
 if (!isset($_SESSION['userId'])) {
 
-    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/'</script>";
+    echo "<script>window.location.href='" . ROOT . "/index.php?page=home'</script>";
 }  else {
 
     $userId = $_SESSION['userId'];
@@ -48,7 +48,7 @@ if (!isset($_SESSION['userId'])) {
         // add QR Code to PDF
         $pdfTicket->write2DBarcode($QRContent, 'QRCODE,H', '', '', 50, 50, $styleQR, 'N');
         // path and name of pdf
-        $pathTicket = 'C:\xampp\htdocs\BackendTemplateCinema/generatedTickets/ticket_' . $dateTicket . '.pdf';
+        $pathTicket = __DIR__ . '/../../generatedTickets/ticket_' . $dateTicket . '.pdf';
          // Save pdf
         $pdfTicket->Output($pathTicket, 'F');
 
@@ -67,8 +67,7 @@ if (!isset($_SESSION['userId'])) {
 
         $sendMailer->sendPDFTicket($email, $pathTicket); // insert in form $email befor payment your mail
 
-        echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=success&successPayment'</script>";
-        
+        echo "<script>window.location.href='" . ROOT . "/index.php?page=success&successPayment'</script>";
     }
 
 }
@@ -81,7 +80,7 @@ if (!isset($_SESSION['userId'])) {
     <form method="post" action="">
     <div class="row">
         <!-- Order Infos -->
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 text-dark">
             <?php foreach ($cartItems as $item) : ?>
                 <div id="showDetails" class="col-12">
                     <h2>Show Details</h2>

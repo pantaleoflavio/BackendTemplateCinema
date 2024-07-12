@@ -1,4 +1,8 @@
-node_modules
-vendor
+node_modules/
+vendor/
 generatedTickets/*
 .env
+mysql/
+.vscode/
+src/
+test_db.php

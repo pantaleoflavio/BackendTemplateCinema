@@ -15,11 +15,32 @@ class HallController {
         return $this->hallDAO->getAllHalls();
     }
 
+    
     public function getHallById($id) {
         $hallData = $this->hallDAO->getHallById($id);
         if ($hallData) {
             return new Hall($hallData->id, $hallData->name, $hallData->code, $hallData->seats, $hallData->cover_path, $hallData->services);
         }
         return null;
+    }
+
+    public function clearHallPicture($hallId) {
+        return $this->hallDAO->clearHallPicture($hallId);
+    }
+
+    public function updateHallPicture($hallId, $newCoverPath) {
+        return $this->hallDAO->updateHallPicture($hallId, $newCoverPath);
+    }
+
+    public function addHall($name, $code, $seats, $coverPath, $services) {
+        return $this->hallDAO->addHall($name, $code, $seats, $coverPath, $services);
+    }
+
+    public function updateHall($hallId, $name, $code, $seats, $services) {
+        return $this->hallDAO->updateHall($hallId, $name, $code, $seats, $services);
+    }
+
+    public function deleteHallById($hallId) {
+        return $this->hallDAO->deleteHallById($hallId);
     }
 }

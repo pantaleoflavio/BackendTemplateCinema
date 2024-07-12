@@ -16,6 +16,7 @@
 
 * PHP OOP
 * Gestione pacchetti con NPM e Composer
+* Docker (per la containerizzazione dell'applicazione)
 
 ## Funzionalità Back-End
 
@@ -31,10 +32,69 @@
 * Funzionalità "Book Now" in index che reindirizza alla pagina di prenotazione dopo la selezione di film e sala
 * Form di contatto generico implementato con PHPMailer
 * Visualizzazione dinamica della pagina utente, con informazioni utente e storico ordini, e possibilità di modificare i dati utente
+* Funzionalita' Admin
 
 ## Come Utilizzare l'App
 
-### Prerequisiti
+## SE UTILIZZI DOCKER
+
+### Prerequisiti se Utilizzi Docker:
+
+#### Se scegli di Aprire l'App con Docker, ricorda di installare la versione piu' aggiornata di Docker Desktop
+
+### Setup Iniziale
+
+1. Avvia Docker Desktop.
+2. Clonazione del Repository: Clona il repository del progetto nel tuo ambiente locale. Ad esempio:
+
+```Copy code
+git clone https://github.com/pantaleoflavio/BackendTemplateCinema /path/to/htdocs/
+```
+
+3. Assicurati di creare un file `.env`, o di utilizzare quello incluso in questo Repository e modificarlo come segue:
+
+```Copy code
+DB_HOST=db
+DB_NAME=cinema
+DB_USER=root
+DB_PASS=
+SMTP_HOST=hostYouWillUseForEmailTesting
+SMTP_USERNAME=your_email@email.com
+SMTP_PASSWORD=your_password
+SMTP_PORT=587
+SMTP_RECIPIENT=your_destination_email@email.com
+
+```
+
+4. Sul tuo terminale monta e avvia il Container Docker. Per il primo utilizzo puoi usare questi comandi:
+
+```Copy code
+docker-compose build
+docker-compose up
+```
+
+Per Utilizzi successivi, per mantenere una buona fluiditita' dell'app e prestazioni migliori, consiglio questo comando:
+
+```Copy code
+docker-compose down -v; if ($?) { docker-compose build; if ($?) { docker-compose up } }
+```
+
+5. Apri sul un Browser a tua scelta il percorso `http://localhost:8080/` per la pagina principale dell'Applicazione e `http://localhost:8081/` per la gestione del Database.
+
+6. Assicurati che il database `cinema` esista o che sia popolato, nel caso puoi aprire `http://localhost:8081/`cliccare sul database `cinema`, clicca su `importa` ed importa il file `cinema.sql` che troverai nella directory principale di questo progetto.
+
+7. Fai il il login con questi dati:
+
+```Copy code
+email: john@dean.com
+password: password
+```
+
+oppure puoi creare un nuovo utente con la funzionalita' `signup` (se vuoi testare la dashboard Admin, ricordati di modificare il `role` del nuovo user nel Database)
+
+## SE NON UTILIZZI DOCKER
+
+### Prerequisiti se non Utilizzi Docker
 
 #### Prima di iniziare, assicurati di avere installato:
 
@@ -68,8 +128,8 @@ composer install
 
 4. Configurazione del Database:
 
-* Access http://localhost/phpmyadmin from your browser.
-* Importa il file cinema.sql fornito nel progetto per strutturare il tuo database.
+* Access `http://localhost/phpmyadmin` from your browser.
+* Importa il file `cinema.sql` fornito nel progetto per strutturare il tuo database.
 
 5. Configurazione del File .env:
 
@@ -83,4 +143,7 @@ composer install
 * Per configurare l'invio email, assicurati che le variabili SMTP nel tuo file .env siano impostate correttamente. Non è necessario modificare i file di codice direttamente per questa configurazione.
 
 ## Concept del Progetto
+
 ****Questo progetto segue un'architettura MVC, con un focus sull'approccio OOP per organizzare la logica applicativa. Il front-end è basato su un template personalizzato che ho sviluppato, consentendo una presentazione unica e interattiva dei contenuti del cinema.
+
+Inoltre e' stata aggiunta la configurazione necessaria per utilizzare un Container Docker.

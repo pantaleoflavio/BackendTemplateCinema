@@ -1,0 +1,21 @@
+body {
+  background-color: #5a6571;
+}
+body #sidebarMenu {
+  min-height: 100vh;
+  background-color: #5a6571;
+  color: #ffffff;
+}
+body #sidebarMenu a {
+  color: #000000;
+}
+body #sidebarMenu a:hover {
+  background-color: #717e8d;
+}
+body .card {
+  margin-bottom: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/*# sourceMappingURL=index-admin.css.map */
