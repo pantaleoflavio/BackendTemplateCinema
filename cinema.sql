@@ -85,7 +85,7 @@ CREATE TABLE `halls` (
   `name` varchar(255) NOT NULL,
   `code` varchar(255) DEFAULT NULL,
   `seats` int(3) DEFAULT 100,
-  `cover_path` varchar(255) NOT NULL,
+  `cover_path` varchar(255),
   `services` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

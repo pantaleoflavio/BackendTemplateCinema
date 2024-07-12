@@ -1,6 +1,6 @@
 <?php
     if($_SESSION['role'] !== 'admin'){
-        echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/'</script>";
+        echo "<script>window.location.href='" . ROOT . "/index.php?page=admin&subPage=hallList'</script>";
     }
     // Index for the tables in the admin pages
     $index = 1;
