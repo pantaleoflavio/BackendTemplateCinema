@@ -3,7 +3,7 @@
 <?php
 // validation single hall wall, if there is valid hall id
 if (!isset($_GET['id'])) {
-  echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/'</script>";
+  echo "<script>window.location.href='" . ROOT . "/index.php?page=home'</script>";
 } else {
     $hallId = ($_GET['id']);
 

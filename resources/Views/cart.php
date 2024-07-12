@@ -3,7 +3,7 @@
 <?php
 if (!isset($_SESSION['userId'])) {
 
-    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/'</script>";
+    echo "<script>window.location.href='" . ROOT . "/index.php?page=home'</script>";
 } else {
     $userId = $_SESSION['userId'];
     $cartItems = $cartController->getCartProUser($userId);
@@ -11,7 +11,8 @@ if (!isset($_SESSION['userId'])) {
     if (isset($_GET['deleteCartElementById'])) {
         $cartElementId = $_GET['deleteCartElementById'];
         $deleteElementFromCart = $cartController->removeFromCart($cartElementId);
-        echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=cart'</script>";
+        
+        echo "<script>window.location.href='" . ROOT . "/index.php?page=cart'</script>";
     }
 
 

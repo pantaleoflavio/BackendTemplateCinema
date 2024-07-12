@@ -6,10 +6,16 @@ services:
     ports:
       - "8080:80"
     environment:
-      MYSQL_HOST: ${DB_HOST}
-      MYSQL_DATABASE: ${DB_NAME}
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASS}
+      - BASE_URL=http://localhost:8080
+      - SMTP_HOST=smtp.gmail.com
+      - SMTP_USERNAME=senju.konoa@gmail.com
+      - SMTP_PASSWORD=hjnumxufzjyprcfu
+      - SMTP_PORT=587
+      - SMTP_RECIPIENT=flavio.pantaleo@yahoo.com
+      - MYSQL_HOST=${DB_HOST}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
     volumes:
       - .:/var/www/html
     depends_on:

@@ -3,7 +3,7 @@
 <?php
 
 if (!isset($_SESSION['userId'])) {
-    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/'</script>";
+    echo "<script>window.location.href='" . ROOT . "/index.php?page=home'</script>";
 } else {
     $userId = $_SESSION['userId'];
     $user = $userController->getSingleUser($userId);
@@ -24,7 +24,7 @@ if (!isset($_SESSION['userId'])) {
         
         $userUpdate = $userController->updateUser($userId, $fullname, $email, $username, $user_pic);
 
-        echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=user-settings'</script>";
+        echo "<script>window.location.href='" . ROOT . "/index.php?page=user-settings'</script>";
     }
 
 }

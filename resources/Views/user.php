@@ -3,7 +3,7 @@
 <?php
 
 if (!isset($_SESSION['userId'])) {
-    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/'</script>";
+    echo "<script>window.location.href='" . ROOT . "/index.php?page=home'</script>";
 } else {
     $userId = $_SESSION['userId'];
     $singleUser = $userController->getSingleUser($userId);

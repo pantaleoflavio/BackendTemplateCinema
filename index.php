@@ -1,6 +1,13 @@
 <?php
     // Definisci la costante per la root del sito
-    define('ROOT', "http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema");
+    if (getenv('BASE_URL')) {
+        //Se si usa docker
+        define('ROOT', getenv('BASE_URL'));
+    } else {
+        define('ROOT', "http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema");
+    }
+    
+    
     
     session_start();
 
