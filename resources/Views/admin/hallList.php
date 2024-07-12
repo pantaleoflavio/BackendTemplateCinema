@@ -8,7 +8,7 @@
         
         if ($result) {
             echo "<script>alert('Hall deleted successfully');</script>";
-            echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=admin&subPage=hallList'</script>";
+            echo "<script>window.location.href='" . ROOT . "/index.php?page=admin&subPage=hallList'</script>";
         } else {
             echo "<script>alert('Failed to delete Hall');</script>";
         }

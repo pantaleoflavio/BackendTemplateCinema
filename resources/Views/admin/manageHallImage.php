@@ -12,7 +12,7 @@ if (isset($_GET['hallId'])) {
     }
 
     if (isset($_POST['submitNewImage'])) {
-        $targetDir = $_SERVER['DOCUMENT_ROOT'] . "/BackendTemplateCinema/assets/img/halls/";
+        $targetDir = $_SERVER['DOCUMENT_ROOT'] . "/assets/img/halls/";
         $fileName = basename($_FILES["newImage"]["name"]);
         $targetFilePath = $targetDir . $fileName;
         $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
@@ -21,7 +21,7 @@ if (isset($_GET['hallId'])) {
             if (move_uploaded_file($_FILES["newImage"]["tmp_name"], $targetFilePath)) {
                 $hallController->updateHallPicture($hallId, $fileName);
                 echo "<script>alert('Immagine aggiornata con successo!');</script>";
-                echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=admin&subPage=manageHallImage&hallId=$hallId'</script>";
+                echo "<script>window.location.href='" . ROOT . "/index.php?page=admin&subPage=manageHallImage&hallId=$hallId'</script>";
             } else {
                 echo "<script>alert('Errore durante l\'upload del file.');</script>";
             }
@@ -33,14 +33,14 @@ if (isset($_GET['hallId'])) {
     if (isset($_POST['deleteImage'])) {
         if ($hallController->clearHallPicture($hallId)) {
             echo "<script>alert('Immagine eliminata con successo!');</script>";
-            echo "<script>window.location.href = 'http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=admin&subPage=manageHallImage&hallId=$hallId'</script>";
+            echo "<script>window.location.href = '" . ROOT . "/index.php?page=admin&subPage=manageHallImage&hallId=$hallId'</script>";
         } else {
             echo "<script>alert('Errore durante l\'eliminazione dell\'immagine.');</script>";
         }
     }
 
 } else {
-    echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=admin'</script>";
+    echo "<script>window.location.href='" . ROOT . "/index.php?page=admin'</script>";
     exit;
 }
 ?>

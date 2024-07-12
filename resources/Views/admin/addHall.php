@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addHall']) ) {
 
     // helper function for files, for to load in right way each movies file
     function uploadFile($fileInfo, $subdir = '') {
-        $uploadDir = $_SERVER['DOCUMENT_ROOT'] . "/BackendTemplateCinema/assets/" . $subdir;
+        $uploadDir = $_SERVER['DOCUMENT_ROOT'] . "/assets/" . $subdir;
         $fileName = basename($fileInfo["name"]);
         $targetFilePath = $uploadDir . $fileName;
     
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addHall']) ) {
 
     if ($result) {
         echo "<script>alert('Hall added successfully');</script>";
-        echo "<script>window.location.href='http://" . $_SERVER['SERVER_NAME'] . "/BackendTemplateCinema/index.php?page=admin&subPage=hallList'</script>";
+        echo "<script>window.location.href='" . ROOT . "/index.php?page=admin&subPage=hallList'</script>";
     } else {
         echo "<script>alert('Error adding Hall');</script>";
     }
