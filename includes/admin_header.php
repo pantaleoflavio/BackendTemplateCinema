@@ -32,14 +32,14 @@
 
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid bg-light">
         <div class="row">
             <button class="btn btn-primary d-block d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">Menu</span>
             </button>
             
             <!-- Sidebar -->
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
                 <div class="position-sticky pt-3">
                     <ul class="nav nav-pills flex-column">
                         <li class="nav-item">
