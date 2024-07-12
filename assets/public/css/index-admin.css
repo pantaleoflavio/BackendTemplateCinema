@@ -7,7 +7,7 @@ body #sidebarMenu {
   color: #ffffff;
 }
 body #sidebarMenu a {
-  color: #464b50;
+  color: #000000;
 }
 body #sidebarMenu a:hover {
   background-color: #717e8d;
