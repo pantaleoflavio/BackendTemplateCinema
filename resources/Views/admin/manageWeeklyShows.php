@@ -2,6 +2,7 @@
 <?php
 
 $allShows = $showController->getAllShowWithMovieHallAndSeats();
+
 ?>
 
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -37,5 +38,5 @@ $allShows = $showController->getAllShowWithMovieHallAndSeats();
             </tbody>
         </table>
     </div>
-    <a href="addShow.php" class="btn btn-success">Aggiungi Spettacolo</a>
+    <a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=addWeeklyShow" class="btn btn-success">Aggiungi Spettacolo</a>
 </main>
