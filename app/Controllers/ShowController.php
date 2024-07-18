@@ -28,4 +28,12 @@ class ShowController {
     public function getAllShowWithMovieHallAndSeats() {
         return $this->showDAO->getAllShowWithMovieHallAndSeats();
     }
+
+    public function getLastShowId() {
+        return $this->showDAO->getLastShowId();
+    }
+
+    public function addWeeklyShow($show_date, $show_time, $movie_id, $hall_id) {
+        return $this->showDAO->addWeeklyShow($show_date, $show_time, $movie_id, $hall_id);
+    }
 }
