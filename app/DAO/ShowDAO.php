@@ -3,6 +3,7 @@
 namespace App\DAO;
 use App\Core\DB;
 use PDO;
+use PDOException;
 
 class ShowDAO extends DB {
     public function getShowsByMovieAndHall($movieId, $hallId) {
@@ -33,5 +34,26 @@ class ShowDAO extends DB {
         ");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function getLastShowId() {
+        $stmt = $this->connect()->prepare("SELECT MAX(id) AS last_id FROM shows");
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['last_id'];
+    }
+
+    public function addWeeklyShow($show_date, $show_time, $movie_id, $hall_id) {
+        try {
+            $sql = "INSERT INTO shows (show_date, show_time, movie_id, hall_id) VALUES (?, ?, ?, ?)";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$show_date, $show_time, $movie_id, $hall_id]);
+            return $stmt->rowCount() > 0;
+            
+
+        } catch (PDOException $e) {
+            error_log("PDOException in addWeeklyShow: " . $e->getMessage());
+            return false;
+        }
     }
 }

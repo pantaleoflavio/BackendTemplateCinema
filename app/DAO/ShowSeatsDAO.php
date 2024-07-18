@@ -4,6 +4,7 @@ namespace App\DAO;
 use App\Core\DB;
 use App\Models\ShowSeats;
 use PDO;
+use PDOException;
 
 class ShowSeatsDAO extends DB {
     public function getSeatsByShowId($showId) {
@@ -25,5 +26,18 @@ class ShowSeatsDAO extends DB {
     public function updateSeatToBooked($id) {
         $stmt = $this->connect()->prepare("UPDATE show_seats SET is_booked = 1 WHERE id = ?");
         return $stmt->execute([$id]);
+    }
+
+    
+    public function addSeatsShow($show_id, $seatNumber, $row) {
+        try {
+            $sql = "INSERT INTO show_seats (show_id, seat_number, row) VALUES (?, ?, ?)";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$show_id, $seatNumber, $row]);
+            return true;
+        } catch (PDOException $e) {
+            error_log("PDOException in addWeeklyShow: " . $e->getMessage());
+            return false;
+        }
     }
 }
