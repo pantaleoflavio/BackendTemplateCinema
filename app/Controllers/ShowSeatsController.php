@@ -22,4 +22,8 @@ class ShowSeatsController {
     public function setSeatToBooked($id) {
         return $this->showSeatsDAO->updateSeatToBooked($id);
     }
+    
+    public function addSeatsShow($show_id, $seatNumber, $row) {
+        return $this->showSeatsDAO->addSeatsShow($show_id, $seatNumber, $row);
+    }
 }
