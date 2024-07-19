@@ -41,7 +41,7 @@ if (isset($_POST['deleteShow']) && isset($_POST['showId'])) {
                     <td><?php echo $show->total_seats; ?></td>
                     <td><?php echo $show->available_seats; ?></td>
                     <td class="d-flex flex-sm-column flex-md-row justify-content-between">
-                        <a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=manageWeeklyShows&showId=<?php echo $show->id; ?>" class="btn btn-primary">Modify Show</a>
+                        <a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=editWeeklyShow&showId=<?php echo $show->id; ?>" class="btn btn-primary">Modify Show</a>
                         <a href="<?php echo ROOT; ?>/index.php?page=admin&subPage=manageWeeklyShows&showId=<?php echo $show->id; ?>" class="btn btn-secondary">Modify Seats</a>
                         <form class="bg-danger text-center" method="post" action="<?php echo ROOT; ?>/index.php?page=admin&subPage=manageWeeklyShows" onsubmit="return confirm('Are you sure you want to delete this movie?');">
                             <input type="hidden" name="showId" value="<?php echo $show->id; ?>">

@@ -33,6 +33,10 @@ class ShowController {
         return $this->showDAO-> deleteShowById($showId);
     }
 
+    public function  updateShow($showId, $showDate, $showTime) {
+        return $this->showDAO-> updateShow($showId, $showDate, $showTime);
+    }
+
     public function getLastShowId() {
         return $this->showDAO->getLastShowId();
     }

@@ -71,4 +71,20 @@ class ShowDAO extends DB {
             return false;
         }
     }
+
+    public function updateShow($showId, $showDate, $showTime) {
+        try {
+
+            $sql = "UPDATE shows SET show_date = ?, show_time = ? WHERE id = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$showDate, $showTime, $showId]);
+
+            return $stmt->rowCount() > 0;
+        } catch (PDOException $e) {
+            error_log("PDOException in updateShow: " . $e->getMessage());
+            return false;
+        }
+    }
+
+
 }
