@@ -29,6 +29,10 @@ class ShowController {
         return $this->showDAO->getAllShowWithMovieHallAndSeats();
     }
 
+    public function  deleteShowById($showId) {
+        return $this->showDAO-> deleteShowById($showId);
+    }
+
     public function getLastShowId() {
         return $this->showDAO->getLastShowId();
     }
