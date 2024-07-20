@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addWeeklyShow']) ) {
                         <input type="number" class="form-control" id="seats_per_row" name="seats_per_row" min="1" required>
                     </div>
 
-                    <button type="submit" name="addWeeklyShow" class="btn btn-primary">Add Movie</button>
+                    <button type="submit" name="addWeeklyShow" class="btn btn-primary">Add Show</button>
                 </form>
             
 

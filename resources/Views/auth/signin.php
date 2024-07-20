@@ -32,7 +32,7 @@
     }
 ?>
 
-    <div class="row">
+<div class="d-flex align-items-center" style="min-height: 80vh">
         <div class="col-md-6 offset-md-3">
             <h2 class="text-center">Sign In</h2>
             <form action="" method="post" class="mt-4">
@@ -48,3 +48,4 @@
             </form>
         </div>
     </div>
+</div>
