@@ -36,6 +36,21 @@ class ShowDAO extends DB {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function deleteShowById($showId) {
+        try {
+
+            $sql = "DELETE FROM shows WHERE id = ?";
+            $stmt = $this->connect()->prepare($sql);
+    
+            $stmt->execute([$showId]);
+    
+            return $stmt->rowCount() > 0;
+        } catch (PDOException $e) {
+            error_log("PDOException in deleteShowById: " . $e->getMessage());
+            return false;
+        }
+    }
+
     public function getLastShowId() {
         $stmt = $this->connect()->prepare("SELECT MAX(id) AS last_id FROM shows");
         $stmt->execute();
@@ -56,4 +71,20 @@ class ShowDAO extends DB {
             return false;
         }
     }
+
+    public function updateShow($showId, $showDate, $showTime) {
+        try {
+
+            $sql = "UPDATE shows SET show_date = ?, show_time = ? WHERE id = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$showDate, $showTime, $showId]);
+
+            return $stmt->rowCount() > 0;
+        } catch (PDOException $e) {
+            error_log("PDOException in updateShow: " . $e->getMessage());
+            return false;
+        }
+    }
+
+
 }
