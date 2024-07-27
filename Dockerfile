@@ -38,9 +38,13 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 COPY composer.json composer.lock ./
 COPY package.json package-lock.json ./
 
+
 # Installazione delle dipendenze del progetto
 RUN COMPOSER_ALLOW_SUPERUSER=1 composer install
 RUN npm install
+
+# Compilazione dei file SCSS
+RUN npm rebuild node-sass
 
 # Copia il resto dei file del progetto nella directory di lavoro
 COPY . .
