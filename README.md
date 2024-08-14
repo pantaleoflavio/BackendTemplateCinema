@@ -79,11 +79,22 @@ For subsequent uses, to maintain smooth app performance and better efficiency, I
 docker-compose down -v; if ($?) { docker-compose build; if ($?) { docker-compose up } }
 ```
 
-5. Open a browser of your choice and navigate to `http://localhost:8080/` for the main application page and `http://localhost:8081/` for database management.
+5. After building the Docker Container, run:
+
+```Copy code
+cd BackendTemplateCinema
+docker exec -it cinema bash
+composer install
+npm install
+```
+
+This way the Composer and Npm dependencies will be installed directly into the Container, without having to have the various programs installed.
+
+6. Open a browser of your choice and navigate to `http://localhost:8080/` for the main application page and `http://localhost:8081/` for database management.
 
 Ensure that the cinema database exists or is populated; if not, you can open `http://localhost:8081/`, click on the `cinema` database, click on `import`, and import the `cinema.sql` file found in the main directory of this project.
 
-6. Log in with these credentials:
+7. Log in with these credentials:
 
 ```Copy code
 email: john@dean.com

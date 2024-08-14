@@ -81,7 +81,22 @@ docker-compose down -v; if ($?) { docker-compose build; if ($?) { docker-compose
 
 Stellen Sie sicher, dass die cinema-Datenbank existiert oder gefüllt ist; falls nicht, können Sie `http://localhost:8081/` öffnen, auf die `cinema` Datenbank klicken, auf `Importieren` klicken und die `cinema.sql` Datei importieren, die im Hauptverzeichnis dieses Projekts zu finden ist.
 
-5. Melden Sie sich mit diesen Zugangsdaten an:
+5. Nachdem den Docker-Container aufgebaut wird, führen:
+
+```Copy code
+cd BackendTemplateCinema
+docker exec -it cinema bash
+composer install
+npm install
+```
+
+Auf diese Weise werden die Composer- und Npm-Dependencies direkt im Container installiert, ohne dass die verschiedenen Programme installiert werden müssen.
+
+6. Öffnen den Url `http://localhost:8080/` für die Hauptseite der Anwendung und `http://localhost:8081/` für die Datenbankverwaltung in einem gewählte Browser.
+
+7. Sein sicher, dass die `Cinema` DB existiert oder gefüllt ist. Wenn ja, kann `http://localhost:8081/` öffnen, auf die `Cinema` DB klicken, auf `Importieren` klicken und die `cinema.sql` Datei importieren, die im Stammverzeichnis dieses Projekts finden.
+
+8. Melden Sie sich mit diesen Zugangsdaten an:
 
 ```Copy code
 email: john@dean.com

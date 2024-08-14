@@ -73,17 +73,28 @@ docker-compose build
 docker-compose up
 ```
 
-Per Utilizzi successivi, per mantenere una buona fluiditita' dell'app e prestazioni migliori, consiglio questo comando:
+Per Utilizzi successivi, per mantenere una buona fluidita' dell'app e prestazioni migliori, consiglio questo comando:
 
 ```Copy code
 docker-compose down -v; if ($?) { docker-compose build; if ($?) { docker-compose up } }
 ```
 
-5. Apri sul un Browser a tua scelta il percorso `http://localhost:8080/` per la pagina principale dell'Applicazione e `http://localhost:8081/` per la gestione del Database.
+5. Dopo aver montato il Container Docker, esegui:
 
-6. Assicurati che il database `cinema` esista o che sia popolato, nel caso puoi aprire `http://localhost:8081/`cliccare sul database `cinema`, clicca su `importa` ed importa il file `cinema.sql` che troverai nella directory principale di questo progetto.
+```Copy code
+cd BackendTemplateCinema
+docker exec -it cinema bash
+composer install
+npm install
+```
 
-7. Fai il il login con questi dati:
+In questo modo verranno installate le dipendenze Composer e Npm direttamente nel Container, senza dover avere i vari programmi installati.
+
+6. Apri sul un Browser a tua scelta il percorso `http://localhost:8080/` per la pagina principale dell'Applicazione e `http://localhost:8081/` per la gestione del Database.
+
+7. Assicurati che il database `cinema` esista o che sia popolato, nel caso puoi aprire `http://localhost:8081/`cliccare sul database `cinema`, clicca su `importa` ed importa il file `cinema.sql` che troverai nella directory principale di questo progetto.
+
+8. Fai il il login con questi dati:
 
 ```Copy code
 email: john@dean.com
