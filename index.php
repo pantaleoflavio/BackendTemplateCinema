@@ -21,7 +21,7 @@
     use App\Controllers\ShowController;
     use App\Controllers\ShowSeatsController;
     use App\Controllers\CartController;
-    use App\Controllers\billCOntroller;
+    use App\Controllers\BillController;
 
     // INIT CONTROLLERS
     $movieController = new MovieController();
@@ -31,7 +31,7 @@
     $showSeatsController = new ShowSeatsController();
     $showController = new ShowController();
     $cartController = new CartController();
-    $billController = new billCOntroller();
+    $billController = new BillController();
     
     //INIT Sendmailer
     use App\Core\SendMailer;
