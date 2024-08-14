@@ -48,23 +48,3 @@
         </form>
     </div>
 </div>
-=======
-
-<div class="d-flex align-items-center" style="min-height: 80vh">
-        <div class="col-md-6 offset-md-3">
-            <h2 class="text-center">Sign In</h2>
-            <form action="" method="post" class="mt-4">
-                <div class="form-group">
-                    <label for="signUpEmail">Your email</label>
-                    <input type="email" class="form-control" name="signinEmail" id="signinEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="signUpPassword">Password</label>
-                    <input type="password" class="form-control" name="signinPassword" id="signinPassword" required>
-                </div>
-                <button type="submit" name="signin" class="btn btn-primary btn-block my-3">Login</button>
-            </form>
-        </div>
-    </div>
-</div>
->>>>>>> 6d0407bd6dfd66ca4c2945dafbca870c916881a5
