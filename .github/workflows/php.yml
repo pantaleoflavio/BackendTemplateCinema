@@ -22,6 +22,9 @@ jobs:
       with:
         php-version: '8.2'
 
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+
     - name: Cache Composer packages
       id: composer-cache
       uses: actions/cache@v3
@@ -33,3 +36,7 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
+
+    # Aggiungi qui ulteriori step, ad esempio per eseguire test:
+    # - name: Run test suite
+    #   run: composer run-script test
