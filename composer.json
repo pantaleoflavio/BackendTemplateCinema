@@ -1,5 +1,8 @@
 {
     "require": {
+        "name": "pantaleoflavio/BackendTemplateCinema",
+        "description": "BE implementation in PHP Vanilla",
+        "license": "MIT",
         "tecnickcom/tcpdf": "^6.7",
         "phpmailer/phpmailer": "^6.9",
         "vlucas/phpdotenv": "^5.6"
