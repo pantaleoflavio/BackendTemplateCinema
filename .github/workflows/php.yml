@@ -22,8 +22,23 @@ jobs:
       with:
         php-version: '8.2'
 
+    - name: Create .env file from secrets
+      run: |
+        echo "DB_HOST=${{ secrets.DB_HOST }}" >> .env
+        echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
+        echo "DB_USER=${{ secrets.DB_USER }}" >> .env
+        echo "DB_PASS=${{ secrets.DB_PASS }}" >> .env
+        echo "SMTP_HOST=${{ secrets.SMTP_HOST }}" >> .env
+        echo "SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}" >> .env
+        echo "SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}" >> .env
+        echo "SMTP_PORT=${{ secrets.SMTP_PORT }}" >> .env
+        echo "SMTP_RECIPIENT=${{ secrets.SMTP_RECIPIENT }}" >> .env
+
     - name: Validate composer.json and composer.lock
       run: composer validate
+
+    - name: Update Composer Dependencies
+      run: composer update --no-progress --prefer-dist
 
     - name: Cache Composer packages
       id: composer-cache
