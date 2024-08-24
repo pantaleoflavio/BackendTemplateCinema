@@ -50,7 +50,6 @@ class MovieDAOTest extends TestCase
                 'cover_path'       => 'tolotolo-cover.png',
                 'director'       => 'John Doe',
             ],
-
         ];
 
         $this->stmtMock->method('execute')
@@ -102,7 +101,6 @@ class MovieDAOTest extends TestCase
         $this->assertEquals($movieData['imagePath'], $movie->imagePath);
         $this->assertEquals($movieData['coverPath'], $movie->coverPath);
         $this->assertEquals($movieData['director'], $movie->director);
-
     }
 
     public function testUpdateMovieTrailer()
@@ -115,10 +113,8 @@ class MovieDAOTest extends TestCase
         $this->stmtMock->method('rowCount')
             ->willReturn(1);
     
-        // Chiamata al metodo da testare
         $result = $this->movieDAO->updateMovieTrailer($movieId, $newTrailerPath);
     
-        // Verifica del risultato
         $this->assertEquals(1, $result);
     }
 
@@ -131,10 +127,8 @@ class MovieDAOTest extends TestCase
         $this->stmtMock->method('rowCount')
             ->willReturn(1);
     
-        // Chiamata al metodo da testare
         $result = $this->movieDAO->clearMovieTrailer($movieId);
     
-        // Verifica del risultato
         $this->assertEquals(1, $result);
     }
     
@@ -148,10 +142,8 @@ class MovieDAOTest extends TestCase
         $this->stmtMock->method('rowCount')
             ->willReturn(1);
     
-        // Chiamata al metodo da testare
         $result = $this->movieDAO->updateMoviePicture($movieId, $newImagePath);
     
-        // Verifica del risultato
         $this->assertEquals(1, $result);
     }
 
@@ -164,10 +156,8 @@ class MovieDAOTest extends TestCase
         $this->stmtMock->method('rowCount')
             ->willReturn(1);
     
-        // Chiamata al metodo da testare
         $result = $this->movieDAO->clearMoviePicture($movieId);
     
-        // Verifica del risultato
         $this->assertEquals(1, $result);
     }
 
@@ -181,10 +171,8 @@ class MovieDAOTest extends TestCase
         $this->stmtMock->method('rowCount')
             ->willReturn(1);
     
-        // Chiamata al metodo da testare
         $result = $this->movieDAO->updateMovieCover($movieId, $newCoverPath);
     
-        // Verifica del risultato
         $this->assertEquals(1, $result);
     }
 
@@ -197,10 +185,8 @@ class MovieDAOTest extends TestCase
         $this->stmtMock->method('rowCount')
             ->willReturn(1);
     
-        // Chiamata al metodo da testare
         $result = $this->movieDAO->clearMovieCover($movieId);
     
-        // Verifica del risultato
         $this->assertEquals(1, $result);
     }
 
@@ -213,10 +199,8 @@ class MovieDAOTest extends TestCase
         $this->stmtMock->method('rowCount')
             ->willReturn(1);
     
-        // Chiamata al metodo da testare
         $result = $this->movieDAO->deleteMovieById($movieId);
     
-        // Verifica del risultato
         $this->assertEquals(1, $result);
     }
 
@@ -236,10 +220,8 @@ class MovieDAOTest extends TestCase
         $this->stmtMock->method('rowCount')
             ->willReturn(1);
     
-        // Chiamata al metodo da testare
         $result = $this->movieDAO->addMovie($name, $description, $duration, $release_date, $trailerPath, $imagePath, $coverPath, $director);
     
-        // Verifica del risultato
         $this->assertEquals(1, $result);
     }
 
@@ -257,13 +239,8 @@ class MovieDAOTest extends TestCase
         $this->stmtMock->method('rowCount')
             ->willReturn(1);
     
-        // Chiamata al metodo da testare
         $result = $this->movieDAO->updateMovie($id, $name, $description, $duration, $release_date, $director);
     
-        // Verifica del risultato
         $this->assertEquals(1, $result);
     }
-
-
-
 }
