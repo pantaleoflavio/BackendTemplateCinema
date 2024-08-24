@@ -1,13 +1,10 @@
-name: PHP Composer
+name: PHP CI Workflow
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
-permissions:
-  contents: read
 
 jobs:
   build:
@@ -24,7 +21,7 @@ jobs:
 
     - name: Create .env file from secrets
       run: |
-        echo "DB_HOST=${{ secrets.DB_HOST }}" >> .env
+        echo "DB_HOST=127.0.0.1" >> .env
         echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
         echo "DB_USER=${{ secrets.DB_USER }}" >> .env
         echo "DB_PASS=${{ secrets.DB_PASS }}" >> .env
@@ -37,20 +34,13 @@ jobs:
     - name: Validate composer.json and composer.lock
       run: composer validate
 
-    - name: Update Composer Dependencies
-      run: composer update --no-progress --prefer-dist
-
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v3
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
-
-    - name: Install dependencies
+    - name: Install Composer Dependencies
       run: composer install --prefer-dist --no-progress
 
     - name: Run test suite
       run: composer run-script test
+
+    - name: Check for code style
+      run: |
+        composer require --dev squizlabs/php_codesniffer
+        vendor/bin/phpcs --standard=PSR12 . resources/ app/
