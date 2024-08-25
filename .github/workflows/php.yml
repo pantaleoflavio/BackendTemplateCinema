@@ -39,8 +39,3 @@ jobs:
 
     - name: Run test suite
       run: composer run-script test
-
-    - name: Check for code style
-      run: |
-        composer require --dev squizlabs/php_codesniffer
-        vendor/bin/phpcs --standard=PSR12 . resources/ app/

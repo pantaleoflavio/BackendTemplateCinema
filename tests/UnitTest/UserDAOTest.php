@@ -56,7 +56,6 @@ class UserDAOTest extends TestCase
         $this->assertEquals($userData['username'], $user->username);
         $this->assertEquals($userData['image_path'], $user->user_pic);
         $this->assertEquals($userData['role'], $user->role);
-
     }
 
     public function testUpdateUser()
@@ -70,13 +69,10 @@ class UserDAOTest extends TestCase
         $this->stmtMock->method('execute')
             ->willReturn(true);
     
-        // Chiamata al metodo da testare
         $result = $this->userDAO->updateUser($userId, $fullname, $email, $username, $user_image);
     
-        // Verifica del risultato
         $this->assertTrue($result);
     }
-    
 
     public function testGetAllUsers()
     {
@@ -114,7 +110,6 @@ class UserDAOTest extends TestCase
         $this->assertIsArray($userList);
         $this->assertEquals($expectedData, $userList);
     }
-    
 
     public function testSetRole()
     {
@@ -129,8 +124,5 @@ class UserDAOTest extends TestCase
         $result = $this->userDAO->setRole($userId, $role);
 
         $this->assertGreaterThan(0, $this->stmtMock->rowCount());
-
     }
-
-
 }

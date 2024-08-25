@@ -240,7 +240,6 @@ class MovieDAOTest extends TestCase
             ->willReturn(1);
     
         $result = $this->movieDAO->updateMovie($id, $name, $description, $duration, $release_date, $director);
-    
         $this->assertEquals(1, $result);
     }
 }
