@@ -77,7 +77,7 @@ class HallDAOTest extends TestCase
         $this->stmtMock->method('execute')
             ->willReturn(true);
         $this->stmtMock->method('fetch')
-            ->with(PDO::FETCH_ASSOC)
+            ->with(PDO::FETCH_OBJ)
             ->willReturn($expectedData);
 
         $hall = $this->hallDAO->getHallById($id);

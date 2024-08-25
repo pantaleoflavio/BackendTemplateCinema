@@ -18,7 +18,7 @@ class HallImagesDAOTest extends TestCase
         $this->pdoMock->method('prepare')
             ->willReturn($this->stmtMock);
 
-        $this->hallImagesDAO = $this->getMockBuilder(HallImages::class)
+        $this->hallImagesDAO = $this->getMockBuilder(HallImagesDAO::class)
                                 ->onlyMethods(['connect'])
                                 ->getMock();
         $this->hallImagesDAO->method('connect')
