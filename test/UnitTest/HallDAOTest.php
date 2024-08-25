@@ -61,30 +61,30 @@ class HallDAOTest extends TestCase
     public function testGetHallById()
     {
         $id = 1;
-        $expectedData = [
+        $expectedData = (object) [
             "id" => 1,
             "name" => "mars",
             "code" => null,
             "seats" => 100,
-            "coverPath" => "mars.jpg",
+            "cover_path" => "mars.jpg",
             "services" => "aria condizionata, sedili reclinabili, bagno delux"
-        ];        
-
+        ];
+    
         $this->stmtMock->method('execute')
             ->willReturn(true);
         $this->stmtMock->method('fetch')
             ->with(PDO::FETCH_OBJ)
             ->willReturn($expectedData);
-
-        $hall = $this->hallDAO->getHallById($id);
-
-        $this->assertInstanceOf(Hall::class, $hall);
-        $this->assertEquals($expectedData['id'], $hall->id);
-        $this->assertEquals($expectedData['name'], $hall->name);
-        $this->assertEquals($expectedData['code'], $hall->code);
-        $this->assertEquals($expectedData['seats'], $hall->seats);
-        $this->assertEquals($expectedData['coverPath'], $hall->coverPath);
-        $this->assertEquals($expectedData['services'], $hall->services);
+    
+        $result = $this->hallDAO->getHallById($id);
+    
+        $this->assertIsObject($result);
+        $this->assertEquals($expectedData->id, $result->id);
+        $this->assertEquals($expectedData->name, $result->name);
+        $this->assertEquals($expectedData->code, $result->code);
+        $this->assertEquals($expectedData->seats, $result->seats);
+        $this->assertEquals($expectedData->cover_path, $result->cover_path);
+        $this->assertEquals($expectedData->services, $result->services);
     }
 
     public function testAddHall()
