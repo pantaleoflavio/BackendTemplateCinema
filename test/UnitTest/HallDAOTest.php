@@ -57,4 +57,116 @@ class HallDAOTest extends TestCase
         $this->assertIsArray($result);
         $this->assertEquals($expectedData, $result);
     }
+
+    public function testGetHallById()
+    {
+        $id = 1;
+
+        $expectedData = [
+            [
+                'id'    => 1,
+                'name'   => 'mars',
+                'code'      => NULL,
+                'seats'   => 100,
+                'cover_path' => 'mars.jpg',
+                'services'   => 'aria condizionata, sedili reclinabili, bagno delux',
+            ],
+        ];
+
+        
+        $this->stmtMock->method('execute')
+            ->willReturn(true);
+        $this->stmtMock->method('fetch')
+            ->with(PDO::FETCH_ASSOC)
+            ->willReturn($expectedData);
+
+        $hall = $this->hallDAO->getHallById($id);
+
+        $this->assertInstanceOf(Hall::class, $hall);
+        $this->assertEquals($expectedData['id'], $hall->id);
+        $this->assertEquals($expectedData['name'], $hall->name);
+        $this->assertEquals($expectedData['code'], $hall->code);
+        $this->assertEquals($expectedData['seats'], $hall->seats);
+        $this->assertEquals($expectedData['coverPath'], $hall->coverPath);
+        $this->assertEquals($expectedData['services'], $hall->services);
+    }
+
+    public function testAddHall()
+    {
+        $name = 'new hall';
+        $code = NULL;
+        $seats= 40;
+        $coverPath = 'newHall.jpg';
+        $services = 'aria condizionata, sedili reclinabili, bagno delux';
+    
+        $this->stmtMock->method('execute')
+            ->willReturn(true);
+        $this->stmtMock->method('rowCount')
+            ->willReturn(1);
+    
+        $result = $this->hallDAO->addHall($name, $code, $seats,$coverPath, $services);
+    
+        $this->assertEquals(1, $result);
+    }
+
+    public function testUpdateHall()
+    {
+        $id = 1;
+        $name = 'updated hall';
+        $code = NULL;
+        $seats= 54;
+        $services = 'aria condizionata, HD';
+    
+        $this->stmtMock->method('execute')
+            ->willReturn(true);
+        $this->stmtMock->method('rowCount')
+            ->willReturn(1);
+    
+        $result = $this->hallDAO->updateHall($id, $name, $code, $seats, $services);
+        $this->assertEquals(1, $result);
+    }
+
+    public function testClearHallPicture()
+    {
+        $id = 1;
+    
+        $this->stmtMock->method('execute')
+            ->willReturn(true);
+        $this->stmtMock->method('rowCount')
+            ->willReturn(1);
+    
+        $result = $this->hallDAO->clearHallPicture($id);
+    
+        $this->assertEquals(1, $result);
+    }
+
+    public function testUpdateHallPicture()
+    {
+        $id = 1;
+        $newCoverPath = 'update_cover.png';
+    
+        $this->stmtMock->method('execute')
+            ->willReturn(true);
+        $this->stmtMock->method('rowCount')
+            ->willReturn(1);
+    
+        $result = $this->hallDAO->updateHallPicture($id, $newCoverPath);
+    
+        $this->assertEquals(1, $result);
+    }
+
+    public function testDeleteHallById()
+    {
+        $id = 1;
+    
+        $this->stmtMock->method('execute')
+            ->willReturn(true);
+        $this->stmtMock->method('rowCount')
+            ->willReturn(1);
+    
+        $result = $this->hallDAO->deleteHallById($id);
+    
+        $this->assertEquals(1, $result);
+    }
+
 }
