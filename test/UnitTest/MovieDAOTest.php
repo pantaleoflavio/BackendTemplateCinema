@@ -58,10 +58,10 @@ class MovieDAOTest extends TestCase
             ->with(PDO::FETCH_OBJ)
             ->willReturn($expectedData);
     
-        $userList = $this->movieDAO->getAllMovies();
+        $result = $this->movieDAO->getAllMovies();
     
-        $this->assertIsArray($userList);
-        $this->assertEquals($expectedData, $userList);
+        $this->assertIsArray($result);
+        $this->assertEquals($expectedData, $result);
     }
 
     public function testGetMovieById()
