@@ -10,6 +10,7 @@ if (!isset($_GET['id'])) {
     //INIT HALL METHOD FOR SINGLE HALL
     $singleHall = $hallController->getHallById($hallId);
     $hallImages = $hallImagesController->getPicsBySingleHall($hallId);
+    var_dump($singleHall);
 }
 ?>
 

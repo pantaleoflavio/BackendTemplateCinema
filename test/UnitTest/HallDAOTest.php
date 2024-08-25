@@ -61,19 +61,15 @@ class HallDAOTest extends TestCase
     public function testGetHallById()
     {
         $id = 1;
-
         $expectedData = [
-            [
-                'id'    => 1,
-                'name'   => 'mars',
-                'code'      => NULL,
-                'seats'   => 100,
-                'cover_path' => 'mars.jpg',
-                'services'   => 'aria condizionata, sedili reclinabili, bagno delux',
-            ],
-        ];
+            "id" => 1,
+            "name" => "mars",
+            "code" => null,
+            "seats" => 100,
+            "coverPath" => "mars.jpg",
+            "services" => "aria condizionata, sedili reclinabili, bagno delux"
+        ];        
 
-        
         $this->stmtMock->method('execute')
             ->willReturn(true);
         $this->stmtMock->method('fetch')
